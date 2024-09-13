@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 html, body {
     margin: 0;
@@ -19,19 +19,21 @@ h1 {
 
 h2 {
     margin-bottom: 0;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 600;
 }
 
 h3 {
     margin-bottom: 0;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight:600;
 }
 
 p {
     margin-top: 2px;
     font-size: 18px;
     font-weight: 400;
+    line-height: 1.5;
 }
 
 #topbar {
@@ -60,8 +62,8 @@ p {
 
 .content {
     display: grid;
-    grid-template-columns: 70% 30%;
-    gap: 20px;
+    grid-template-columns: 60% 35%;
+    gap: 40px;
 
     margin-top: 3vh;
     color: #222D66;

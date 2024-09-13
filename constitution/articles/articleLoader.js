@@ -5,26 +5,32 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('../constitution.json')
         .then(response => response.json())
         .then(data => {
+            const article = data.articles[articleId - 1];
+
+            const articleNumber = document.getElementById("articleNumber");
+            const articleTitle = document.getElementById("articleTitle");
             const displayDoc = document.getElementById("articleText");
+            
+            if (article) {
 
-            const articleIndex = data.articles[articleId - 1];
+                articleNumber.innerHTML = article.articleNumber;
+                articleTitle.innerHTML = article.articleTitle;
 
-            if (articleIndex) {
-                    articleIndex.forEach((section, index) => {
-                        const sectionElement = document.createElement("div");
-                        const sectionNumber = document.createElement("h3");
-                        const sectionWords = document.createElement("p");
-                        
-                        if (articleIndex.length > 1) {
-                            sectionNumber.textContent = `Section ${index + 1}`;
-                        }
-                        sectionWords.textContent = `${section}`;
+                article.sections.forEach((section, index) => {
+                    const sectionElement = document.createElement("div");
+                    const sectionNumber = document.createElement("h3");
+                    const sectionWords = document.createElement("p");
+                    
+                    if (article.sections.length > 1) {
+                        sectionNumber.textContent = `Section ${index + 1}`;
+                    }
+                    sectionWords.textContent = `${section}`;
 
-                        sectionElement.append(sectionNumber);
-                        sectionElement.append(sectionWords);
-                        
-                        displayDoc.appendChild(sectionElement);
-                    });
+                    sectionElement.append(sectionNumber);
+                    sectionElement.append(sectionWords);
+                    
+                    displayDoc.appendChild(sectionElement);
+                });
             } else {
                 displayDoc.textContent = "Article not found!";
             }
