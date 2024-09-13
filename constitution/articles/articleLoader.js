@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     
                     displayDoc.appendChild(sectionElement);
                 });
+                const analysisElement = document.querySelector(".analysis");
+                analysisElement.innerHTML = article.analysis;
             } else {
                 displayDoc.textContent = "Article not found!";
             }

@@ -19,7 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 const sectionWords = document.createElement("p");
                 sectionWords.textContent = amendment.text;
                 displayDoc.appendChild(sectionWords);
-
+                const analysisElement = document.querySelector(".analysis");
+                analysisElement.innerHTML = amendment.analysis;
+                const title = document.querySelector("title");
+                title.innerText = amendment.amendNumber;
             } else {
                 displayDoc.textContent = "amendment not found!";
             }
