@@ -4,6 +4,7 @@ html, body {
     margin: 0;
 	padding: 0;
 	border: 0;
+    overscroll-behavior: none;
 }
 
 body {
@@ -13,13 +14,13 @@ body {
 
 h1 {
     margin: 0;
-    font-size: 80px;
+    font-size: min(8vw, 80px);
     font-weight: 600;
 }
 
 h2 {
     margin-bottom: 0;
-    font-size: 25px;
+    font-size: min(4vw, 25px);
     font-weight: 600;
 }
 
@@ -31,10 +32,81 @@ h3 {
 
 p {
     margin-top: 2px;
-    font-size: 18px;
+    font-size: min(3vw, 18px);
     font-weight: 400;
     line-height: 1.5;
 }
+
+#title {
+    font-size: 3vw;
+}
+
+.image-container {
+    position: sticky;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+    margin: 0 -7vw;
+
+    background: rgba(34, 45, 102, 0.25);
+}
+
+img {
+    display: block;
+    width: 60vw;
+    margin: 0 auto;
+
+    opacity: 100%;
+}
+
+#tableOfContents {
+    margin: 5vh 0;
+    color: #222D66;
+}
+
+    #tableOfContents a {
+        text-decoration: none;
+        color: #222D66;
+    }
+
+.section-title {
+    font-size: min(3vw, 40px);
+    font-weight: 600;
+
+    margin-top: 2.5vw;
+
+    border-bottom: 2px solid #222D66;
+}
+
+.section-content {
+    margin-left: 2vw;
+}
+    .section-content div {
+        background: transparent; /* Background is transparent by default */
+        padding: 0.5vw;
+        transition: background 0.3s ease; /* Smooth transition effect */
+    }
+
+    .section-content div:hover {
+        background: rgba(236, 241, 247, 1); /* Background color appears on hover */
+    }
+
+    .section-content a {
+        font-size: min(2.5vw, 30px);
+        font-weight: 500;
+    }
+
+    .section-content h4 {
+        font-size: min(1.5vw, 15px);
+        font-weight: 400;
+
+        margin-bottom: 0;
+    }
 
 #topbar {
     display: flex;
