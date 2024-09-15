@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     articleNumber.innerHTML = article.articleNumber;
                     articleTitle.innerHTML = article.articleTitle;
-                    articleTitle.href = `articles/index.html?article=${index + 1}`;
+                    articleTitle.href = `articles/?article=${index + 1}`;
 
                     articleElement.onclick = () => {
                         window.location.href = articleTitle.href;
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     amendmentNumber.innerHTML = amendment.amendNumber;
                     amendmentTitle.innerHTML = amendment.amendTitle;
-                    amendmentTitle.href = `amendments/index.html?amendment=${index + 1}`;
+                    amendmentTitle.href = `amendments/?amendment=${index + 1}`;
 
                     amendmentElement.onclick = () => {
                         window.location.href = amendmentTitle.href;

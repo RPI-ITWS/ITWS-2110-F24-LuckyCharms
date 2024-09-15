@@ -10,6 +10,7 @@ html, body {
 body {
     margin: 0 7vw;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
 h1 {
