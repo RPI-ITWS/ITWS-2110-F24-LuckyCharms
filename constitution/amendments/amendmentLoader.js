@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 amendmentTitle.innerHTML = amendment.amendTitle;
 
                 const sectionWords = document.createElement("p");
-                sectionWords.textContent = amendment.text;
+                sectionWords.innerHTML = amendment.text;
                 displayDoc.appendChild(sectionWords);
                 const analysisElement = document.querySelector(".analysis");
                 analysisElement.innerHTML = amendment.analysis;

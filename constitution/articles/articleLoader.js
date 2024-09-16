@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (article.sections.length > 1) {
                         sectionNumber.textContent = `Section ${index + 1}`;
                     }
-                    sectionWords.textContent = `${section}`;
+                    sectionWords.innerHTML = `${section}`;
 
                     sectionElement.append(sectionNumber);
                     sectionElement.append(sectionWords);
