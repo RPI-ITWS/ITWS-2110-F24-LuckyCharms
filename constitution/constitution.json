@@ -16,7 +16,7 @@
                 "The Migration or Importation of such Persons as any of the States now existing shall think proper to admit, shall not be prohibited by the Congress prior to the Year one thousand eight hundred and eight, but a tax or duty may be imposed on such Importation, not exceeding ten dollars for each Person.\n The privilege of the Writ of Habeas Corpus shall not be suspended, unless when in Cases of Rebellion or Invasion the public Safety may require it.\n No Bill of Attainder or ex post facto Law shall be passed.\n No capitation, or other direct, Tax shall be laid, unless in Proportion to the Census or Enumeration herein before directed to be taken.\n No Tax or Duty shall be laid on Articles exported from any State.\n No Preference shall be given by any Regulation of Commerce or Revenue to the Ports of one State over those of another: nor shall Vessels bound to, or from, one State, be obliged to enter, clear, or pay Duties in another.\n No Money shall be drawn from the Treasury, but in Consequence of Appropriations made by Law; and a regular Statement and Account of the Receipts and Expenditures of all public Money shall be published from time to time.\n No Title of Nobility shall be granted by the United States: And no Person holding any Office of Profit or Trust under them, shall, without the Consent of the Congress, accept of any present, Emolument, Office, or Title, of any kind whatever, from any King, Prince or foreign State.\n",
                 "No State shall enter into any Treaty, Alliance, or Confederation; grant Letters of Marque and Reprisal; coin Money; emit Bills of Credit; make any Thing but gold and silver Coin a Tender in Payment of Debts; pass any Bill of Attainder, ex post facto Law, or Law impairing the Obligation of Contracts, or grant any Title of Nobility.\n No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing its inspection Laws: and the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States; and all such Laws shall be subject to the Revision and Control of the Congress.\n No State shall, without the Consent of Congress, lay any duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.\n"
             ],
-            "analysis":"<em>INSERT ANALYSIS HERE </em>"
+            "analysis":"<em>INSERT ANALYSIS HERE <em>" 
         },
         {
             "articleNumber": "ARTICLE II",
@@ -80,61 +80,61 @@
             "amendNumber": "1st Amendment",
             "amendTitle": "Freedom of Religion, Speech, Press, Assembly, and Petition",
             "text": "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.",
-            "analysis":"<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>This First Amendment is one of the most important ones. It grants the citizens the freedom of speech, freedom of the press, and the freedom to protest against the government.<br><br>What that means:<br>Freedom of speech - The freedom of speech clause means that Congress cannot pass laws that infringe on the peoples freedom of speech. Freedom of speech grants citizens the ability to speak freely about the government, as long as it does not impose a danger.<br>Freedom of the press - The freedom of the press clause means that the government cannot block new outlets from talking about certain topics. This means that the media cannot be government controlled.<br>Freedom to protest - The freedom of protesting allows the citizens of the United States to peacefully protest against the government when they feel that they have been wronged by said government.<br><br>Overall, this amendment sets the foundation for the basic freedom of all citizens in the country. This amendment still exists today and ensures that citizens continue to have this freedom in the form that it was intended.<em>"
         },
         {
             "amendNumber": "2nd Amendment",
             "amendTitle": "Bearing and Keeping Arms",
             "text": "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.",
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>The Second Amendment has turned out to be one of the most controversial amendments in history. This is because the wording makes it so that it could be interpreted in different ways.<br><br>The first way the amendment could be interpreted is that it gives the right of every individual to hold a firearm. This means that the government cannot prevent any individual from carrying a firearm. <br><br>The second way the amendment could be interpreted is with the phrase “a well-regulated Militia,” which could suggest that the Framers only intended to restrict Congress from banning a states right to self-defense.<br><br>Today, the amendment allows for most individuals to get easy access to firearms. However, due to its mixed perception, some states have made it more difficult, with policies such as background checks, to get access to a firearm. Ultimately, this amendment to this day still protects our rights to hold firearms.</em>"
         },
         {
             "amendNumber": "3rd Amendment",
             "amendTitle": "Quartering Soldiers",
             "text": "No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.",
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>The third amendment protects the individuals right to domestic privacy. This means that government solders or entities cannot break into an individuals home for any reason. <br><br>Back in the day, this amendment was extremely relevant, since war was a more common thing back in the day and cases of troop breaking into people's home was way more common.<br><br>Today, however, the amendment is not that relevant, and remains to be one of the least relevant amendments in the entire constitution. This is because today it is very unlikely for the federal government to want to house soldiers in people's homes.</em>"
         },
         {
             "amendNumber": "4th Amendment",
             "amendTitle": "Search and Seizure",
             "text": "The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.",
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>The Fourth Amendment protects people unreasonable searches and seizures of property. This means that without probable cause, a law/government authority cannot search through a person's home and property.<br><br>This amendment, however, does not protect an individual from all searches and seizures, only unreasonable ones. Today, the fourth amendment led to the creation of the warrant system. It is typically believed that if the government or law enforcement has a warrant, they are allowed to search a persons home and it is not considered unreasonable.</em>"
         },
         {
             "amendNumber": "5th Amendment",
             "amendTitle": "Grand Jury, Double Jeopardy, Self Incrimination, Due Process, Takings",
             "text": "No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offense to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.",
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>The Firth Amendment gives the people 5 rights and protections:<br>The right to a jury trial - When an individual is charged with a crime, they have a right to a hearing to determine whether they are guilty or not. They cannot be accused of a crime without a proper jury.<br><br>Double Jeopardy Protection - This means that an individual cannot be prosecuted twice for the same offense.<br><br>Self-Incrimination Protection - This protects an individual from providing information that could expose someone to criminal charges.<br><br>The right to a fair trial - This gives the individual the right to a fair trial. I fair trial includes a trial with several important attributes, such as public hearing and an “innocent until proven guilty” principle.<br><br>Protection against taking of property without compensation - This means that if an individuals property is taken, they must be properly compensated for it. <br><br>Today, this amendment plays a huge role in the prosecution of individuals who have allegedly committed a crime and is very relevant.</em>"
         },
         {
             "amendNumber": "6th Amendment",
             "amendTitle": "Rights of Those Charged in Criminal Prosecutions",
             "text": "In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the State and district wherein the crime shall have been committed, which district shall have been previously ascertained by law, and to be informed of the nature and cause of the accusation; to be confronted with the witnesses against him; to have compulsory process for obtaining witnesses in his favor, and to have the Assistance of Counsel for his defence.",
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>The Sixth Amendment grants more rights to criminal defendants. These rights include the right to a speedy and public trial, the right to a lawyer, the right to an impartial jury, and the right to know of who the accusers are, and the charges being filed.<br><br>Today, the Sixth Amendment ensures that all criminals go through a fair trial, and that every defendant is given the right to defend themselves. It allows the United States to have a much fairer prosecution process than other nations do.</em>"
         },
         {
             "amendNumber": "7th Amendment",
             "amendTitle": "Civil Trial Rights",
             "text": "In Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury shall be preserved, and no fact tried by a jury, shall be otherwise re-examined in any Court of the United States, than according to the rules of the common law.",
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>The Seventh Amendment grants the right to a jury trial. It also prevents judges from overturning jury verdicts. This basically means that the amendment provides protection for any legal disputes between citizens or entities. This amendment makes the Unites States one of the few nations that still grants civil jury trials as a right. <br><br>Today, this amendment is mainly used to provide protection in disputes such as a corporation breach of contract, employment discrimination, and employment disputes.</em>"
         },
         {
             "amendNumber": "8th Amendment",
             "amendTitle": "Excessive Bail and Fines, and Cruel and Unusual Punishment",
             "text": "Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.",
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>The Eighth Amendment prevents cruel and unusual punishments for criminals. This includes fines, sentences, and bails. <br>This amendment has given rise to the question of what is considered cruel and unusual. Back in the day when this amendment was ratified, it was most likely used to protect criminals from going through barbaric punishments, such as using the rack, thumbscrews, and gibbets as instruments for punishment. <br>Today, the amendment mainly prevents criminals for receiving an unusual sentence given their crimes. For example, a person convicted of theft cannot end up receiving a life sentence solely for that theft.</em>"
         },
         {
             "amendNumber": "9th Amendment",
             "amendTitle": "Unenumerated Rights",
             "text": "The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people.",
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>The Ninth Amendment states that any standard rights not listed in the bill of rights are not surrendered with its introduction into the Constitution. This means that if an obvious right wasn't listed in the Bill of Rights, it cannot be taken away.<br><br>Today, there is a lot of dispute over what the legal effect is of the Ninth Amendment. Most standard rights today are mentioned in the Constitution and therefore this amendment is not spoken about often.</em>"
         },
         {
             "amendNumber": "10th Amendment",
             "amendTitle": "Rights Reserved to the States and to the People",
             "text": "The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<em>The Tenth Amendment states that the federal government does not have any additional powers listed in the Constitution. This means that Congress cannot infringe on the rights of the states and the people in any way, and does not have any additional rule these entities.<br><br>Today, this principle has been passed onto the states as well. That means that the states cannot infringe on any of the rights that the people have. This makes the amendment useful when it comes to cases where the government may have infringed on the rights of an individual.</em>"
         },
         {
             "amendNumber": "11th Amendment",
