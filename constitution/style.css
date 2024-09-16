@@ -88,13 +88,13 @@ img {
     margin-left: 2vw;
 }
     .section-content div {
-        background: transparent; /* Background is transparent by default */
+        background: transparent;
         padding: 0.5vw;
-        transition: background 0.3s ease; /* Smooth transition effect */
+        transition: 0.3s ease;
     }
 
     .section-content div:hover {
-        background: rgba(236, 241, 247, 1); /* Background color appears on hover */
+        background: rgba(236, 241, 247, 1);
     }
 
     .section-content a {
