@@ -79,6 +79,16 @@ img {
         color: #222D66;
     }
 
+#historyLesson {
+    border: 1px solid #222D66;
+    margin: 20px; 
+    padding: 20px;
+    padding-bottom: 5px;
+}
+    #historyLesson p {
+        font-size: min(3vw, 16px)
+    }
+
 .section-title {
     font-size: min(3vw, 40px);
     font-weight: 600;
