@@ -9,6 +9,10 @@ This is the README file for Chritian Marinkovich.
 * I worked on the analysis for amendments 1-10 and helped incorperate it onto the website.
 * I made sure that the analysis looked correct and that there was no anomolies in the website code (Such as outdates functions highlighted red)
 
+## Challenges:
+
+One challenge that I encountered during this lab was finding information on some of the lesser knwon Amendments. I overcame this challenge by looking at different reliable websites for information beyod the main website provided.
+
 ## Citations:
 
 [Constitution Text](https://constitution.congress.gov/constitution/)
