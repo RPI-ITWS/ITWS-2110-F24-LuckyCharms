@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html, body {
+    margin: 0;
+	padding: 0;
+	border: 0;
+    overscroll-behavior: none;
+}
+
+body {
+    margin: 0 7vw;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin: 0;
+    font-size: min(8vw, 80px);
+    font-weight: 600;
+}
+
+h2 {
+    margin-bottom: 0;
+    font-size: min(4vw, 25px);
+    font-weight: 600;
+}
+
+h3 {
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight:600;
+}
+
+p {
+    margin-top: 2px;
+    font-size: min(3vw, 18px);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+#title {
+    font-size: 3vw;
+}
+
+.image-container {
+    position: sticky;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+    margin: 0 -7vw;
+
+    background: rgba(34, 45, 102, 0.25);
+}
+
+img {
+    display: block;
+    width: 60vw;
+    margin: 0 auto;
+
+    opacity: 100%;
+}
+
+#tableOfContents {
+    margin: 5vh 0;
+    color: #222D66;
+}
+
+    #tableOfContents a {
+        text-decoration: none;
+        color: #222D66;
+    }
+
+#historyLesson {
+    border: 1px solid #222D66;
+    margin: 20px; 
+    padding: 20px;
+    padding-bottom: 5px;
+}
+    #historyLesson p {
+        font-size: min(3vw, 16px)
+    }
+
+.section-title {
+    font-size: min(3vw, 40px);
+    font-weight: 600;
+
+    margin-top: 2.5vw;
+
+    border-bottom: 2px solid #222D66;
+}
+
+.section-content {
+    margin-left: 2vw;
+}
+    .section-content div {
+        background: transparent;
+        padding: 0.5vw;
+        transition: 0.3s ease;
+    }
+
+    .section-content div:hover {
+        background: rgba(236, 241, 247, 1);
+    }
+
+    .section-content a {
+        font-size: min(2.5vw, 30px);
+        font-weight: 500;
+    }
+
+    .section-content h4 {
+        font-size: min(1.5vw, 15px);
+        font-weight: 400;
+
+        margin-bottom: 0;
+    }
+
+#topbar {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+
+    top: 0vw;
+    left: 3vw;
+    
+    width: 94vw;
+    height: 50px;
+    background: #CB1F40;
+
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.titles {
+    margin-top: 80px;
+    color: #222D66;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 60% 35%;
+    gap: 40px;
+
+    margin-top: 3vh;
+    color: #222D66;
+}
+
+.analysis {
+    background: #ECF1F7;
+    padding: 20px;
+}
