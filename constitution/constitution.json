@@ -51,7 +51,7 @@
                 "New States may be admitted by the Congress into this Union; but no new States shall be formed or erected within the Jurisdiction of any other State; nor any State be formed by the Junction of two or more States, or parts of States, without the Consent of the Legislatures of the States concerned as well as of the Congress.<br><br> The Congress shall have Power to dispose of and make all needful Rules and Regulations respecting the Territory or other Property belonging to the United States; and nothing in this Constitution shall be so construed as to Prejudice any Claims of the United States, or of any particular State.",
                 "The United States shall guarantee to every State in this Union a Republican Form of Government, and shall protect each of them against Invasion; and on Application of the Legislature, or of the Executive (when the Legislature cannot be convened) against domestic Violence."
             ],
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "<strong>Section 1</strong> allows state-to-state interaction by mandating that public record in one state by recognized by the other. <br><br> <strong>Section 2</strong> provides citizens across states the same standard of priveleges and immunites. It is also stated that a person charged with a crime in one state must be extradited to that state if found fleeing across state borders. <br><br> <strong>Section 3</strong> gives Congress the authority to admit new state, given state and Congress legislative approval. This also provides Congress the authority over federal lands and territories, given no conflict with existing state or federal claims. <br><br> <strong>Section 4</strong> promises United States protection against foreign invasian and potential domestic conflict. By republican government, it means that the power is held by the people, but elected representatives govern on their behalf."
         },
         {
             "articleNumber": "ARTICLE V",
@@ -59,7 +59,7 @@
             "sections": [
                 "The Congress, whenever two thirds of both Houses shall deem it necessary, shall propose Amendments to this Constitution, or, on the Application of the Legislatures of two thirds of the several States, shall call a Convention for proposing Amendments, which, in either Case, shall be valid to all Intents and Purposes, as part of this Constitution, when ratified by the Legislatures of three fourths of the several States, or by Conventions in three fourths thereof, as the one or the other Mode of Ratification may be proposed by the Congress; Provided that no Amendment which may be made prior to the Year One thousand eight hundred and eight shall in any Manner affect the first and fourth Clauses in the Ninth Section of the first Article; and that no State, without its Consent, shall be deprived of its equal Suffrage in the Senate."
             ],
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "The amendment process is deliberately difficult here, requiring a two-thirds majority in both houses of Congress <em>OR</em> two-thirds of state legislatures to propose changes. Three-fourths of states must approve the changes via legislatures or conventions. <br><br> Additionally, this article makes it so that amendments cannot deprive states of basics such as suffrage. This makes it difficult to make truly harmful amendments. Combined with the increased difficult to change the Constitution, this article funtions to strike a balance between change and preserving key principles. "
         },
         {
             "articleNumber": "ARTICLE VI",
@@ -67,7 +67,7 @@
             "sections": [
                 "All Debts contracted and Engagements entered into, before the Adoption of this Constitution, shall be as valid against the United States under this Constitution, as under the Confederation.<br><br> This Constitution, and the Laws of the United States which shall be made in Pursuance thereof; and all Treaties made, or which shall be made, under the Authority of the United States, shall be the supreme Law of the Land; and the Judges in every State shall be bound thereby, any Thing in the Constitution or Laws of any State to the Contrary notwithstanding.<br><br> The Senators and Representatives before mentioned, and the Members of the several State Legislatures, and all executive and judicial Officers, both of the United States and of the several States, shall be bound by Oath or Affirmation, to support this Constitution; but no religious Test shall ever be required as a Qualification to any Office or public Trust under the United States."
             ],
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "Paragraph one ensures that existing debts/obligations from prior to the formal adoption of the Constitution remain valid. Thus, it ensures continuity from the prior government. <br><br> Pargraph 2 terms the Constitition, federal laws, and treaties as the <em>'Supreme Law of the Land'</em>. This means that acts as an override to all conflicting state-level laws. <br><br> Paragraph 3 leverages this oath to mandate all federal and state officials to act in a manner that upholds the principles outlined by the Constitution. Additionally, it provides that religion cannot serve as a requirement to holding public office, functioning as a safegaurd against religious discrimination. "
         },
         {
             "articleNumber": "ARTICLE VII",
@@ -75,7 +75,7 @@
             "sections": [
                 "The Ratification of the Conventions of nine States, shall be sufficient for the Establishment of this Constitution between the States so ratifying the Same."
             ],
-            "analysis": "<em>INSERT ANALYSIS HERE </em>"
+            "analysis": "This article holds that the Constitution will take effect once ratified by conventions in 9 of the 13 original states. This will apply to only the states in agreement to it."
         }
     ],
     "amendments": [
