@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <script src="resources/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script>
+    //Populates the page. Hardcoded to only check for user #2, the only admin.
+    $(document).ready(() => {
+      //Load the json file into localStorage so that other functions can use it later.
+      $.getJSON("data.json", function(dat) {
+        localStorage.setItem("data", JSON.stringify(dat))
+      });
+      userLabs(2);
+    });
+  </script>
+  <link rel="stylesheet" href="resources/style.css">
+</head>
+<body>
+  <div id="navbar">
+    <h1>LIMBS</h1>
+    <button id="menu" onclick="menuClick()">-</button>
+  </div>
+
+  <div id="sidebar">
+    <h2>Labs</h2>
+
+    <ul id="lab-list">
+
+    </ul>
+  </div>
+
+  <div id="main">
+    <h2 id="lab-name">No Labs</h2>
+    <!--Below form is non-functional, backend team will have to change later-->
+    <form action="/search.php">
+      <input type="search" id="searchbar" name="query" value="Search">
+      <input type="submit">
+    </form>
+    <br>
+    <table id="lab-items">
+      
+    </table>
+  </div>
+</body>
+</html>
