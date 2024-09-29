@@ -63,10 +63,12 @@
 
             #content {
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
             }
 
             #intro {
+                margin: auto;
                 margin-top: 100px;
                 background-color: #78849E;
                 width: 93%;
@@ -120,6 +122,28 @@
             .first-letter {
                 color: black;
             }
+
+            #title-image {
+                width: 80%;
+                margin-left: 10%;
+                margin-left: 10%;
+                margin-top: 60px;
+                border-radius: 20px;
+                height: calc(75% * width);
+                border: 2px;
+                border-style: solid;
+                border-color: black;
+            }
+
+            #description {
+                margin: auto;
+                margin-top: 50px;
+                font-size: 40px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+
         </style>
     </head>
     <body>
@@ -147,11 +171,13 @@
                     <button id="title-sign-up-button">Sign up for free</button>
                 </div>
 
-                <img>
-            </div>
+                <div id="image">
+                    <img id="title-image" src="limbs_wireframe_user_view.png" alt="LIMBS Lab Homepage Display">
+                </div>
 
-            <div id="description">
-                <p class="paragraph"></p>
+                <div id="description">
+                    <p class="paragraph">LIMBS is a catalog system that will allow both students and faculty to better keep track of equipment. It is expandable, adaptable, and easy to use!</p>
+                </div>
             </div>
         </div>
     </body>
