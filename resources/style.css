@@ -1,1 +1,134 @@
-/* For styling used in multiple pages */
+
+/*Below are used on every page.*/
+html {
+    font-family: Arial;
+    min-width: 1150px;
+}
+
+body {
+    margin: 0;
+    color: black;
+    font-weight: bold;
+
+}
+
+#navbar {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+}
+
+#logo {
+    margin-right: 45%;
+    margin-left: 2%;
+    font-weight: bold;
+    font-size: 40px;
+    width: 10%;
+}
+
+.nav-text {
+    font-size: 18px;
+    font-weight: bold;
+    width: 7%;
+    margin-left: 2%;
+    margin-top: 38px;
+    min-width: 80px;
+}
+
+.nav-button {
+    height: 35px;
+    margin-top: 30px;
+    width: 10%;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 2%;
+}
+
+#login-button {
+    background-color: #78849E;
+}
+
+#sign-up-button {
+    background-color: black;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Below are used in both login.html and signup.html */
+#login_signup {
+    margin-top: 160px;
+    width: 451px;
+    height: 479px;
+    border-radius: 20px;
+    
+    background-color: #78849E;
+    color: #323F50;
+    font-weight: 500;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#login_signup h4 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#login_signup form {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    margin-bottom: 11px;
+}
+
+#login_signup label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#login_signup input {
+    margin-top: 5px;
+    background-color: #78849E;
+    border: none;
+    border-bottom: 2px solid black;
+    outline:0;
+    width: 358px;
+    opacity: 0px;
+    color: hsla(0, 0%, 0%, 0.5);
+}
+
+#login_signup #submit {
+    height: 30px;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-color: black;
+    width: 125px;
+}
+
+#login_signup a {
+    color:#323F50;
+    font-size: 14px;
+    text-decoration: none;
+}
