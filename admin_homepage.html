@@ -9,11 +9,10 @@
   <script>
     //Populates the page. Hardcoded to only check for user #2, the only admin.
     $(document).ready(() => {
-      //Load the json file into localStorage so that other functions can use it later.
+      //Load the json file, then pass it as an argument to populate the page.
       $.getJSON("data.json", function(dat) {
-        localStorage.setItem("data", JSON.stringify(dat))
+        userLabs(2, dat);
       });
-      userLabs(2);
     });
   </script>
   <link rel="stylesheet" href="resources/style.css">
