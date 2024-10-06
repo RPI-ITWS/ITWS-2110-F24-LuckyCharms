@@ -18,6 +18,15 @@
             </form>
         </div>
         <hr>
+        <div>
+            <h1>Checkout</h1>
+            <form name="item-checkout">
+                <input type="number" name="item_id" placeholder="ID of Item">
+                <input type="number" name="account_id" placeholder="ID of User">
+                <input type="number" name="item_count" placeholder="# of Items">
+                <input onclick="checkout(this)" type="button" value="Checkout Item" />
+            </form>
+        </div>
         <script src="./index.js"></script>
     </body>
 </html>

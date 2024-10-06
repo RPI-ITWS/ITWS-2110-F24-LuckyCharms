@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2024 at 12:05 AM
+-- Generation Time: Oct 06, 2024 at 09:22 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alloweduserlocations` (
-  `user_id` int(11) NOT NULL COMMENT 'Unique identifier of a User',
-  `location_name` varchar(11) NOT NULL COMMENT 'Name of a location the user is allowed in'
+  `user_id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of a User',
+  `location_name` varchar(256) NOT NULL COMMENT 'Name of a location the user is allowed in'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -39,7 +39,7 @@ CREATE TABLE `alloweduserlocations` (
 --
 
 CREATE TABLE `items` (
-  `id` int(11) NOT NULL COMMENT 'Unique identifier of item',
+  `id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of item',
   `name` text NOT NULL COMMENT 'Name of item',
   `borrowable` tinyint(1) NOT NULL COMMENT 'Whether or not the item can be borrowed.\r\nIf false, the item can just be taken.',
   `description` text DEFAULT NULL COMMENT 'Description of item',
@@ -53,9 +53,9 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `name`, `borrowable`, `description`, `stock`, `image_link`, `location_name`) VALUES
-(1, 'Scissors', 1, 'This cuts things', 99, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR84qsQGI5DqIGNR3Z80ALpzu7ZXfDkafybkEAqCz2iTfhVOK1nEu7NhjugZ_6RR6kOFmlpJcbY3afewrg-0sFOPD-WpRM4w5XprL-J9LSjU2_zSPoXPVvXhf8', 'Darrin Communications Center'),
+(1, 'Scissors', 1, 'This cuts things', 96, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR84qsQGI5DqIGNR3Z80ALpzu7ZXfDkafybkEAqCz2iTfhVOK1nEu7NhjugZ_6RR6kOFmlpJcbY3afewrg-0sFOPD-WpRM4w5XprL-J9LSjU2_zSPoXPVvXhf8', 'Darrin Communications Center'),
 (2, 'Marker', 0, 'I barely know her!', 69, NULL, 'Darrin Communications Center'),
-(3, 'HK416', 1, 'What is this doing in a lab?', 1, NULL, 'Walker Laboratory'),
+(3, 'HK416', 1, 'What is this doing in a lab?', 0, NULL, 'Walker Laboratory'),
 (4, 'Plasma TV', 0, 'Plz return it when done, it costed millions of munny.', 1, NULL, 'Lally Hall'),
 (5, 'Gigantic Light Bulb', 0, 'Read the name.', 45, NULL, 'Darrin Communications Center'),
 (6, 'Ball', 1, NULL, 4, 'https://www.yogadirect.com/cdn-cgi/image/quality%3D85/assets/images/anti-burst-yoga-ball-red.jpg', 'Low Center for Industrial Innovation'),
@@ -90,9 +90,9 @@ INSERT INTO `locations` (`name`) VALUES
 --
 
 CREATE TABLE `reservations` (
-  `id` int(11) NOT NULL COMMENT 'Unique identifier of reservation',
-  `item_id` int(11) NOT NULL COMMENT 'Unique identifier of item',
-  `user_id` int(11) NOT NULL COMMENT 'Unique identifier of user that made the reservation',
+  `id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of reservation',
+  `item_id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of item',
+  `user_id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of user that made the reservation',
   `amount` int(11) NOT NULL COMMENT 'Amount of items user is reserving',
   `date_reserved` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Date the item was reserved',
   `date_expected_to_return` timestamp NULL DEFAULT NULL COMMENT 'The date the user is expected to return.',
@@ -106,24 +106,39 @@ CREATE TABLE `reservations` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL COMMENT 'Unique identifier of user',
+  `id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of user',
   `username` varchar(20) NOT NULL COMMENT 'username of user, must be unique',
   `password` varchar(100) NOT NULL COMMENT 'password of user',
   `email` varchar(256) NOT NULL COMMENT 'The email address of the user.',
   `phone` varchar(100) DEFAULT NULL COMMENT 'The user''s phone number',
   `creation_date` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'timestamp user created account',
-  `is_admin` tinyint(1) NOT NULL COMMENT 'Whether the user is an admin or not.'
+  `is_admin` tinyint(1) DEFAULT NULL COMMENT 'Whether the user is an admin or not.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `phone`, `creation_date`, `is_admin`) VALUES
+(1, 'jajajajaja', 'password', 'aaaaaaaaaaaaaa', '911', '2024-10-06 06:41:30', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `alloweduserlocations`
+--
+ALTER TABLE `alloweduserlocations`
+  ADD KEY `alloweduserlocations_ibfk_3` (`location_name`),
+  ADD KEY `alloweduserlocations_ibfk_4` (`user_id`);
+
+--
 -- Indexes for table `items`
 --
 ALTER TABLE `items`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `items_ibfk_1` (`location_name`);
 
 --
 -- Indexes for table `locations`
@@ -135,7 +150,9 @@ ALTER TABLE `locations`
 -- Indexes for table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`id`) USING BTREE;
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `reservations_ibfk_1` (`item_id`),
+  ADD KEY `reservations_ibfk_2` (`user_id`);
 
 --
 -- Indexes for table `users`
@@ -152,29 +169,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of item', AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of item', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of reservation';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of reservation', AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of user';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of user', AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `alloweduserlocations`
+--
+ALTER TABLE `alloweduserlocations`
+  ADD CONSTRAINT `alloweduserlocations_ibfk_3` FOREIGN KEY (`location_name`) REFERENCES `locations` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `alloweduserlocations_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `items`
+--
+ALTER TABLE `items`
+  ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`location_name`) REFERENCES `locations` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
