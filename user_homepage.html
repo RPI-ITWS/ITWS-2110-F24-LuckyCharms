@@ -18,32 +18,52 @@
   </script>
   <link rel="stylesheet" type="text/css" href="homepage.css">
 <body>
-  <!-- <div id="navbar">
-    <h1>LIMBS</h1>
-    <button id="menu" onclick="menuClick()">-</button>
-  </div> -->
 
-  <div class="dashboard">
-    <div id="sidebar">
-        <h2>Labs</h2>
-    
-        <ul id="lab-list">
-    
-        </ul>
+  <header>
+    <div class="logo">LIMBS</div>
+    <nav class="navbar">
+      <button class="menu-icon">&#9776;</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="sidebar">
+      <h3>Labs</h3>
+      <ul>
+        <li><input type="radio" id="lab1" name="lab" checked> <label for="lab1">Web Systems</label></li>
+        <li><input type="radio" id="lab2" name="lab"> <label for="lab2">Forge</label></li>
+        <li><input type="radio" id="lab3" name="lab"> <label for="lab3">Mercer Lab</label></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <div class="lab-title">
+        <h2>Web Systems Inventory</h2>
+        <div class="search-bar">
+          <input type="text" placeholder="Search">
+        </div>
       </div>
-    
-      <div id="main">
-        <h2 id="lab-name">No Labs</h2>
-        <!--Below form is non-functional, backend team will have to change later-->
-        <form action="/search.php">
-          <input type="search" id="searchbar" name="query" value="Search">
-          <input type="submit">
-        </form>
-        <br>
-        <table id="lab-items">
-          
-        </table>
-      </div>    
-  </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Item Type</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="item-name">Item 1</td>
+            <td><span class="tag">borrowable</span></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </main>
+
 </body>
 </html>
