@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2024 at 09:22 AM
+-- Generation Time: Oct 07, 2024 at 11:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -96,7 +96,9 @@ CREATE TABLE `reservations` (
   `amount` int(11) NOT NULL COMMENT 'Amount of items user is reserving',
   `date_reserved` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Date the item was reserved',
   `date_expected_to_return` timestamp NULL DEFAULT NULL COMMENT 'The date the user is expected to return.',
-  `date_returned` timestamp NULL DEFAULT NULL COMMENT 'The date the item was returned'
+  `date_returned` timestamp NULL DEFAULT NULL COMMENT 'The date the item was returned',
+  `cancelled` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Whether the reservation is cancelled or not.',
+  `completed` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Whether the reservation is completed or not.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
