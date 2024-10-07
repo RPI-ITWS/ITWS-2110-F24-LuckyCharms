@@ -88,4 +88,24 @@ document.addEventListener('DOMContentLoaded', function() {
     titleSignUpButton.addEventListener('mouseleave', function() {
         titleSignUpButton.style.cursor = 'default';
     });
+
+    /*For the features button on the general homepage introduction*/
+    const titleFeaturesButton = document.getElementById('title-features-button');
+    titleFeaturesButton.addEventListener('click', featuresPage);
+    titleFeaturesButton.addEventListener('mouseenter', function() {
+        titleFeaturesButton.style.cursor = 'pointer';
+    });
+    titleFeaturesButton.addEventListener('mouseleave', function() {
+        titleFeaturesButton.style.cursor = 'default';
+    });
+
+    /*For the getting started button on the general homepage introduction*/
+    const gettingStartedButton = document.getElementById('getting-started-button');
+    gettingStartedButton.addEventListener('click', signUpPage);
+    gettingStartedButton.addEventListener('mouseenter', function() {
+        gettingStartedButton.style.cursor = 'pointer';
+    });
+    gettingStartedButton.addEventListener('mouseleave', function() {
+        gettingStartedButton.style.cursor = 'default';
+    });
 });
