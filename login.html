@@ -10,7 +10,8 @@
     // If there's no account with the username, tell them and do nothing; if
     // there is one, tell them if the password's wrong, or set userid cookie
     // with the record id and redirect to appropriate homepage.
-    function validateLogin(data){
+    function validateLogin(event){
+      event.preventDefault();
       $.getJSON("data.json", function(data){
         for(let x of data.users){
           if(x.username === $("#username").val()){
@@ -22,18 +23,18 @@
               document.cookie = `userid=${x.id}`;
               if(x.is_admin === 1){
                 document.cookie = `admin=1`;
-                $("#login").attr("action", "/admin_homepage.html");
+                location.replace('./admin_homepage.html');
                 return true;
               } else {
                 document.cookie = `admin=0`;
-                $("#login").attr("action", "/user_homepage.html");
+                location.replace("./user_homepage.html");
                 return true;
               }
             }
           }
         }
         alert("Account does not exist.");
-        $("#login").attr("action", "/signup.html");
+        location.replace('./signup.html');
         return false;
     });
   }
@@ -50,9 +51,9 @@
   <div id="content">
     <div class="login_signup">
       <h4 class="first-letter">Log In</h4>
-      <form id="login" onsubmit="return validateLogin();">
+      <form id="login" onsubmit="return validateLogin(event);">
         <label for="username">username</label>
-        <input name="username" id="username" type="text" required value="type username here">
+        <input name="username" id="username" type="text" required placeholder="type username here">
         <label for="pass">password</label>
         <input name="pass" id="pass" type="password" required>
         <!--Inline styling because this is the only page with something like this.-->
