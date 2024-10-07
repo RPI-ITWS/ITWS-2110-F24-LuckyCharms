@@ -81,10 +81,53 @@ h3 {
     border-color: black;
 }
 
-#description {
+.description {
     margin: auto;
     margin-top: 50px;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
+}
+
+.image-display {
+    display: flex;
+}
+
+.title-text {
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-items: center;
+    float: left;
+    font-size: 70px;
+    font-weight: bold;
+    background-color: #78849E;
+    border-radius: 20px;
+    padding: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: white;
+}
+
+#checkout-image {
+    width: 70%;
+    margin-left: 15%;
+    margin-left: 10%;
+    margin-top: 60px;
+    border-radius: 20px;
+    height: calc(0.75 * var(--element-width));
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    float: right;
+}
+
+#title-features-button {
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    height: 35px;
+    width: 275px;
 }
