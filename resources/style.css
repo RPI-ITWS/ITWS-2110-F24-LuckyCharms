@@ -65,7 +65,7 @@ body {
 }
 
 /* Below are used in both login.html and signup.html */
-#login_signup {
+.login_signup {
     margin-top: 160px;
     width: 451px;
     height: 479px;
@@ -81,13 +81,13 @@ body {
     flex-direction: column;
 }
 
-#login_signup h4 {
+.login_signup h4 {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
 }
 
-#login_signup form {
+.login_signup form {
     font-size: 14px;
     display: flex;
     justify-content: center;
@@ -96,13 +96,13 @@ body {
     margin-bottom: 11px;
 }
 
-#login_signup label {
+.login_signup label {
     display: block;
     font-weight: bold;
     margin-top: 10px;
 }
 
-#login_signup input {
+.login_signup input {
     margin-top: 5px;
     background-color: #78849E;
     border: none;
@@ -113,7 +113,7 @@ body {
     color: hsla(0, 0%, 0%, 0.5);
 }
 
-#login_signup #submit {
+.login_signup #submit {
     height: 30px;
     margin: auto;
     margin-top: 20px;
@@ -127,7 +127,7 @@ body {
     width: 125px;
 }
 
-#login_signup a {
+.login_signup a {
     color:#323F50;
     font-size: 14px;
     text-decoration: none;

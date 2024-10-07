@@ -5,6 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log In</title>
   <link rel="stylesheet" href="/resources/style.css" media="screen">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script>
+    // If there's no account with the username, tell them and do nothing; if
+    // there is one, tell them if the password's wrong, or set userid cookie
+    // with the record id and redirect to appropriate homepage.
+    function validateLogin(data){
+      $.getJSON("data.json", function(data){
+        for(let x of data.users){
+          if(x.username === $("#username").val()){
+            if(x.password !== $("#pass").val()){
+              alert("Incorrect password.");
+              $("#pass").css("border", "2px solid red");
+              return false;
+            } else {
+              document.cookie = `userid=${x.id}`;
+              if(x.is_admin === 1){
+                document.cookie = `admin=1`;
+                $("#login").attr("action", "/admin_homepage.html");
+                return true;
+              } else {
+                document.cookie = `admin=0`;
+                $("#login").attr("action", "/user_homepage.html");
+                return true;
+              }
+            }
+          }
+        }
+        alert("Account does not exist.");
+        $("#login").attr("action", "/signup.html");
+        return false;
+    });
+  }
+  </script>
 </head>
 <body>
   <div id="navbar">
@@ -15,13 +48,13 @@
     <button class="nav-button" id="sign-up-button">Sign Up</button>
   </div>
   <div id="content">
-    <div id="login_signup">
+    <div class="login_signup">
       <h4 class="first-letter">Log In</h4>
-      <form>
+      <form id="login" onsubmit="return validateLogin();">
         <label for="username">username</label>
-        <input type="text" value="type username here">
-        <label for="password">password</label>
-        <input type="password">
+        <input name="username" id="username" type="text" required value="type username here">
+        <label for="pass">password</label>
+        <input name="pass" id="pass" type="password" required>
         <!--Inline styling because this is the only page with something like this.-->
         <a style="text-align: right; margin-top: 11px; font-size: 12px; font-weight: bold;">Forgot Password?</a>
         <button id="submit" type="submit">Log In</button>
