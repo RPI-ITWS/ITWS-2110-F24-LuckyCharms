@@ -49,6 +49,22 @@ async function checkout(htmlElement) {
       })
 }
 
+
+async function getActiveLabs(htmlElement) {
+    const userId = htmlElement.parentElement[0].value;
+    if (!userId) {
+        console.warn("Please input a value into User ID");
+        return;
+    }
+    await fetch(`./queries/getActiveLabs.php?userId=${userId}`)
+      .then((response) => response.text())
+      .then((result) => {
+          if (isJsonString(result))
+              result = JSON.parse(result);
+          console.log(result);
+      });
+}
+
 function isJsonString(str) {
     try {
         const json = JSON.parse(str);
