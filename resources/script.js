@@ -8,8 +8,7 @@ function menuClick(){
 
 /*Creates the list of labs the user has access to in the sidebar and displays
   the info of the lab they can access with the lowest ID number. */
-function userLabs(userID){
-  let data = JSON.parse(localStorage.getItem("data"));
+function userLabs(userID, data){
   //flag means will default to only displaying the info of the 1st lab
   let flag = true;
   for(let x of data.allowed_user_locations){
@@ -26,8 +25,7 @@ function userLabs(userID){
 
 /*Adds rows to the lab-items table displaying each item associated with the
   lab, if it's borrowable, and if it's available. */
-function labItems(labID){
-  let data = JSON.parse(localStorage.getItem("data"));
+function labItems(labID, data){
   $("#lab-name").html(data.locations[labID-1].name);
   $("#lab-items").html("<tr><th>Item Name</th><th>Item Type</th><th>Status</th></tr>")
   for(let x of data.items){
@@ -50,8 +48,7 @@ function itemDetails(itemID){
 
 //Returns number of items with id itemID currently removed/checked out
 //Used to check if an item is available
-function countRemoved(itemID){
-  let data = JSON.parse(localStorage.getItem("data"));
+function countRemoved(itemID, data){
   let count = 0;
   for(i in data.reservations){
     if(i.item_id === itemID && i.date_returned === null){
