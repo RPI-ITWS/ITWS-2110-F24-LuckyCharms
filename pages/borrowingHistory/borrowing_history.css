@@ -76,3 +76,42 @@ body {
     height: 25px;
     margin-bottom: 10px;
 }
+
+table {
+    width: 90%;
+    margin: auto;
+    border-spacing: 0;
+    border-collapse: separate;
+    border: 0.5px;
+    border-style: solid;
+    border-color: darkgray;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+table thead {
+    background-color: #f0f0f0;
+}
+
+table th {
+    padding: 10px;
+    text-align: left;
+    border: 0.5px;
+    border-style: solid;
+    border-color: darkgray;
+}
+
+table td {
+    padding: 10px;
+    text-align: left;
+    border: 0.5px;
+    border-style: solid;
+    border-color: darkgray;
+    height: 20px;
+    width: 15%;
+}
+
+.item-name {
+    width: 30%;
+}
