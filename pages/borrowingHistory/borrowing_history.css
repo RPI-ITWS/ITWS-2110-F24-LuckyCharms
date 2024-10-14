@@ -20,6 +20,7 @@ body {
     font-weight: bold;
     font-size: 40px;
     width: 10%;
+    cursor: pointer;
 }
 
 #menu-icon {
@@ -110,8 +111,14 @@ table td {
     border-color: darkgray;
     height: 20px;
     width: 15%;
+    white-space: nowrap;
 }
 
 .item-name {
     width: 30%;
+}
+
+.status {
+    padding: 10px;
+    border-radius: 20px;
 }
