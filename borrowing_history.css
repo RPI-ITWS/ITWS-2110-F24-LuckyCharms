@@ -1,0 +1,34 @@
+html {
+    font-family: Arial;
+    min-width: 1150px;
+}
+
+body {
+    margin: 0;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+}
+
+#logo {
+    margin-right: 45%;
+    margin-left: 2%;
+    font-weight: bold;
+    font-size: 40px;
+    width: 10%;
+}
+
+#menu-icon {
+    font-size: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    float: right;
+    text-align: right;
+    margin-right: 50px;
+}
