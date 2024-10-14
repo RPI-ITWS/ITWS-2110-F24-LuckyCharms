@@ -11,7 +11,6 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    position: fixed;
     background-color: white;
 }
 
@@ -31,4 +30,49 @@ body {
     float: right;
     text-align: right;
     margin-right: 50px;
+}
+
+#tab-bar {
+    display: flex;
+    border: 0;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: darkgrey;
+    margin-bottom: 15px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.tab-button {
+    color: darkgrey;
+    margin-right: 40px;
+    cursor: pointer;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#chosen {
+    color: black;
+    border: 0;
+    border-bottom: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+#search-bar {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+#search-bar input {
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-right: 10px;
+    color: black;
+    height: 25px;
+    margin-bottom: 10px;
 }
