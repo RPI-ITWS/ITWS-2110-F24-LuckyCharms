@@ -13,7 +13,7 @@
       $.getJSON("data.json", function(dat) {
         localStorage.setItem("data", JSON.stringify(dat))
       });
-      userLabs(2);
+      userLabs(1);
     });
   </script>
   <link rel="stylesheet" href="./homepage.css" media="screen">
@@ -30,21 +30,19 @@
   <main>
     <div class="sidebar">
       <div id="sidebar-title">Labs</div>
-      <ul>
-        <li><input type="radio" id="lab1" name="lab" checked> <label for="lab1">Web Systems</label></li>
-        <li><input type="radio" id="lab2" name="lab"> <label for="lab2">Forge</label></li>
-        <li><input type="radio" id="lab3" name="lab"> <label for="lab3">Mercer Lab</label></li>
+      <ul id="lab-list">
+        <!-- labs populated dynamically -->
       </ul>
     </div>
 
     <div class="content">
       <div class="lab-title">
-        <h2>Web Systems Inventory</h2>
+        <h2 id="lab-name">Web Systems Inventory</h2>
         <div class="search-bar">
           <input type="text" placeholder="Search">
         </div>
       </div>
-
+  
       <table>
         <thead>
           <tr>
@@ -53,16 +51,11 @@
             <th>Status</th>
           </tr>
         </thead>
-
-        <tbody>
-          <tr>
-            <td class="item-name">Item 1</td>
-            <td><span class="tag">borrowable</span></td>
-            <td></td>
-          </tr>
+  
+        <tbody id="lab-items">
+          <!-- items populated dynamically -->
         </tbody>
       </table>
-
     </div>
   </main>
 
