@@ -106,7 +106,8 @@ body {
 }
 
 h3 {
-    font-size: 100px;
+    font-size: 13vh;
+    line-height: 13vh;
     margin: 0;
     color: white;
 }
