@@ -7,52 +7,6 @@ body {
     margin: 0;
 }
 
-#navbar {
-    display: flex;
-    justify-content: left;
-    width: 100%;
-    position: fixed;
-    background-color: white;
-}
-
-#logo {
-    margin-right: 45%;
-    margin-left: 2%;
-    font-weight: bold;
-    font-size: 40px;
-    width: 10%;
-}
-
-.nav-text {
-    font-size: 18px;
-    font-weight: bold;
-    width: 7%;
-    margin-left: 2%;
-    margin-top: 38px;
-    min-width: 80px;
-}
-
-.nav-button {
-    height: 35px;
-    margin-top: 30px;
-    width: 10%;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    width: 10%;
-    margin-left: 2%;
-}
-
-#login-button {
-    background-color: #78849E;
-}
-
-#sign-up-button {
-    background-color: black;
-}
-
 #content {
     display: flex;
     flex-direction: column;
@@ -127,10 +81,87 @@ h3 {
     border-color: black;
 }
 
-#description {
+.description {
     margin: auto;
     margin-top: 50px;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
+}
+
+.image-display {
+    display: flex;
+}
+
+.title-text {
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-items: center;
+    font-size: 70px;
+    font-weight: bold;
+    background-color: #78849E;
+    border-radius: 20px;
+    padding: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#title-features-button {
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    height: 35px;
+    width: 275px;
+}
+
+#checkout-image {
+    width: 70%;
+    margin-left: 5%;
+    margin-top: 60px;
+    border-radius: 20px;
+    height: calc(0.75 * var(--element-width));
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    float: right;
+}
+
+#account-hierarchy-image {
+    width: 65%;
+    margin-right: 5%;
+    margin-top: 60px;
+    border-radius: 20px;
+    height: calc(0.75 * var(--element-width));
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    float: left;
+}
+
+#item-detail-image {
+    width: 60%;
+    margin-left: 5%;
+    margin-top: 60px;
+    border-radius: 20px;
+    height: calc(0.75 * var(--element-width));
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    float: right;
+}
+
+#getting-started-button {
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    background-color: black;
+    height: 50px;
+    width: 400px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
