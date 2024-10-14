@@ -11,7 +11,16 @@
     <body>
         <div id="navbar">
             <h1 id="logo">LIMBS</h1>
-            <button id="menu-icon">&#9776;</button>
+            <div id="dropdown">
+                <button id="menu-icon">&#9776;</button>
+                <div class="dropdown-content">
+                    <h3>Guest</h3>
+                    <h4 onclick="profileClick()">Profile</h4>
+                    <h4 onclick="myLabsClick()">My Labs</h4>
+                    <h4 onclick="borrowingHistoryClick()">Borrowing History</h4>
+                    <h5 onclick="logoutClick()">Logout</h5>
+                </div>
+            </div>
         </div>
 
         <div id="content">
