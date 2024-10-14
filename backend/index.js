@@ -65,6 +65,22 @@ async function getActiveLabs(htmlElement) {
       });
 }
 
+async function markReservedItemAsReturned(htmlElement) {
+    const reservationId = htmlElement.parentElement[0].value;
+    if (!reservationId) {
+        console.warn("Please input a value into Reservation ID");
+        return;
+    }
+
+    await fetch(`./queries/returnReservedItems.php?reservationId=${reservationId}&returnDate=${new Date().toISOString()}`)
+      .then((response) => response.text())
+      .then((result) => {
+          if (isJsonString(result))
+              result = JSON.parse(result);
+          console.log(result);
+      })
+}
+
 function isJsonString(str) {
     try {
         const json = JSON.parse(str);
