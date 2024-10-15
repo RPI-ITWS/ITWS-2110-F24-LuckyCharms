@@ -5,90 +5,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LIMBS</title>
-        <link rel="stylesheet" href="/resources/style.css" media="screen">
-        <style>
-            #intro {
-                margin: auto;
-                margin-top: 100px;
-                background-color: #78849E;
-                width: 93%;
-                border-radius: 20px;
-                height: 900px;
-            }
-
-            #title-left {
-                float: left;
-                margin-left: 5%;
-                margin-top: 65px;
-                width: 65%;
-            }
-
-            #introduction-text {
-                font-size: 40px;
-                margin-bottom: 0;
-            }
-
-            #title-right {
-                float: right;
-                margin-right: 5%;
-                margin-top: 300px;
-                width: 25%;
-            }
-
-            #slogan {
-                float: right;
-                text-align: right;
-                font-size: 40px;
-            }
-
-            #title-sign-up-button {
-                float: right;
-                border: none;
-                border-radius: 20px;
-                color: white;
-                font-size: 20px;
-                font-weight: bold;
-                background-color: black;
-                height: 35px;
-                width: 200px;
-            }
-
-            h3 {
-                font-size: 100px;
-                margin: 0;
-                color: white;
-            }
-
-            .first-letter {
-                color: black;
-            }
-
-            #title-image {
-                width: 80%;
-                margin-left: 10%;
-                margin-left: 10%;
-                margin-top: 60px;
-                border-radius: 20px;
-                height: calc(0.75 * var(--element-width));
-                border: 2px;
-                border-style: solid;
-                border-color: black;
-            }
-
-            #description {
-                margin: auto;
-                margin-top: 50px;
-                font-size: 40px;
-                font-weight: bold;
-                text-align: center;
-            }
-        </style>
+        <link rel="stylesheet" href="./resources/style.css">
+        <link rel="stylesheet" href="./homepage.css" media="screen">
+        <script src="./resources/script.js" defer></script>
+        <script src="./homepage.js" defer></script>
     </head>
     <body>
         <div id="navbar">
             <h1 id="logo">LIMBS</h1>
-            <h2 class="nav-text">Features</h2>
-            <h2 class="nav-text">About Us</h2>
+            <h2 class="nav-text" id="featuresButton">Features</h2>
+            <h2 class="nav-text" id="aboutUsButton">About Us</h2>
             <button class="nav-button" id="login-button">Login</button>
             <button class="nav-button" id="sign-up-button">Sign Up</button>
         </div>
@@ -109,12 +35,41 @@
                     <button id="title-sign-up-button">Sign up for free</button>
                 </div>
 
-                <div id="image">
+                <div class="image">
                     <img id="title-image" src="limbs_wireframe_user_view.png" alt="LIMBS Lab Homepage Display">
                 </div>
 
-                <div id="description">
+                <div class="description">
                     <p class="paragraph">LIMBS is a catalog system that will allow both students and faculty to better keep track of equipment. It is expandable, adaptable, and easy to use!</p>
+                    <button id="title-features-button">Explore Possibilities</button>
+                </div>
+
+                <div class="image-display">
+                    <p class="title-text">Ease Of Use</p>
+                    <img id="checkout-image" src="limbs_wireframe_user_view.png" alt="LIMBS Checkout Prompt">
+                </div>
+
+                <div class="description">
+                    <p class="paragraph">LIMBS comes free and easy to use! Checking out an item happens with one click of a button. LIMBS also clearly displays information regarding an items availibility, return due date, and other important information.</p>
+                </div>
+
+                <div class="image-display">
+                    <img id="account-hierarchy-image" src="limbs_wireframe_user_view.png" alt="LIMBS Account Types Image">
+                    <p class="title-text">Secure & Organized</p>
+                </div>
+
+                <div class="description">
+                    <p class="paragraph">LIMBS seperates accounts by three types: User, Admin, and Superuser. Each account type has their own permissions and only has the necessary permissions for their role. This keeps labs and the catalog of items in each lab oragnized and secure.</p>
+                </div>
+
+                <div class="image-display">
+                    <p class="title-text">Detailed & Informative</p>
+                    <img id="item-detail-image" src="limbs_wireframe_user_view.png" alt="LIMBS Item Details">
+                </div>
+
+                <div class="description">
+                    <p class="paragraph">LIMBS has the ability to display an endless amount of information for every item by simply clicking on it. This will allow the user to find exactly what they need!</p>
+                    <button id="getting-started-button">Get Started With LIMBS Today!</button>
                 </div>
             </div>
         </div>
