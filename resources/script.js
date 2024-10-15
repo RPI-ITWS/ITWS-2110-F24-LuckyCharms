@@ -79,8 +79,7 @@ function itemDetails(itemID){
 
 //Returns number of items with id itemID currently removed/checked out
 //Used to check if an item is available
-function countRemoved(itemID){
-  let data = JSON.parse(localStorage.getItem("data"));
+function countRemoved(itemID, data){
   let count = 0;
   for(i in data.reservations){
     if(i.item_id === itemID && i.date_returned === null){

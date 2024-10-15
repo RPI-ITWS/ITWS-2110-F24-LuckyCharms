@@ -1,6 +1,6 @@
 html {
-    font-family: Arial;
-    min-width: 1150px;
+  font-family: Arial;
+  min-width: 1150px;
 }
 
 body {
@@ -8,65 +8,65 @@ body {
 }
 
 #content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #intro {
-    margin: auto;
-    margin-top: 100px;
-    background-color: #78849E;
-    width: 93%;
-    border-radius: 20px;
-    height: 900px;
+  margin: auto;
+  margin-top: 100px;
+  background-color: #78849E;
+  width: 93%;
+  border-radius: 20px;
+  height: 900px;
 }
 
 #title-left {
-    float: left;
-    margin-left: 5%;
-    margin-top: 65px;
-    width: 65%;
+  float: left;
+  margin-left: 5%;
+  margin-top: 65px;
+  width: 65%;
 }
 
 #introduction-text {
-    font-size: 40px;
-    margin-bottom: 0;
+  font-size: 40px;
+  margin-bottom: 0;
 }
 
 #title-right {
-    float: right;
-    margin-right: 5%;
-    margin-top: 300px;
-    width: 25%;
+  float: right;
+  margin-right: 5%;
+  margin-top: 300px;
+  width: 25%;
 }
 
 #slogan {
-    float: right;
-    text-align: right;
-    font-size: 40px;
+  float: right;
+  text-align: right;
+  font-size: 40px;
 }
 
 #title-sign-up-button {
-    float: right;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: black;
-    height: 35px;
-    width: 200px;
+  float: right;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: black;
+  height: 35px;
+  width: 200px;
 }
 
 h3 {
-    font-size: 100px;
-    margin: 0;
-    color: white;
+  font-size: 100px;
+  margin: 0;
+  color: white;
 }
 
 .first-letter {
-    color: black;
+  color: black;
 }
 
 #title-image {
