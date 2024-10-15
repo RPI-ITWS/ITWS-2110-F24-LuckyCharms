@@ -1,4 +1,6 @@
 
+/* For styling used in multiple pages */
+
 /*Below are used on every page.*/
 html {
     font-family: Arial;
@@ -12,6 +14,7 @@ body {
 
 }
 
+/* Navigation Bar Styling: */
 #navbar {
     display: flex;
     justify-content: left;
@@ -46,6 +49,7 @@ body {
     color: white;
     font-size: 20px;
     font-weight: bold;
+    width: 10%;
     margin-left: 2%;
 }
 
