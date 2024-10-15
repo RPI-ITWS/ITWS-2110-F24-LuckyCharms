@@ -17,12 +17,12 @@ function aboutUsPage(event) {
 
 /*Go to the login page*/
 function loginPage(event) {
-    window.location.href = "./resources/login.html";
+    window.location.href = "./login.html";
 }
 
 /*Go to the create account/sign up page*/
 function signUpPage(event) {
-    window.location.href = "./resources/signUp.html";
+    window.location.href = "./signUp.html";
 }
 
 /*Code below runs AFTER the DOM is fully loaded*/
