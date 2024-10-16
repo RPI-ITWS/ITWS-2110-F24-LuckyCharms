@@ -16,8 +16,40 @@
     <button class="menu-icon">&#9776;</button>
   </div>
 
-  <div id="content">
-  </div>
+    <div class="profile-container">
+        <h2 id="username">John Doe</h2>
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" disabled>
+        </div>
+        <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" value="N/A" disabled>
+        </div>
+        <div class="field-with-button">
+            <label for="password">Password</label>
+            <button class="change-password-btn">Change Password</button>
+        </div>
+    </div>
+
+  <script>
+    function populateProfile(userID, data){
+        for(let user of data.users){
+            if(user.id === userID){
+                document.getElementById("username").innerText = user.username;
+                document.getElementById("email").value = user.email;
+                // add in for phone number if we add it to the json file
+            }
+        }
+    }
+
+    $(document).ready(() => {
+      // Load the JSON file and populate the profile for user ID 1 (for example)
+      $.getJSON("data.json", function(dat) {
+        populateProfile(1, dat); 
+      });
+    });
+  </script>
 
 </body>
 </html>
