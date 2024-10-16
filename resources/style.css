@@ -17,9 +17,9 @@ body {
 /* Navigation Bar Styling: */
 #navbar {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
     background-color: white;
 }
 
@@ -29,6 +29,14 @@ body {
     font-weight: bold;
     font-size: 40px;
     width: 10%;
+}
+
+.menu-icon {
+font-size: 24px;
+background: none;
+border: none;
+cursor: pointer;
+padding: 10px 20px;
 }
 
 .nav-text {
