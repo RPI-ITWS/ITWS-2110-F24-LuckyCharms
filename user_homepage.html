@@ -11,9 +11,8 @@
     $(document).ready(() => {
       //Load the json file into localStorage so that other functions can use it later.
       $.getJSON("data.json", function(dat) {
-        localStorage.setItem("data", JSON.stringify(dat))
+        userLabs(1, dat);
       });
-      userLabs(1);
     });
   </script>
   <link rel="stylesheet" href="./homepage.css" media="screen">

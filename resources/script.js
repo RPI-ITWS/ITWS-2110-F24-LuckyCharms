@@ -7,8 +7,7 @@ function menuClick(){
 }
 /*Creates the list of labs the user has access to in the sidebar and displays
   the info of the lab they can access with the lowest ID number. */
-function userLabs(userID){
-  let data = JSON.parse(localStorage.getItem("data"));
+function userLabs(userID, data){
   let flag = true; // To load the first lab's items by default
 
   // Clear any existing labs in the list
@@ -33,7 +32,7 @@ function userLabs(userID){
 
       // Load items for the first lab by default
       if (flag) {
-        labItems(lab.id);
+        labItems(lab.id,data);
         flag = false;
       }
     }
@@ -42,8 +41,7 @@ function userLabs(userID){
 
 /*Adds rows to the lab-items table displaying each item associated with the
   lab, if it's borrowable, and if it's available. */
-  function labItems(labID) {
-    let data = JSON.parse(localStorage.getItem("data"));
+  function labItems(labID, data) {
     let labName = data.locations.find(l => l.id === labID).name;
     
     // Update the lab name
