@@ -7,12 +7,12 @@ function homePage(event) {
 
 /*Go to the features page*/
 function featuresPage(event) {
-    window.location.href = "/resources/features.html";
+    window.location.href = "/pages/features.html";
 }
 
 /*Go to the about us page*/
 function aboutUsPage(event) {
-    window.location.href = "/resources/aboutUs.html";
+    window.location.href = "/pages/aboutUs.html";
 }
 
 /*Go to the login page*/
