@@ -7,11 +7,11 @@
   <script src="resources/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>
-    //Populates the page. Hardcoded to only check for user #2, the only admin.
+    //Populates the page based on the userid stored in the cookie
     $(document).ready(() => {
       //Load the json file into localStorage so that other functions can use it later.
       $.getJSON("data.json", function(dat) {
-        userLabs(1, dat);
+        userLabs(document.cookie.substring(7, document.cookie.indexOf(";")), dat);
       });
     });
   </script>
