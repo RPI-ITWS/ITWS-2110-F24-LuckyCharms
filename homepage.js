@@ -2,27 +2,27 @@
 
 /*Go to the homepage*/
 function homePage(event) {
-    window.location.href = "./index.html";
+    window.location.href = "/index.html";
 }
 
 /*Go to the features page*/
 function featuresPage(event) {
-    window.location.href = "./resources/features.html";
+    window.location.href = "/resources/features.html";
 }
 
 /*Go to the about us page*/
 function aboutUsPage(event) {
-    window.location.href = "./resources/aboutUs.html";
+    window.location.href = "/resources/aboutUs.html";
 }
 
 /*Go to the login page*/
 function loginPage(event) {
-    window.location.href = "./login.html";
+    window.location.href = "/pages/login.html";
 }
 
 /*Go to the create account/sign up page*/
 function signUpPage(event) {
-    window.location.href = "./signUp.html";
+    window.location.href = "/pages/signup.html";
 }
 
 /*Code below runs AFTER the DOM is fully loaded*/
