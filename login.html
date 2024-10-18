@@ -21,6 +21,11 @@
               $("#pass").css("border", "2px solid red");
               return false;
             } else {
+              //delete old userid and admin cookies
+              document.cookie = "userid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+              document.cookie = "admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+              //set based on new login info
               document.cookie = `userid=${x.id}`;
               if(x.is_admin === 1){
                 document.cookie = `admin=1`;
