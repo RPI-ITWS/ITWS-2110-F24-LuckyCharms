@@ -42,3 +42,7 @@ function colorItemStatus() {
         }
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    colorItemStatus();
+});

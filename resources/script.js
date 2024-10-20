@@ -2,7 +2,7 @@
 
 /* This should show the menu options when the menu button
   on the navbar is clicked. */
-  function menuClick(userName, isAdmin){
+function menuClick(userName, isAdmin){
 
     let labsPage = "/pages/homepages/user_homepage.html"
     if (isAdmin) {
@@ -25,7 +25,7 @@
   
     // Toggle visibility when the menu is clicked
     $('.dropdown-content').toggleClass('show');
-  }
+}
 
 /*Creates the list of labs the user has access to in the sidebar and displays
   the info of the lab they can access with the lowest ID number. */
