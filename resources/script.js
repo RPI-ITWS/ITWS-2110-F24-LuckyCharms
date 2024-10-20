@@ -1,10 +1,32 @@
 /* For functions used in multiple pages. */
 
-/*Currently unwritten. This should show the menu options when the menu button
+/* This should show the menu options when the menu button
   on the navbar is clicked. */
-function menuClick(){
+  function menuClick(userName, isAdmin){
 
-}
+    let labsPage = "/pages/homepages/user_homepage.html"
+    if (isAdmin) {
+      labsPage = "/pages/homepages/admin_homepage.html"
+    }
+
+    // Clear any existing dropdown content to avoid duplication
+    $('#dropdown .dropdown-content').remove();
+    
+    // Append the new dropdown content
+    $('#dropdown').append(`
+      <div class="dropdown-content">
+            <h3>${userName}</h3>
+            <a href="profileClick()">Profile</a>
+            <a href=${labsPage}>My Labs</a>
+            <a href="/pages/borrowingHistory/borrowing_history.html">Borrowing History</a>
+            <a href="/index.html" id="logout">Logout</a>
+      </div>
+    `);
+  
+    // Toggle visibility when the menu is clicked
+    $('.dropdown-content').toggleClass('show');
+  }
+
 /*Creates the list of labs the user has access to in the sidebar and displays
   the info of the lab they can access with the lowest ID number. */
 function userLabs(userID, data){
@@ -86,32 +108,3 @@ function countRemoved(itemID, data){
   }
   return count;
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  const logo = document.querySelector('.logo');
-
-  if (logo) {
-      logo.addEventListener('click', () => {
-          window.location.href = "./user_homepage.html";
-      });
-  }
-
-  const menuButton = document.getElementById('menu-icon');
-  const dropdownContent = document.querySelector('.dropdown-content');
-
-  menuButton.addEventListener('click', function() {
-      dropdownContent.classList.toggle('show');
-  });
-
-  window.addEventListener('click', function(event) {
-      if (!event.target.matches('#menu-icon') && 
-          !event.target.matches('.dropdown-content') &&
-          !event.target.matches('h3') && 
-          !event.target.matches('h4') && 
-          !event.target.matches('h5')) {
-          if (dropdownContent.classList.contains('show')) {
-              dropdownContent.classList.remove('show');
-          }
-      }
-  });
-});

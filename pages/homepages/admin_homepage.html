@@ -12,12 +12,20 @@
         document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
       location.href="/pages/login.html";
     }
-    //Populates the page based on the userid stored in the userid cookie
-    $(document).ready(() => {
-      //Load the json file, then pass it as an argument to populate the page.
-      $.getJSON("/resources/data.json", function(dat) {
-        userLabs(parseInt(document.cookie.substring(7, document.cookie.indexOf(";"))), dat);
+    // Populates the page based on the userid stored in the userid cookie
+    $.getJSON("/resources/data.json", function(dat) {
+      const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
+      const user = dat.users.find(u => u.id === userID);
+      const userName = user ? user.username : "Guest";
+      const isAdmin = user.is_admin ? true : false;
+
+      // Call menuClick with the user's name when the menu button is clicked
+      $('#menu-icon').on('click', function() {
+        menuClick(userName, isAdmin);
       });
+
+      // Populate labs with the user's labs
+      userLabs(userID, dat);
     });
   </script>
   <link rel="stylesheet" href="/homepage.css" media="screen">
@@ -27,14 +35,7 @@
     <h1 class="logo">LIMBS</h1>
     <nav class="navbar">
       <div id="dropdown">
-        <button id="menu-icon">&#9776;</button>
-        <div class="dropdown-content">
-          <h3>Guest</h3>
-          <h4 onclick="profileClick()">Profile</h4>
-          <h4 onclick="myLabsClick()">My Labs</h4>
-          <h4 onclick="borrowingHistoryClick()">Borrowing History</h4>
-          <h5 onclick="logoutClick()">Logout</h5>
-        </div>
+        <button onclick="menuClick()" id="menu-icon">&#9776;</button>
       </div>
     </nav>
   </header>

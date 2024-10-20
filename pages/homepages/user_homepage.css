@@ -67,18 +67,19 @@ h3 {
   font-size: 18px;
 }
 
-h4 {
+a {
   color: black;
   display: block;
   margin: 0;
   cursor: pointer;
+  text-decoration: none;
   margin-top: 5px;
   margin-bottom: 5px;
   font-weight: normal;
   font-size: 15px;
 }
 
-h5 {
+#logout {
   color: black;
   display: block;
   margin: 0;
