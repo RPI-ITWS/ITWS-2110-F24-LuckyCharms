@@ -88,6 +88,14 @@ function countRemoved(itemID, data){
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  const logo = document.querySelector('.logo');
+
+  if (logo) {
+      logo.addEventListener('click', () => {
+          window.location.href = "./user_homepage.html";
+      });
+  }
+
   const menuButton = document.getElementById('menu-icon');
   const dropdownContent = document.querySelector('.dropdown-content');
 
