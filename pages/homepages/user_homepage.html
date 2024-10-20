@@ -10,7 +10,7 @@
     //If the userid or admin cookies aren't set, or if they are not a normal user, redirect to login page
     if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
         document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="0"){
-      location.href="./login.html";
+      location.href="/pages/login.html";
     }
     //Populates the page based on the userid stored in the userid cookie
     $(document).ready(() => {
@@ -20,7 +20,7 @@
       });
     });
   </script>
-  <link rel="stylesheet" href="./homepage.css" media="screen">
+  <link rel="stylesheet" href="/homepage.css" media="screen">
   <link rel="stylesheet" type="text/css" href="user_homepage.css">
 <body>
 
