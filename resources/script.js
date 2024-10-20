@@ -86,3 +86,32 @@ function countRemoved(itemID, data){
   }
   return count;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const logo = document.querySelector('.logo');
+
+  if (logo) {
+      logo.addEventListener('click', () => {
+          window.location.href = "./user_homepage.html";
+      });
+  }
+
+  const menuButton = document.getElementById('menu-icon');
+  const dropdownContent = document.querySelector('.dropdown-content');
+
+  menuButton.addEventListener('click', function() {
+      dropdownContent.classList.toggle('show');
+  });
+
+  window.addEventListener('click', function(event) {
+      if (!event.target.matches('#menu-icon') && 
+          !event.target.matches('.dropdown-content') &&
+          !event.target.matches('h3') && 
+          !event.target.matches('h4') && 
+          !event.target.matches('h5')) {
+          if (dropdownContent.classList.contains('show')) {
+              dropdownContent.classList.remove('show');
+          }
+      }
+  });
+});
