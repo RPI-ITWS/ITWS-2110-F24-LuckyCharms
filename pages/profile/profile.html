@@ -12,6 +12,17 @@
         document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
       location.href="/pages/login.html";
     }
+
+    function populateProfile(userID, data){
+        for(let user of data.users){
+            if(user.id === userID){
+                document.getElementById("username").innerText = user.username;
+                document.getElementById("email").value = user.email;
+                // add in for phone number if we add it to the json file
+            }
+        }
+    }
+
     // Populates the page based on the userid stored in the userid cookie
     $.getJSON("/resources/data.json", function(dat) {
       const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
@@ -25,7 +36,7 @@
       });
 
       // Populate labs with the user's labs
-      userLabs(userID, dat);
+      populateProfile(userID, dat);
     });
   </script>
   <link rel="stylesheet" type="text/css" href="/resources/style.css">
@@ -56,25 +67,5 @@
             <a href="change_password.html"><button class="change-password-btn">Change Password</button></a>
         </div>
     </div>
-
-  <script>
-    function populateProfile(userID, data){
-        for(let user of data.users){
-            if(user.id === userID){
-                document.getElementById("username").innerText = user.username;
-                document.getElementById("email").value = user.email;
-                // add in for phone number if we add it to the json file
-            }
-        }
-    }
-
-    $(document).ready(() => {
-      // Load the JSON file and populate the profile for user ID 1 (for example)
-      $.getJSON("data.json", function(dat) {
-        populateProfile(1, dat); 
-      });
-    });
-  </script>
-
 </body>
 </html>
