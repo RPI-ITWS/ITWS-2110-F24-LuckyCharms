@@ -16,7 +16,7 @@ function menuClick(userName, isAdmin){
     $('#dropdown').append(`
       <div class="dropdown-content">
             <h3>${userName}</h3>
-            <a href="profileClick()">Profile</a>
+            <a href="/pages/profile/profile.html">Profile</a>
             <a href=${labsPage}>My Labs</a>
             <a href="/pages/borrowingHistory/borrowing_history.html">Borrowing History</a>
             <a href="/index.html" id="logout">Logout</a>
