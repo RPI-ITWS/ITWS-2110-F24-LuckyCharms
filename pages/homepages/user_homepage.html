@@ -17,10 +17,11 @@
       const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
       const user = dat.users.find(u => u.id === userID);
       const userName = user ? user.username : "Guest";
+      const isAdmin = user.is_admin ? true : false;
 
       // Call menuClick with the user's name when the menu button is clicked
       $('#menu-icon').on('click', function() {
-        menuClick(userName);
+        menuClick(userName, isAdmin);
       });
 
       // Populate labs with the user's labs
@@ -30,7 +31,6 @@
   <link rel="stylesheet" href="/homepage.css" media="screen">
   <link rel="stylesheet" type="text/css" href="user_homepage.css">
 <body>
-
   <header>
     <h1 class="logo">LIMBS</h1>
     <nav class="navbar">
@@ -44,6 +44,7 @@
     <div class="sidebar">
       <div id="sidebar-title">Labs</div>
       <ul id="lab-list">
+        <!-- labs populated dynamically -->
       </ul>
     </div>
 
@@ -65,6 +66,7 @@
         </thead>
   
         <tbody id="lab-items">
+          <!-- items populated dynamically -->
         </tbody>
       </table>
     </div>
