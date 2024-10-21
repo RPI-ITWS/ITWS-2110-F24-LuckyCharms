@@ -4,37 +4,52 @@
     // TAKE OUT ID AND STOCK FILTER
     // array should hold `name`, `borrowable, `location_name`
     // to make the query writing easier
-    $array = array();
-
+    $filters = array();
+    $columns = array();
+    $query = "SELECT * FROM items";
     // for the binding parameters string
     $binding = "";
 
+
+    // Location is mandatory but just in case...
+    $location_name = $_GET["location_name"];
+    if ($location_name) {
+        array_push($filters, $location_name);
+        array_push($columns, "location_name = ?");
+        $binding .= "s";
+    }
+
     $name = $_GET["name"];
     if ($name) {
-        array_push($array, "`name`");
+        array_push($filters, "%".$name."%");
+        array_push($columns, "name LIKE ?");
         $binding .= "s";
     }
 
     $borrowable = $_GET["borrowable"];
     if ($borrowable) {
-        array_push($array, "`borrowable`");
+        array_push($filters, $borrowable);
+        array_push($columns, "borrowable = ?");
         $binding .= "i";
     }
 
-    $location_name = $_GET["location_name"];
-    if ($location_name) {
-        array_push($array, "`location_name`");
-        $binding .= "s";
+    if (count($filters) > 0) {
+        $query .= " WHERE (";
+        $query .= join(" AND ", $columns);
+        $query .= ")";
     }
 
+
     // constructing the query
-    $inputstr = "";
-    for ($i = 0; $i < count($array) - 1; $i++) {
-        $inputstr .= $array[$i] . " = ?, ";
-    }
-    $inputstr .= $array[count($array) - 1] . " = ?";
-    $query = "SELECT * FROM items WHERE " . $inputstr;
     $result = $db->prepare($query);
-    $result->bind_param($binding, ...$array);
+    $result->bind_param($binding, ...$filters);
     $result->execute();
+
+    $items = $result->get_result();
+    $filteredItems = array();
+    while ($row = $items->fetch_assoc()) {
+        array_push($filteredItems, $row);
+    }
+
+    print_r(json_encode($filteredItems));
 ?>

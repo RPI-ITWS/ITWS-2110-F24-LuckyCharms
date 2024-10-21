@@ -43,6 +43,18 @@
                 <input onclick="markReservedItemAsReturned(this)" type="button" value="Mark reserved item as returned" />
             </form>
         </div>
+        <div>
+            <h1>Get Locations</h1>
+            <form name="get-locations">
+                <input type="number" name="user_id" placeholder="ID of User">
+                <input onclick="getLocation(this)" type="button" value="Get Location" />
+            </form>
+        </div>
+        <div>
+            <h1>Search/Filter items</h1>
+            <form name="filter-search-items" id="filter-search-items">
+            </form>
+        </div>
         <script src="./index.js"></script>
     </body>
 </html>
