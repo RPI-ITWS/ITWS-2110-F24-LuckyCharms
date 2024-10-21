@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/resources/style.css" media="screen">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="homepage.js" defer></script>
+  <script>
+    function validateSignup(){
+      if($("#pass1").val() !== $("#pass2").val()){
+        alert("Passwords must match.");
+        $("input[type=password]").css("border", "2px solid red");
+        return false;
+      }
+      $.getJSON("data.json", function(data) {
+        for(let x of data.users){
+          if(x.email===$("#email").val()){
+            alert("There is already an account associated with this email address.");
+            $("#email").css("border", "2px solid red");
+            return false;
+          }
+          if(x.username===$("#username").val()){
+            alert("This username is already in use.");
+            $("#username").css("border", "2px solid red");
+            return false;
+          }
+        }
+        return true;
+      });
+    }
+  </script>
+  <script src="./resources/script.js" defer></script>
+</head>
+<body>
+  <div id="navbar">
+    <h1 id="logo">LIMBS</h1>
+    <h2 class="nav-text" id="featuresButton">Features</h2>
+    <h2 class="nav-text" id="aboutUsButton">About Us</h2>
+    <button class="nav-button" id="login-button">Login</button>
+    <button class="nav-button" id="sign-up-button">Sign Up</button>
+</div>
+  <div id="content">
+    <div class="login_signup">
+      <h4 class="first-letter">Sign Up</h4>
+      <form id="signup" onsubmit="return validateSignup()">
+        <label for="email">email</label>
+        <input name="email" id="email" type="email" required>
+        <label for="username">username</label>
+        <input name="username" id="username" type="text" required>
+        <label for="pass1">password</label>
+        <input name="pass1" id="pass1" type="password" required>
+        <label for="pass2">confirm password</label>
+        <input name="pass2" id="pass2" type="password" required>
+        <button id="submit" type="submit">Sign Up</button>
+      </form>
+      <a href="login.html">Log In</a>
+    </div>
+  </div>
+  
+</body>
+</html>
