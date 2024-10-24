@@ -7,6 +7,8 @@
   <script src="/resources/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script defer>
+    let itemData;
+    
     //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
     if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
         document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="0"){
@@ -18,6 +20,7 @@
       const user = dat.users.find(u => u.id === userID);
       const userName = user ? user.username : "Guest";
       const isAdmin = user.is_admin ? true : false;
+      itemData = dat;
 
       // Call menuClick with the user's name when the menu button is clicked
       $('#menu-icon').on('click', function() {
@@ -95,12 +98,8 @@
 
       <div id="item-description">
         <h3 class="item-labels" id="description-title">Description</h3>
-        <ul id="item-description-list">
-          <li class="item-description-point">45435435</li>
-          <li class="item-description-point">5435435</li>
-          <li class="item-description-point">435435</li>
-          <li class="item-description-point">435435</li>
-        </ul>
+        
+        <p id="item-description-list">Text</p>
       </div>
 
       <button id="checkout-button">CHECK OUT</button>
