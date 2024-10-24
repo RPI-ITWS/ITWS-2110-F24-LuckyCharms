@@ -7,12 +7,17 @@ html {
 
 body {
     margin: 0;
+    margin-top: 80px;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 40px);
+
   padding: 10px 20px;
   background-color: #fff;
   border-bottom: 1px solid #e0e0e0;
@@ -67,18 +72,19 @@ h3 {
   font-size: 18px;
 }
 
-h4 {
+a {
   color: black;
   display: block;
   margin: 0;
   cursor: pointer;
+  text-decoration: none;
   margin-top: 5px;
   margin-bottom: 5px;
   font-weight: normal;
   font-size: 15px;
 }
 
-h5 {
+#logout {
   color: black;
   display: block;
   margin: 0;
