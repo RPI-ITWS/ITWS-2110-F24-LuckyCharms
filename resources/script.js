@@ -117,3 +117,4 @@ function countRemoved(itemID, data){
   }
   return count;
 }
+

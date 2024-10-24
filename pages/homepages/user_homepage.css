@@ -60,7 +60,7 @@ header {
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
 h3 {
@@ -194,16 +194,16 @@ main {
 }
 
 .search-bar {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 .search-bar input {
-    padding: 5px 10px;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin-right: 10px;
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-right: 10px;
 }
 
 table {
@@ -226,6 +226,11 @@ table thead {
 
 .item-name {
   width: 45vw;
+  cursor: pointer;
+}
+
+td {
+  cursor: pointer;
 }
 
 .tag {
@@ -254,7 +259,7 @@ table thead {
   display: flex;
 }
 
-#right-sidebar button {
+#checkout-button {
   margin-left: auto;
   margin-right: auto;
   width: 75%;
@@ -263,6 +268,7 @@ table thead {
   background-color: lightgreen;
   margin-top: 10px;
   height: 25px;
+  cursor: pointer;
 }
 
 #item-description {
@@ -274,6 +280,7 @@ table thead {
   margin-left: 10px;
   font-size: 50px;
   font-weight: normal;
+  cursor: pointer;
 }
 
 #item-title-text {
@@ -310,5 +317,14 @@ table thead {
   font-weight: normal;
   margin-top: 10px;
   margin-bottom: 10px;
+  min-width: 130px;
+  text-align: center;
+}
+
+#item-description-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: disc;
+  font-size: 13px;
 }
 
