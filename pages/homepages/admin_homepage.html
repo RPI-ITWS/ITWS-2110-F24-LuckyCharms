@@ -12,6 +12,7 @@
         document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
       location.href="/pages/login.html";
     }
+
     // Populates the page based on the userid stored in the userid cookie
     $.getJSON("/resources/data.json", function(dat) {
       const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
@@ -30,6 +31,8 @@
   </script>
   <link rel="stylesheet" href="/homepage.css" media="screen">
   <link rel="stylesheet" type="text/css" href="user_homepage.css">
+  <script src="admin.js"></script>
+</head>
 <body>
   <header>
     <h1 class="logo">LIMBS</h1>
@@ -55,10 +58,13 @@
           <input type="text" placeholder="Search">
         </div>
       </div>
+
+      <button id="delete">&#128465;</button>
   
       <table>
         <thead>
           <tr>
+            <th class="checkbox"><input type="checkbox" onclick="toggle(this);"></th>
             <th>Item Name</th>
             <th>Item Type</th>
             <th>Status</th>

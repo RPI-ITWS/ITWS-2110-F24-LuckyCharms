@@ -223,6 +223,10 @@ main {
     background-color: #f0f0f0;
   }
 
+  .checkbox {
+    width: 1vw;
+  }
+
   .item-name {
     width: 45vw;
   }

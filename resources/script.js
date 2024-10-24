@@ -89,6 +89,7 @@ function userLabs(userID, data){
         
         // Append each item as a row in the table
         $("#lab-items").append(`<tr onClick="itemDetails(${item.id})">
+          <td><input type="checkbox"></td>
           <td class="item-name">${item.name}</td>
           <td><span class="tag">${type}</span></td>
           <td>${status}</td>
