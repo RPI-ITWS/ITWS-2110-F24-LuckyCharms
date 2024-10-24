@@ -13,7 +13,7 @@
     // with the record id and redirect to appropriate homepage.
     function validateLogin(event){
       event.preventDefault();
-      $.getJSON("data.json", function(data){
+      $.getJSON("/resources/data.json", function(data){
         for(let x of data.users){
           if(x.username === $("#username").val()){
             if(x.password !== $("#pass").val()){
@@ -28,11 +28,11 @@
               document.cookie = `userid=${x.id}; path=/`;
               if(x.is_admin === 1){
                 document.cookie = `admin=1; path=/`;
-                location.replace('./admin_homepage.html');
+                location.replace('./homepages/admin_homepage.html');
                 return true;
               } else {
                 document.cookie = `admin=0; path=/`;
-                location.replace("./user_homepage.html");
+                location.replace("./homepages/user_homepage.html");
                 return true;
               }
             }
@@ -44,6 +44,7 @@
     });
   }
   </script>
+  <script src="/homepage.js" defer></script>
 </head>
 <body>
   <div id="navbar">

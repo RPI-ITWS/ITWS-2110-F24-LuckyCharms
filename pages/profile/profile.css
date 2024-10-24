@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html {
+  font-family: 'Inter', sans-serif;
+  min-width: 1150px;
+}
+
+body {
+    margin: 0;
+    margin-top: 80px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 40px);
+    z-index: 1000;
+  
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+    font-weight: bold;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+#menu-icon {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    border-radius: 10px;
+    top: 80%;
+    right: 30%;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.show {
+    display: block;
+}
+
+h3 {
+    color: black;
+    display: block;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+a {
+    color: black;
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+#logout {
+color: black;
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 18px;
+}
+  
+.profile-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.field {
+    margin: 25px 0px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid black;
+}
+
+    .field label {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .field input {
+        width: 100%;
+        margin-top: 5px;
+        border: none;
+        background-color: white;
+        border-radius: 4px;
+        outline:0;
+
+        font-size: 16px;
+    }
+
+.field-with-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+    .field-with-button label {
+        font-weight: bold;
+        font-size: 16px;
+    }
+        
+
+.change-password-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 17.5px;
+    cursor: pointer;
+
+    height: 35px;
+}

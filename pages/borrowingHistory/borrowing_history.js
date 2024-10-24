@@ -1,18 +1,3 @@
-function profileClick() {
-    window.location.href = '../profilePage/profile.html';
-}
-
-function myLabsClick() {
-    window.location.href = '../user_homepage.html';
-}
-
-function borrowingHistoryClick() {
-    window.location.href = './borrowing_history.html';
-}
-
-function logoutClick() {
-    window.location.href = '../login.html';
-}
 
 function currentlyBorrowingClick() {
     const current = document.getElementById('chosen');
@@ -62,6 +47,7 @@ function colorItemStatus() {
     });
 }
 
+
 function populateHistory(){
     if(document.cookie.substring(document.cookie.indexOf('admin=')+6)==="1"){
         populateAdminHistory();
@@ -74,7 +60,7 @@ function populateUserHistory(){
     $("#table-head").html("<th>Item Name</th><th>Lab/Place</th><th>Status</th><th>Reservation Date</th><th>Expected Return Date</th>");
     let id = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
 
-    $.getJSON("../../data.json", function(dat) {
+    $.getJSON("/resources/data.json", function(dat) {
         let itemList = "";
         for(let x of dat.reservations){
             if((x.date_returned === null || $("#chosen").html() === "Borrowing History") && x.user_id===id){
@@ -107,7 +93,7 @@ function populateAdminHistory(){
     $("#table-head").html("<th>Item Name</th><th>Borrower Name</th><th>Lab/Place</th><th>Status</th><th>Reservation Date</th><th>Expected Return Date</th>");
     let id = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
 
-    $.getJSON("../../data.json", function(dat) {
+    $.getJSON("/resources/data.json", function(dat) {
         let itemList = "";
         let allowedLabs=[];
         for(let pair of dat.allowed_user_locations){
@@ -171,4 +157,8 @@ $(document).ready(() => {
     }
     
     populateHistory();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    colorItemStatus();
 });
