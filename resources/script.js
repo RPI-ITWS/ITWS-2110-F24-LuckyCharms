@@ -9,9 +9,12 @@ function menuClick(userName, isAdmin){
       labsPage = "/pages/homepages/admin_homepage.html"
     }
 
-    // Clear any existing dropdown content to avoid duplication
-    $('#dropdown .dropdown-content').remove();
-    
+    if ($('.dropdown-content').hasClass('show')) {
+        // If it is visible, just hide it
+        $('.dropdown-content').removeClass('show');
+        return;
+    }
+
     // Append the new dropdown content
     $('#dropdown').append(`
       <div class="dropdown-content">
@@ -25,6 +28,12 @@ function menuClick(userName, isAdmin){
   
     // Toggle visibility when the menu is clicked
     $('.dropdown-content').toggleClass('show');
+
+    $(document).on('click', function(e) {
+      if (!$(e.target).closest('#dropdown').length) {
+        $('.dropdown-content').removeClass('show');
+      }
+    });
 }
 
 /*Creates the list of labs the user has access to in the sidebar and displays
