@@ -149,7 +149,7 @@ main {
   position: absolute;
   left: 10px;
 
-  width: 185px;
+  width: 95%;
   padding-left: 20px;
 
   font-size: 16px;
@@ -245,7 +245,7 @@ td {
   border-left-style: solid;
   border-left-width: 1px;
   width: 50%;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
@@ -270,6 +270,30 @@ td {
   border: none;
   border-radius: 20px;
   background-color: lightgreen;
+  margin-top: 10px;
+  height: 25px;
+  cursor: pointer;
+}
+
+#edit-button {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  border: none;
+  border-radius: 20px;
+  background-color: skyblue;
+  margin-top: 10px;
+  height: 25px;
+  cursor: pointer;
+}
+
+#remove-button {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  border: none;
+  border-radius: 20px;
+  background-color: red;
   margin-top: 10px;
   height: 25px;
   cursor: pointer;

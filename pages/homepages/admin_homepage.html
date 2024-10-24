@@ -56,7 +56,7 @@
         </div>
       </div>
   
-      <table>
+      <table id="item-table">
         <thead>
           <tr>
             <th>Item Name</th>
@@ -69,6 +69,43 @@
           <!-- items populated dynamically -->
         </tbody>
       </table>
+    </div>
+
+    <div class="right-sidebar">
+      <p id="go-back">&raquo;</p>
+
+      <div id="item-title">
+        <h3 id="item-title-text">Item 1</h3>
+      </div>
+
+      <div id="item-type">
+        <h3 class="item-labels">Item Type</h3>
+        <h4 class="item-status">Borrowable</h4>
+      </div>
+
+      <div id="item-status">
+        <h3 class="item-labels">Status</h3>
+        <h4 class="item-status">In Stock</h4>
+      </div>
+
+      <div id="item-quantity">
+        <h3 class="item-labels">Quantity Availible</h3>
+        <h4 id="item-quantity-text">100 out of 1000</h4>
+      </div>
+
+      <div id="item-description">
+        <h3 class="item-labels" id="description-title">Description</h3>
+        <ul id="item-description-list">
+          <li class="item-description-point">45435435</li>
+          <li class="item-description-point">5435435</li>
+          <li class="item-description-point">435435</li>
+          <li class="item-description-point">435435</li>
+        </ul>
+      </div>
+
+      <button id="checkout-button">CHECK OUT</button>
+      <button id="edit-button">EDIT ITEM</button>
+      <button id="remove-button">REMOVE ITEM</button>
     </div>
   </main>
 
