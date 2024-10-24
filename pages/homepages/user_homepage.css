@@ -240,7 +240,7 @@ td {
   color: #5764c6;
 }
 
-#right-sidebar {
+.right-sidebar {
   border-left: black;
   border-left-style: solid;
   border-left-width: 1px;
@@ -249,7 +249,11 @@ td {
   flex-direction: column;
 }
 
-#right-sidebar div {
+#show {
+  display: flex;
+}
+
+.right-sidebar div {
   margin-left: auto;
   margin-right: auto;
   width: 80%;

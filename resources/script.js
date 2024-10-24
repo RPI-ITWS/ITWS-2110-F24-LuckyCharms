@@ -118,3 +118,19 @@ function countRemoved(itemID, data){
   return count;
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  const table = document.getElementById('item-table');
+  const checkoutPanels = document.getElementsByClassName('right-sidebar');
+  const checkoutPanel = checkoutPanels[0];
+  const closePanel = document.getElementById('go-back');
+
+  table.addEventListener('click', function(event) {
+    if (event.target.tagName === 'TD') {
+      checkoutPanel.style.display = 'flex';
+    }
+  });
+
+  closePanel.addEventListener('click', function() {
+    checkoutPanel.style.display = 'none';
+  })
+});
