@@ -4,25 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-  <script src="resources/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script>
-    //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
+  <script src="resources/script.js" defer></script>
+  <script defer>
+/*    //If the userid or admin cookies aren't set, or if they are not a normal user, redirect to login page
     if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
-        document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
+        document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="0"){
       location.href="./login.html";
     }
     //Populates the page based on the userid stored in the userid cookie
     $(document).ready(() => {
-      //Load the json file, then pass it as an argument to populate the page.
+      //Load the json file into localStorage so that other functions can use it later.
       $.getJSON("data.json", function(dat) {
         userLabs(parseInt(document.cookie.substring(7, document.cookie.indexOf(";"))), dat);
       });
-    });
+    });*/
   </script>
   <link rel="stylesheet" href="./homepage.css" media="screen">
   <link rel="stylesheet" type="text/css" href="user_homepage.css">
 <body>
+  <?php
+    require "./backend/queries/validateUser.php";
+  ?>
   <header>
     <h1 class="logo">LIMBS</h1>
     <nav class="navbar">

@@ -2,7 +2,6 @@
 * use console.dir() to debug html elements
 */
 
-
 async function getItemDetails(htmlElement) {
     const itemId = htmlElement.parentElement[0].value;
     if (!itemId) {
@@ -120,6 +119,7 @@ async function searchItem(htmlElement) {
     // Location should be the only mandatory requirement
     if (!location) {
         console.warn("Please input a location");
+        return;
     }
 
     await fetch(`./queries/filterItems.php?location_name=${location}&name=${searchValue}&borrowable=${isBorrowable ? 1 : 0}`)
@@ -129,6 +129,29 @@ async function searchItem(htmlElement) {
           result = JSON.parse(result);
         console.log(result);
       });
+}
+
+async function userLogin(htmlElement) {
+  const username = htmlElement.parentElement[0].value;
+  const password = htmlElement.parentElement[1].value;
+  if (!username) {
+    console.warn("Please input a username");
+    return;
+  }
+  if (!password) {
+    console.warn("Please input a password");
+    return;
+  }
+  const user = await fetch(`./queries/login.php?username=${username}&password=${password}`).then((res) => res.json());
+  if (user.status === loginStatus.USER_DOES_NOT_EXIST) {
+    console.log("User does not exist");
+  }
+  if (user.status === loginStatus.USER_LOGGED_IN) {
+    console.log("User successfully logged in");
+  }
+  if (user.status === loginStatus.INCORRECT_PASSWORD) {
+    console.log("Incorrect Password");
+  }
 }
 
 function isJsonString(str) {

@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (logo) {
       logo.addEventListener('click', () => {
-          window.location.href = "./user_homepage.html";
+          window.location.href = "./user_homepage.php";
       });
   }
 

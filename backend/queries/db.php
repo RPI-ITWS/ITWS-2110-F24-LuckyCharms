@@ -2,6 +2,12 @@
 	// Set error reporting to display all errors
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL);
+
+	// https://stackoverflow.com/questions/768431/how-do-i-make-a-redirect-in-php
+	function redirect($url, $permanent = false) {
+		header('Location: ' . $url, true, $permanent ? 301 : 302);
+		exit();
+	}
 	// Create a new MySQLi object to connect to the database
 	$db = new mysqli('localhost', 'root', '', 'limbs');
 	// Check for connection errors

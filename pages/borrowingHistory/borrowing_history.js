@@ -3,7 +3,7 @@ function profileClick() {
 }
 
 function myLabsClick() {
-    window.location.href = '../user_homepage.html';
+    window.location.href = '../../user_homepage.php';
 }
 
 function borrowingHistoryClick() {

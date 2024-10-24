@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2024 at 11:32 PM
+-- Generation Time: Oct 24, 2024 at 07:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,14 @@ CREATE TABLE `alloweduserlocations` (
   `location_name` varchar(256) NOT NULL COMMENT 'Name of a location the user is allowed in'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `alloweduserlocations`
+--
+
+INSERT INTO `alloweduserlocations` (`user_id`, `location_name`) VALUES
+(1, 'Cogswell Laboratory'),
+(1, 'Darrin Communications Center');
+
 -- --------------------------------------------------------
 
 --
@@ -53,7 +61,7 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `name`, `borrowable`, `description`, `stock`, `image_link`, `location_name`) VALUES
-(1, 'Scissors', 1, 'This cuts things', 96, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR84qsQGI5DqIGNR3Z80ALpzu7ZXfDkafybkEAqCz2iTfhVOK1nEu7NhjugZ_6RR6kOFmlpJcbY3afewrg-0sFOPD-WpRM4w5XprL-J9LSjU2_zSPoXPVvXhf8', 'Darrin Communications Center'),
+(1, 'Scissors', 1, 'This cuts things', 95, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR84qsQGI5DqIGNR3Z80ALpzu7ZXfDkafybkEAqCz2iTfhVOK1nEu7NhjugZ_6RR6kOFmlpJcbY3afewrg-0sFOPD-WpRM4w5XprL-J9LSjU2_zSPoXPVvXhf8', 'Darrin Communications Center'),
 (2, 'Marker', 0, 'I barely know her!', 69, NULL, 'Darrin Communications Center'),
 (3, 'HK416', 1, 'What is this doing in a lab?', 0, NULL, 'Walker Laboratory'),
 (4, 'Plasma TV', 0, 'Plz return it when done, it costed millions of munny.', 1, NULL, 'Lally Hall'),
@@ -101,6 +109,13 @@ CREATE TABLE `reservations` (
   `completed` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Whether the reservation is completed or not.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `reservations`
+--
+
+INSERT INTO `reservations` (`id`, `item_id`, `user_id`, `amount`, `date_reserved`, `date_expected_to_return`, `date_returned`, `cancelled`, `completed`) VALUES
+(31, 1, 1, 1, '2024-10-14 21:21:59', '2024-10-22 01:05:44', '2024-10-15 01:21:59', 0, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -122,7 +137,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `phone`, `creation_date`, `is_admin`) VALUES
-(1, 'jajajajaja', 'password', 'aaaaaaaaaaaaaa', '911', '2024-10-06 06:41:30', 0);
+(1, 'Jane Doe', '$2y$10$Udo2D11nB8MBg8HisRmTZ.8Z8YRRtjPcRLHeExRd.MHynR1r9weFW', 'aaaaaaaaaaaaaa', '911', '2024-10-06 06:41:30', 0),
+(3, 'Dr. Smith', '$2y$10$J1aFG6K6vqSudzSV98lmD.1eAoF8L7hO86SijUrKZK17Yer7PXxCO', 'smitha14@rpi.edu', NULL, '2024-10-22 22:22:48', 1),
+(4, 'John Miller', '$2y$10$rPQy2PKLPdC9yEMLbDDR.e8nubcfvzSaq0qcrE/qCGMzTSwhHDj/m', 'millej3@rpi.edu', NULL, '2024-10-22 22:23:07', 0),
+(5, 'Alex Johnson', '$2y$10$hgjcXd4gQgsIUnfj3lVk9.oOWTXN4O4sFReNDEY03c0QY6WFjAFIO', 'alexarchjohnson@gmail.com', NULL, '2024-10-22 22:23:47', NULL);
 
 --
 -- Indexes for dumped tables
@@ -177,13 +195,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of reservation', AUTO_INCREMENT=31;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of reservation', AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of user', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of user', AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
