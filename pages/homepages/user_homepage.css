@@ -209,7 +209,7 @@ main {
 table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #778DA9;
+  border: 1px solid black;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -217,7 +217,7 @@ table {
 table th, table td {
   padding: 10px;
   text-align: left;
-  border: 1px solid #778DA9;
+  border: 1px solid black;
 }
 
 table thead {
@@ -231,6 +231,12 @@ table thead {
 
 td {
   cursor: pointer;
+}
+
+#highlighted {
+  border-color: #778DA9;
+  border-style: solid;
+  border-width: 2px;
 }
 
 .tag {

@@ -84,8 +84,8 @@ function userLabs(userID, data){
     // Iterate over the items in the lab
     for (let item of data.items) {
       if (item.location_id === labID) {
-        let status = (item.stock - countRemoved(item.id, data) > 0) ? "available" : "unavailable";
-        let type = item.borrowable ? "borrowable" : "removable";
+        let status = (item.stock - countRemoved(item.id, data) > 0) ? "Available" : "Unavailable";
+        let type = item.borrowable ? "Borrowable" : "Removable";
         
         // Append each item as a row in the table
         $("#lab-items").append(`<tr onClick="itemDetails(${item.id})">
@@ -206,6 +206,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const labName = document.getElementById('lab-name').textContent;
       const itemName = event.target.textContent;
 
+      // Select all <tr> elements
+      const allTDs = document.querySelectorAll('tr');
+
+      // Loop through all the <tr> elements
+      allTDs.forEach(tr => {
+        if (tr.id === 'highlighted') {
+          // Remove the highlight from all
+          tr.removeAttribute('id');
+        }
+      });
+
+      // Add the highlight to the clicked table item
+      const trElement = event.target.parentElement;
+      trElement.id = 'highlighted';
+
       // Populate the side panel with that items details
       populateItemDetails(labName, itemName, itemData);
     }
@@ -214,5 +229,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check if the side panel shall be closed
   closePanel.addEventListener('click', function() {
     checkoutPanel.style.display = 'none';
-  })
+
+    // Select all <tr> elements
+    const allTDs = document.querySelectorAll('tr');
+
+    // Loop through all the <tr> elements
+    allTDs.forEach(tr => {
+      if (tr.id === 'highlighted') {
+        // Remove the highlight from all
+        tr.removeAttribute('id');
+      }
+    });
+  });
 });
