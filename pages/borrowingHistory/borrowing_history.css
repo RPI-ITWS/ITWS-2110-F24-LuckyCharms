@@ -5,52 +5,57 @@ html {
 
 body {
     margin: 0;
+    margin-top: 80px;
 }
 
-#navbar {
+header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    background-color: white;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 40px);
+    z-index: 1000;
+
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-#logo {
-    margin-right: 45%;
-    margin-left: 2%;
-    font-weight: bold;
-    font-size: 40px;
-    width: 10%;
-    cursor: pointer;
+.logo {
+font-weight: bold;
+margin: 5px;
+cursor: pointer;
+}
+
+.navbar {
+display: flex;
+align-items: center;
 }
 
 #menu-icon {
-    font-size: 36px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    float: right;
-    text-align: right;
-    margin-right: 50px;
-    position: relative;
-    margin-top: 20px;
+font-size: 24px;
+background: none;
+border: none;
+cursor: pointer;
 }
 
 #dropdown {
-    position: relative;
-    display: inline-block;
+position: relative;
+display: inline-block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    padding: 20px;
-    border-radius: 10px;
-    top: 80%;
-    right: 30%;
-    background-color: white;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    min-width: 160px;
-    z-index: 1;
+display: none;
+position: absolute;
+padding: 20px;
+border-radius: 10px;
+top: 80%;
+right: 30%;
+background-color: white;
+box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+min-width: 160px;
+z-index: 1;
 }
 
 .show {
@@ -58,33 +63,34 @@ body {
 }
 
 h3 {
-    color: black;
-    display: block;
-    font-weight: bold;
-    margin: 0;
-    margin-bottom: 20px;
-    font-size: 18px;
+color: black;
+display: block;
+font-weight: bold;
+margin: 0;
+margin-bottom: 20px;
+font-size: 18px;
 }
 
-h4 {
-    color: black;
-    display: block;
-    margin: 0;
-    cursor: pointer;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-weight: normal;
-    font-size: 15px;
+a {
+color: black;
+display: block;
+margin: 0;
+cursor: pointer;
+text-decoration: none;
+margin-top: 5px;
+margin-bottom: 5px;
+font-weight: normal;
+font-size: 15px;
 }
 
-h5 {
-    color: black;
-    display: block;
-    margin: 0;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 20px;
-    font-size: 18px;
+#logout {
+color: black;
+display: block;
+margin: 0;
+cursor: pointer;
+font-weight: bold;
+margin-top: 20px;
+font-size: 18px;
 }
 
 #tab-bar {
