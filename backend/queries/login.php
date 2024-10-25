@@ -30,6 +30,7 @@
 	} else {
 		if (password_verify($password, $userInfo["password"])) {
 			$_SESSION["userId"] = $userInfo["id"];
+			$_SESSION["isAdmin"] = $userInfo["is_admin"];
 			$userObj->status = $USER_LOGGED_IN;
 			$userObj->isAdmin = $userInfo["is_admin"];
 		} else {
