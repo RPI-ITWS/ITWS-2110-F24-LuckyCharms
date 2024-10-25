@@ -1,4 +1,5 @@
 async function validateLogin(event) {
+  console.log("helo");
   const USER_DOES_NOT_EXIST = 1;
   const USER_LOGGED_IN = 2;
   const INCORRECT_PASSWORD = 3;
@@ -9,14 +10,19 @@ async function validateLogin(event) {
   const password = event.target[1].value;
 
   // No need to check if they exist since it should be handled by the form
-  const user = await fetch(`./backend/queries/login.php?username=${username}&password=${password}`).then((res) => res.json());
+  const user = await fetch(`../backend/queries/login.php?username=${username}&password=${password}`).then((res) => res.json());
   if (user.status === USER_DOES_NOT_EXIST) {
     location.replace("./");
   } else if (user.status === USER_LOGGED_IN) {
+    document.cookie = "userid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie = "admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie = `userid=1}; path=/`;
     if (user.isAdmin) {
-      location.replace("./admin_homepage.php");
+      document.cookie = `admin=1; path=/`;
+      location.replace("./homepages/admin_homepage.php");
     } else {
-      location.replace("./user_homepage.php");
+      document.cookie = `admin=0; path=/`;
+      location.replace("./homepages/user_homepage.php");
     }
   } else if (user.status === INCORRECT_PASSWORD) {
     $("#pass").css("border", "2px solid red");

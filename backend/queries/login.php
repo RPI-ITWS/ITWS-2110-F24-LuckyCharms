@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require "db.php";
 	class UserLogin {
 		public $isAdmin;
@@ -9,6 +10,10 @@
 	$USER_LOGGED_IN = 2;
 	$INCORRECT_PASSWORD = 3;
 
+	if (!isset($_GET["username"]) || !isset($_GET["password"])) {
+		echo $USER_DOES_NOT_EXIST;
+		return;
+	};
 	$username = $_GET["username"];
 	$password = $_GET["password"];
 
@@ -24,8 +29,7 @@
 		$userObj->status = $USER_DOES_NOT_EXIST;
 	} else {
 		if (password_verify($password, $userInfo["password"])) {
-			$_COOKIE["username"] = $username;
-			$_COOKIE["password"] = $password;
+			$_SESSION["userId"] = $userInfo["id"];
 			$userObj->status = $USER_LOGGED_IN;
 			$userObj->isAdmin = $userInfo["is_admin"];
 		} else {

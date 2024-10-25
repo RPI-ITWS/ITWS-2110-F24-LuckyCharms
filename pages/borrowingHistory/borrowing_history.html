@@ -12,7 +12,7 @@
         <script>
             //If the userid or admin cookies aren't set, redirect to login page
             if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1){
-              location.href="/pages/login.html";
+              location.href="../login.php";
             }
             // Populates the page based on the userid stored in the userid cookie
             $.getJSON("/resources/data.json", function(dat) {

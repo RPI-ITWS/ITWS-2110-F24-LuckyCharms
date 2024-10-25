@@ -1,16 +1,21 @@
+<?php
+    session_start();
+	require "../../backend/queries/validateUser.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-  <script src="/resources/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script>
+  <script src="../../resources/script.js"></script>
+  <script defer>
+    let itemData;
     //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
     if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
-        document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
-      location.href="/pages/login.html";
+        document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="0"){
+      location.href="../login.php";
     }
     // Populates the page based on the userid stored in the userid cookie
     $.getJSON("/resources/data.json", function(dat) {
@@ -24,7 +29,6 @@
       $('#menu-icon').on('click', function() {
         menuClick(userName, isAdmin);
       });
-
       // Populate labs with the user's labs
       userLabs(userID, dat);
     });
@@ -96,13 +100,11 @@
 
       <div id="item-description">
         <h3 class="item-labels" id="description-title">Description</h3>
-
+        
         <p id="item-description-list">Text</p>
       </div>
 
       <button id="checkout-button">CHECK OUT</button>
-      <button id="edit-button">EDIT ITEM</button>
-      <button id="remove-button">REMOVE ITEM</button>
     </div>
   </main>
 

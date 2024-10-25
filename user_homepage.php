@@ -17,7 +17,7 @@
 >>>>>>>> main:pages/homepages/user_homepage.html
     if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
         document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="0"){
-      location.href="/pages/login.html";
+      location.href="pages/login.php";
     }
     // Populates the page based on the userid stored in the userid cookie
     $.getJSON("/resources/data.json", function(dat) {

@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log In</title>
-  <link rel="stylesheet" href="./resources/style.css" media="screen">
+  <link rel="stylesheet" href="../resources/style.css" media="screen">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script src="homepage.js" defer></script>
-  <script src="./resources/login.js" defer></script>
+  <script src="../homepage.js" defer></script>
+  <script src="../resources/login.js" defer></script>
   <script>
     // If there's no account with the username, tell them and do nothing; if
     // there is one, tell them if the password's wrong, or set userid cookie
@@ -45,7 +45,6 @@
     });
   }*/
   </script>
-  <script src="/homepage.js" defer></script>
 </head>
 <body>
   <div id="navbar">
