@@ -253,6 +253,7 @@ td {
   width: 50%;
   display: none;
   flex-direction: column;
+  margin-left: 20px;
 }
 
 #show {
