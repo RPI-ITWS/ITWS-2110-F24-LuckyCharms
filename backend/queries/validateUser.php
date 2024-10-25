@@ -4,5 +4,4 @@
 		redirect("../../");
 		return;
 	}
-	echo $_SESSION["userId"];
 ?>
