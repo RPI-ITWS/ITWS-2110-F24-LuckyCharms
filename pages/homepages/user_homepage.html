@@ -8,7 +8,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script defer>
     let itemData;
-    
+
     //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
     if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
         document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="0"){
@@ -103,6 +103,33 @@
       </div>
 
       <button id="checkout-button">CHECK OUT</button>
+    </div>
+
+    <div id="checkout-form">
+      <div id="form-container">
+        <h2 id="form-title">Checkout Item</h2>
+        <form id="form-object">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required><br><br>
+
+          <label for="returnDate">Expected Return Date:</label>
+          <input type="date" id="returnDate" name="returnDate" required><br><br>
+          
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="100" required><br><br>
+
+          <label for="reason">Reason for Checkout:</label>
+          <textarea id="reason" name="reason" required placeholder="Explain why you are checking out this item..."></textarea><br><br>
+
+          <input type="checkbox" id="agreeReturn" name="agreeReturn" required>
+          <label for="agreeReturn">I understand that I have a responsibility to return the item by the date provided.</label><br><br>
+
+          <input type="checkbox" id="agreeNotify" name="agreeNotify" required>
+          <label for="agreeNotify">I understand that if I want to change the date, I have to notify the lab administrator.</label><br><br>
+
+          <button type="submit">CHECK OUT</button>
+        </form>
+      </div>
     </div>
   </main>
 

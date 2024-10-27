@@ -241,4 +241,32 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  const checkoutButton = document.getElementById('checkout-button');
+  checkoutButton.addEventListener('click', function() {
+    const checkoutForm = document.getElementById('checkout-form');
+    checkoutForm.style.display = "flex";
+
+    const checkoutFormTitle = document.getElementById('form-title');
+    const itemTitleContainer = document.getElementById('item-title-text');
+    const itemTitle = itemTitleContainer.textContent;
+    checkoutFormTitle.textContent = "Checkout " + itemTitle;
+  });
+
+  const checkoutForm = document.getElementById('form-object');
+  checkoutForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    checkoutForm.reset();
+
+    const formContainer = document.getElementById('checkout-form');
+    formContainer.style.display = "none";
+
+    const returnDate = document.getElementById('returnDate').value;
+    const quantity = document.getElementById('quantity').value;
+    const reason = document.getElementById('reason').value;
+    
+    console.log('Return Date:', returnDate);
+    console.log('Quantity:', quantity);
+    console.log('Reason:', reason);
+  });
 });
