@@ -402,7 +402,7 @@ td {
 }
 
 textarea {
-  width: 80%;
+  width: 90%;
   height: 100px;
   resize: none;
   padding: 5px;
@@ -415,7 +415,7 @@ textarea {
   border-width: 1px;
 }
 
-#form-object button {
+#checkout-form-button {
   display: block;
   margin: 20px auto 0;
   width: 75%;
@@ -425,7 +425,21 @@ textarea {
   margin-top: 10px;
   height: 25px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+#cancel-checkout-form-button {
+  display: block;
+  margin: 20px auto 0;
+  width: 75%;
+  border: none;
+  border-radius: 20px;
+  background-color: lightcoral;
+  margin-top: 10px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 13px;
   font-weight: normal;
 }
 
