@@ -4,9 +4,9 @@
   on the navbar is clicked. */
 function menuClick(userName, isAdmin){
 
-    let labsPage = "/pages/homepages/user_homepage.html"
+    let labsPage = "../user"
     if (isAdmin) {
-      labsPage = "/pages/homepages/admin_homepage.html"
+      labsPage = "../admin"
     }
 
     if ($('.dropdown-content').hasClass('show')) {
@@ -19,10 +19,10 @@ function menuClick(userName, isAdmin){
     $('#dropdown').append(`
       <div class="dropdown-content">
             <h3>${userName}</h3>
-            <a href="/pages/profile/profile.html">Profile</a>
+            <a href="../profile">Profile</a>
             <a href=${labsPage}>My Labs</a>
-            <a href="/pages/borrowingHistory/borrowing_history.html">Borrowing History</a>
-            <a href="/index.html" id="logout">Logout</a>
+            <a href="../profile/borrowingHistory">Borrowing History</a>
+            <a href="../" id="logout">Logout</a>
       </div>
     `);
   
@@ -73,6 +73,7 @@ function userLabs(userID, data){
 /*Adds rows to the lab-items table displaying each item associated with the
   lab, if it's borrowable, and if it's available. */
   function labItems(labID, data) {
+    console.log(data);
     let labName = data.locations.find(l => l.id === labID).name;
     
     // Update the lab name
