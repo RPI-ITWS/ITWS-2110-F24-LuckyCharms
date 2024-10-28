@@ -363,17 +363,17 @@ td {
   font-size: 13px;
 }
 
-  .checkbox {
-    width: 1vw;
-  }
+.checkbox {
+  width: 1vw;
+}
 
-  .item-name {
-    width: 45vw;
-  }
-  
-  .tag {
-    background-color: #e0e7ff;
-    padding: 5px 10px;
-    border-radius: 15px;
-    color: #5764c6;
-  }
+.item-name {
+  width: 45vw;
+}
+
+/* .tag {
+  background-color: #e0e7ff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  color: #5764c6;
+} */
