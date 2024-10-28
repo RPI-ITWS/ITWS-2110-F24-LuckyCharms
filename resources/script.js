@@ -199,8 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Check to see if any of the item in the table have been clicked on
   table.addEventListener('click', function(event) {
-    event.preventDefault();
-
     if (event.target.tagName === 'TD') {
       // Display the side panel if an item is clicked on
       checkoutPanel.style.display = 'flex';

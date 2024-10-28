@@ -1,20 +1,46 @@
 function toggle(source) {
-    var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]'); // Only target checkboxes in the tbody
+    var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
     for (var i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].checked = source.checked;  // Set all checkboxes' checked status to match the source (header checkbox)
+        checkboxes[i].checked = source.checked; 
+    }
+    updateDeleteButtonVisibility();
+}
+
+function updateDeleteButtonVisibility() {
+    const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]'); 
+    const deleteButton = document.getElementById('delete');
+
+    // check if at least one checkbox is checked
+    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+    // show/hide the delete button based on checked state
+    if (isChecked) {
+        deleteButton.style.visibility = 'visible';
+    } else {
+        deleteButton.style.visibility = 'hidden';
     }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const deleteButton = document.getElementById('delete');  // Make sure this matches the button ID in HTML
+    const deleteButton = document.getElementById('delete'); 
+    deleteButton.style.visibility = 'hidden';
 
-    if (deleteButton) {
-        deleteButton.addEventListener('click', function() {
-            const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');  // Find checked checkboxes in the table body
-            checkboxes.forEach(function(checkbox) {
-                const row = checkbox.closest('tr');  // Get the closest <tr> (the row that contains the checkbox)
-                row.remove();  // Remove the row
-            });
+    // add event listener to all checkboxes
+    const labItems = document.getElementById('lab-items');
+    labItems.addEventListener('change', function(event) {
+        if (event.target.matches('input[type="checkbox"]')) { 
+            updateDeleteButtonVisibility();
+        }
+    });
+
+    // event listener for the delete button click
+    // add code for deleteing it from the database 
+    deleteButton.addEventListener('click', function() {
+        const checkedCheckboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked'); 
+        checkedCheckboxes.forEach(function(checkbox) {
+            const row = checkbox.closest('tr'); 
+            row.remove();
         });
-    }
+        updateDeleteButtonVisibility();
+    });
 });
