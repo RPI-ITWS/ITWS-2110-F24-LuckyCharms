@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log In</title>
-  <link rel="stylesheet" href="/resources/style.css" media="screen">
+  <link rel="stylesheet" href="../resources/style.css" media="screen">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>
 
@@ -13,7 +13,7 @@
     // with the record id and redirect to appropriate homepage.
     function validateLogin(event){
       event.preventDefault();
-      $.getJSON("/resources/data.json", function(data){
+      $.getJSON("../resources/data.json", function(data){
         for(let x of data.users){
           if(x.username === $("#username").val()){
             if(x.password !== $("#pass").val()){
@@ -28,32 +28,32 @@
               document.cookie = `userid=${x.id}; path=/`;
               if(x.is_admin === 1){
                 document.cookie = `admin=1; path=/`;
-                location.replace('./homepages/admin_homepage.html');
+                location.replace('../admin');
                 return true;
               } else {
                 document.cookie = `admin=0; path=/`;
-                location.replace("./homepages/user_homepage.html");
+                location.replace("../user");
                 return true;
               }
             }
           }
         }
         alert("Account does not exist.");
-        location.replace('./signup.html');
+        location.replace('../signup');
         return false;
     });
   }
   </script>
-  <script src="/homepage.js" defer></script>
+  <script src="../homepage.js" defer></script>
 </head>
 <body>
   <div id="navbar">
-    <h1 id="logo">LIMBS</h1>
-    <h2 class="nav-text" id="featuresButton">Features</h2>
-    <h2 class="nav-text" id="aboutUsButton">About Us</h2>
-    <button class="nav-button" id="login-button">Login</button>
-    <button class="nav-button" id="sign-up-button">Sign Up</button>
-</div>
+    <h1 id="logo" onclick="homePage(event)">LIMBS</h1>
+    <h2 class="nav-text" id="featuresButton" onclick="featuresPage(event)">Features</h2>
+    <h2 class="nav-text" id="aboutUsButton" onclick="aboutUsPage(event)">About Us</h2>
+    <button class="nav-button" id="login-button" onclick="loginPage(event)">Login</button>
+    <button class="nav-button" id="sign-up-button" onclick="signUpPage(event)">Sign Up</button>
+  </div>
   <div id="content">
     <div class="login_signup">
       <h4 class="first-letter">Log In</h4>
@@ -66,7 +66,7 @@
         <a style="text-align: right; margin-top: 11px; font-size: 12px; font-weight: bold;">Forgot Password?</a>
         <button id="submit" type="submit">Log In</button>
       </form>
-      <a href="signup.html">Sign Up</a>
+      <a href="../signup/index.html">Sign Up</a>
     </div>
   </div>
 </body>
