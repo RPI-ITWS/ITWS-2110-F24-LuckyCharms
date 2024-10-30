@@ -6,14 +6,14 @@
   <title>Home</title>
   <script src="../resources/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script src="../../resources/checkout_form.js"></script>
+  <script src="../resources/checkout_form.js"></script>
   <script defer>
     let itemData;
 
     //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
     if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
         document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="0"){
-      location.href="../login";
+      location.href="../login/login.html";
     }
     // Populates the page based on the userid stored in the userid cookie
     $.getJSON("../resources/data.json", function(dat) {
@@ -32,14 +32,9 @@
       userLabs(userID, dat);
     });
   </script>
-<<<<<<<< HEAD:temp-homepages/user_homepage.html
-  <link rel="stylesheet" href="/homepage.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="user_homepage.css">
-  <link rel="stylesheet" type="text/css" href="../../resources/checkout_form.css">
-========
   <link rel="stylesheet" href="../homepage.css" media="screen">
   <link rel="stylesheet" type="text/css" href="style.css">
->>>>>>>> origin/main:user/index.html
+  <link rel="stylesheet" type="text/css" href="../resources/checkout_form.css">
 <body>
   <header>
     <h1 class="logo">LIMBS</h1>
@@ -120,7 +115,7 @@
           <input type="text" id="name" name="name" required><br><br>
 
           <label for="returnDate" id="returnDateLabel">Planned Return Date (Within 2 weeks):</label>
-          <input type="date" id="returnDate" name="returnDate" required><br><br>
+          <input type="date" id="returnDate" name="returnDate" required><br id="returnDateBreak1"><br id="returnDateBreak2">
           
           <label for="quantity">Quantity:</label>
           <input type="number" id="quantity" name="quantity" min="1" max="100" required><br><br>
