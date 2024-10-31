@@ -1,28 +1,43 @@
 /*For the general homepage*/
 
 /*Go to the homepage*/
-function homePage(event) {
-    window.location.href = "/index.html";
+function homePage(event, homepage=null) {
+    if (homepage)
+        window.location.href = "./";
+    else
+        window.location.href = "../"
 }
 
 /*Go to the features page*/
-function featuresPage(event) {
-    window.location.href = "/pages/features.html";
+function featuresPage(event, homepage=null) {
+    if (homepage)
+        window.location.href = "./features";
+    else
+        window.location.href = "../features";
 }
 
 /*Go to the about us page*/
-function aboutUsPage(event) {
-    window.location.href = "/pages/aboutUs.html";
+function aboutUsPage(event, homepage=null) {
+    if (homepage)
+        window.location.href = "./features";
+    else
+        window.location.href = "../about";
 }
 
 /*Go to the login page*/
-function loginPage(event) {
-    window.location.href = "pages/login.php";
+function loginPage(event, homepage=null) {
+    if (homepage)
+        window.location.href = "./features";
+    else
+        window.location.href = "../login";
 }
 
 /*Go to the create account/sign up page*/
-function signUpPage(event) {
-    window.location.href = "./pages/signup.html";
+function signUpPage(event, homepage=null) {
+    if (homepage)
+        window.location.href = "./features";
+    else
+        window.location.href = "../signup";
 }
 
 /*Code below runs AFTER the DOM is fully loaded*/
@@ -30,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
     /*For the logo button*/
     const logoButton = document.getElementById('logo');
     /*Each button has a click function that is activated when the button is clicked*/
-    logoButton.addEventListener('click', homePage);
     /*Each button will be changing the cursor to a pointer when it is being hovered over*/
     logoButton.addEventListener('mouseenter', function() {
         logoButton.style.cursor = 'pointer';
@@ -41,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /*For the features Button on the navigation bar*/
     const featuresButton = document.getElementById('featuresButton');
-    featuresButton.addEventListener('click', featuresPage);
     featuresButton.addEventListener('mouseenter', function() {
         featuresButton.style.cursor = 'pointer';
     });
@@ -51,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /*For the about us button on the navigation bar*/
     const aboutUsButton = document.getElementById('aboutUsButton');
-    aboutUsButton.addEventListener('click', aboutUsPage);
     aboutUsButton.addEventListener('mouseenter', function() {
         aboutUsButton.style.cursor = 'pointer';
     });
@@ -61,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /*For the login button on the navigation bar*/
     const loginButton = document.getElementById('login-button');
-    loginButton.addEventListener('click', loginPage);
     loginButton.addEventListener('mouseenter', function() {
         loginButton.style.cursor = 'pointer';
     });
@@ -71,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /*For the sign up button on the navigation bar*/
     const signUpButton = document.getElementById('sign-up-button');
-    signUpButton.addEventListener('click', signUpPage);
     signUpButton.addEventListener('mouseenter', function() {
         signUpButton.style.cursor = 'pointer';
     });
