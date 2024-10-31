@@ -9,12 +9,14 @@ function toggle(source) {
 function updateDeleteButtonVisibility() {
     const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]'); 
     const deleteButton = document.getElementById('delete');
+    const countLabel = document.getElementById('checked-count');
 
     // check if at least one checkbox is checked
-    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+    const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+    countLabel.textContent = checkedCount > 0 ? `${checkedCount} selected` : ''; 
 
     // show/hide the delete button based on checked state
-    if (isChecked) {
+    if (checkedCount > 0) {
         deleteButton.style.visibility = 'visible';
     } else {
         deleteButton.style.visibility = 'hidden';
