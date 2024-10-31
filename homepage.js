@@ -19,7 +19,7 @@ function featuresPage(event, homepage=null) {
 /*Go to the about us page*/
 function aboutUsPage(event, homepage=null) {
     if (homepage)
-        window.location.href = "./features";
+        window.location.href = "./about";
     else
         window.location.href = "../about";
 }
@@ -27,7 +27,7 @@ function aboutUsPage(event, homepage=null) {
 /*Go to the login page*/
 function loginPage(event, homepage=null) {
     if (homepage)
-        window.location.href = "./features";
+        window.location.href = "./login";
     else
         window.location.href = "../login";
 }
@@ -35,7 +35,7 @@ function loginPage(event, homepage=null) {
 /*Go to the create account/sign up page*/
 function signUpPage(event, homepage=null) {
     if (homepage)
-        window.location.href = "./features";
+        window.location.href = "./signup";
     else
         window.location.href = "../signup";
 }
