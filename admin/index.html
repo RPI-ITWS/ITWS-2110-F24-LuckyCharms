@@ -5,31 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <script src="../resources/script.js"></script>
+  <script src="../resources/lablist.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>
-    let itemData;
-    
-    //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
-    if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
-        document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
-      location.href="../login";
-    }
-    // Populates the page based on the userid stored in the userid cookie
-    $.getJSON("../resources/data.json", function(dat) {
-      const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
-      const user = dat.users.find(u => u.id === userID);
-      const userName = user ? user.username : "Guest";
-      const isAdmin = user.is_admin ? true : false;
-      itemData = dat;
+    document.addEventListener("DOMContentLoaded", function(){
 
-      // Call menuClick with the user's name when the menu button is clicked
-      $('#menu-icon').on('click', function() {
-        menuClick(userName, isAdmin);
+      //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
+      if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
+          document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
+        location.href="../login";
+      }
+      // Populates the page based on the userid stored in the userid cookie
+      $.getJSON("../resources/data.json", function(dat) {
+        populate(dat);
+
+        const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
+        const user = dat.users.find(u => u.id === userID);
+        const userName = user ? user.username : "Guest";
+        const isAdmin = user.is_admin ? true : false;
+
+        // Call menuClick with the user's name when the menu button is clicked
+        document.getElementById("menu-icon").onclick = () => {menuClick(userName, isAdmin);}
+
+        // Populate labs with the user's labs
+        userLabs(userID, dat);
       });
-
-      // Populate labs with the user's labs
-      userLabs(userID, dat);
     });
+    
   </script>
   <link rel="stylesheet" href="../homepage.css" media="screen">
   <link rel="stylesheet" type="text/css" href="../user/style.css">
