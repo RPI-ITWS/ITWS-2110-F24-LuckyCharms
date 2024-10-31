@@ -9,21 +9,24 @@
   <script src="../homepage.js" defer></script>
   <script>
     function validateSignup(){
-      if($("#pass1").val() !== $("#pass2").val()){
+      if(document.getElementById("pass1").getAttribute("value")!==document.getElementById("pass2").getAttribute("value")){
         alert("Passwords must match.");
-        $("input[type=password]").css("border", "2px solid red");
+        let list = document.querySelectorAll("input[type=password]");
+        for(let i=0; i<list.length; i++){
+          list[i].style.border = "2px solid red";
+        }
         return false;
       }
       $.getJSON("../resources/data.json", function(data) {
         for(let x of data.users){
-          if(x.email===$("#email").val()){
+          if(x.email===document.getElementById("email").getAttribute("value")){
             alert("There is already an account associated with this email address.");
-            $("#email").css("border", "2px solid red");
+            document.getElementById("email").style.border = "2px solid red";
             return false;
           }
-          if(x.username===$("#username").val()){
+          if(x.username===document.getElementById("username").getAttribute("value")){
             alert("This username is already in use.");
-            $("#username").css("border", "2px solid red");
+            document.getElementById("username").style.border = "2px solid red";
             return false;
           }
         }
