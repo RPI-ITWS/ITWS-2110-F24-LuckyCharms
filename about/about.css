@@ -1,0 +1,27 @@
+#content {
+    display: flex;
+    flex-direction: column;
+  }
+
+#about {
+    margin-top: 100px;
+    width: 80%;
+}
+
+#about-title {
+    margin-top: 65px;
+}
+
+    #about-title p {
+        margin: 0;
+        font-size: 20px;
+    }
+
+h2 {
+    margin: 0;
+    font-size: 40px;
+}
+
+p {
+    font-weight: 400;
+}
