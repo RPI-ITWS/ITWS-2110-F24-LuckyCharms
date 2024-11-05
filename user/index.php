@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	require "../../backend/queries/validateAdmin.php";
+    session_start();
+	require "../backend/queries/validateUser.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,25 +8,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-<<<<<<<< HEAD:user/admin_homepage.php
-  <script src="../../resources/script.js"></script>
-========
   <script src="../resources/script.js"></script>
->>>>>>>> main:admin/index.html
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script>
+  <script defer>
+    let itemData;
     //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
-<<<<<<<< HEAD:user/admin_homepage.php
-    // if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
-    //     document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
-    //   location.href="../login.php";
-    // }
-========
     if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
-        document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
+        document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="0"){
       location.href="../login";
     }
->>>>>>>> main:admin/index.html
     // Populates the page based on the userid stored in the userid cookie
     $.getJSON("../resources/data.json", function(dat) {
       const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
@@ -39,13 +29,12 @@
       $('#menu-icon').on('click', function() {
         menuClick(userName, isAdmin);
       });
-
       // Populate labs with the user's labs
       userLabs(userID, dat);
     });
   </script>
   <link rel="stylesheet" href="../homepage.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="../user/style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 <body>
   <header>
     <h1 class="logo">LIMBS</h1>
@@ -63,6 +52,7 @@
         <!-- labs populated dynamically -->
       </ul>
     </div>
+
     <div class="content">
       <div class="lab-title">
         <h2 id="lab-name">No Labs</h2>
@@ -110,13 +100,11 @@
 
       <div id="item-description">
         <h3 class="item-labels" id="description-title">Description</h3>
-
+        
         <p id="item-description-list">Text</p>
       </div>
 
       <button id="checkout-button">CHECK OUT</button>
-      <button id="edit-button">EDIT ITEM</button>
-      <button id="remove-button">REMOVE ITEM</button>
     </div>
   </main>
 

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require "../../backend/queries/validateAdmin.php";
+	require "../backend/queries/validateAdmin.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,25 +8,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-<<<<<<<< HEAD:user/admin_homepage.php
-  <script src="../../resources/script.js"></script>
-========
   <script src="../resources/script.js"></script>
->>>>>>>> main:admin/index.html
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>
     //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
-<<<<<<<< HEAD:user/admin_homepage.php
     // if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
     //     document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
     //   location.href="../login.php";
     // }
-========
     if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
         document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
       location.href="../login";
     }
->>>>>>>> main:admin/index.html
     // Populates the page based on the userid stored in the userid cookie
     $.getJSON("../resources/data.json", function(dat) {
       const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));

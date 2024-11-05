@@ -19,10 +19,10 @@ async function validateLogin(event) {
     document.cookie = `userid=1}; path=/`;
     if (user.isAdmin) {
       document.cookie = `admin=1; path=/`;
-      location.replace("./homepages/admin_homepage.php");
+      location.replace("../admin");
     } else {
       document.cookie = `admin=0; path=/`;
-      location.replace("./homepages/user_homepage.php");
+      location.replace("../user");
     }
   } else if (user.status === INCORRECT_PASSWORD) {
     $("#pass").css("border", "2px solid red");

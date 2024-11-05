@@ -2,8 +2,8 @@
 	require "validateUser.php";
 
 	if (!isset($_SESSION["isAdmin"]))
-		redirect("./user_homepage.php");
+		redirect("../user");
 
 	if ($_SESSION["isAdmin"] != 1)
-		redirect("./user_homepage.php");
+		redirect("../user");
 ?>
