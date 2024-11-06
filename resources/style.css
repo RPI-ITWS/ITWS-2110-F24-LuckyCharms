@@ -15,14 +15,14 @@ body {
 /* Navigation Bar Styling: */
 #navbar {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 100%;
     position: fixed;
     background-color: white;
 }
 
 #logo {
-    margin-right: 45%;
+    margin-right: auto;
     margin-left: 2%;
     font-weight: bold;
     font-size: 40px;
@@ -30,17 +30,16 @@ body {
 }
 
 .menu-icon {
-font-size: 24px;
-background: none;
-border: none;
-cursor: pointer;
-padding: 10px 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
 }
 
 .nav-text {
     font-size: 18px;
     font-weight: bold;
-    width: 7%;
     margin-left: 2%;
     margin-top: 38px;
     min-width: 80px;
@@ -49,23 +48,23 @@ padding: 10px 20px;
 .nav-button {
     height: 35px;
     margin-top: 30px;
-    width: 10%;
     border: none;
     border-radius: 20px;
     color: white;
     font-size: 20px;
     font-weight: bold;
-    width: 10%;
+    width: min(150px, 10%);
     margin-left: 2%;
 }
 
-#login-button {
-    background-color: #78849E;
-}
+    #login-button {
+        background-color: #78849E;
+    }
 
-#sign-up-button {
-    background-color: black;
-}
+    #sign-up-button {
+        background-color: black;
+        margin-right: 15px;
+    }
 
 #content {
     display: flex;
