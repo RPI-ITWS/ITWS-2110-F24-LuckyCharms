@@ -5,7 +5,9 @@
 
 #about {
     margin-top: 100px;
-    width: 80%;
+    /* width: min(80%); */
+
+    width: min(80%, 1204px);
 }
 
 #about-title {
@@ -23,5 +25,9 @@ h2 {
 }
 
 p {
+    font-weight: 400;
+}
+
+li {
     font-weight: 400;
 }
