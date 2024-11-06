@@ -122,42 +122,6 @@ img {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-#checkout-image {
-    width: 70%;
-    margin-left: 5%;
-    margin-top: 60px;
-    border-radius: 20px;
-    height: calc(0.75 * var(--element-width));
-    border: 2px;
-    border-style: solid;
-    border-color: black;
-    float: right;
-}
-
-#account-hierarchy-image {
-    width: 65%;
-    margin-right: 5%;
-    margin-top: 60px;
-    border-radius: 20px;
-    height: calc(0.75 * var(--element-width));
-    border: 2px;
-    border-style: solid;
-    border-color: black;
-    float: left;
-}
-
-#item-detail-image {
-    width: 60%;
-    margin-left: 5%;
-    margin-top: 60px;
-    border-radius: 20px;
-    height: calc(0.75 * var(--element-width));
-    border: 2px;
-    border-style: solid;
-    border-color: black;
-    float: right;
-}
-
 #getting-started-button {
     border: none;
     border-radius: 30px;
