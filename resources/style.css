@@ -1,9 +1,8 @@
-
-/* For styling used in multiple pages */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /*Below are used on every page.*/
 html {
-    font-family: Arial;
+    font-family: 'Inter', sans-serif;
     min-width: 1150px;
 }
 
