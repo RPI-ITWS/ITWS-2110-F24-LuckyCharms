@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    require "../backend/queries/db.php";
+	if (!isset($_SESSION["isAdmin"])) {
+		redirect("../");
+        return;
+	}
+
+    if ($_SESSION["isAdmin"] != 1) {
+	    redirect("../user");
+        return;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +37,13 @@
         const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
         const user = dat.users.find(u => u.id === userID);
         const userName = user ? user.username : "Guest";
-        const isAdmin = user.is_admin ? true : false;
-
-        // Call menuClick with the user's name when the menu button is clicked
-        document.getElementById("menu-icon").onclick = () => {menuClick(userName, isAdmin);}
+        <?php
+	      $isAdmin = $_SESSION['isAdmin'];
+	      echo "
+            const isAdmin = $isAdmin;
+            document.getElementById('menu-icon').onclick = () => { menuClick(userName, isAdmin); };
+          ";
+        ?>
 
         // Populate labs with the user's labs
         userLabs(userID, dat);

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    // Checks if they are logged in, if not, redirects to the home page
+    require "../backend/queries/validateUser.php";
+    if (!validateUser())
+        redirect("../");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +31,16 @@
         const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
         const user = dat.users.find(u => u.id === userID);
         const userName = user ? user.username : "Guest";
-        const isAdmin = user.is_admin ? true : false;
+        <?php
+          $isAdmin = $_SESSION['isAdmin'];
+          echo "
+            const isAdmin = $isAdmin;
+            document.getElementById('menu-icon').onclick = () => { menuClick(userName, isAdmin); };
+          ";
+        ?>
 
         // Call menuClick with the user's name when the menu button is clicked
-        document.getElementById("menu-icon").onclick = () => {menuClick(userName, isAdmin);};
-        
+
         // Populate labs with the user's labs
         userLabs(userID, dat);
       });

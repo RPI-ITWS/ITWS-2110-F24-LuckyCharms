@@ -11,7 +11,15 @@ function menuClick(userName, isAdmin){
     }
 
     // Append the new dropdown content
-    document.getElementById("dropdown").innerHTML = document.getElementById("dropdown").innerHTML + `<div class="dropdown-content"><h3>${userName}</h3><a href="../profile">Profile</a><a href=${labsPage}>My Labs</a><a href="../profile/borrowingHistory">Borrowing History</a><a href="../" id="logout">Logout</a></div>`;
+    document.getElementById("dropdown").innerHTML = document.getElementById("dropdown").innerHTML + `
+        <div class="dropdown-content">
+            <h3>${userName}</h3>
+            <a href="../profile">Profile</a>
+            <a href=${labsPage}>My Labs</a>
+            <a href="../profile/borrowingHistory">Borrowing History</a>
+            <a href="../" id="logout">Logout</a>
+        </div>
+    `;
 
     // Toggle visibility when the menu is clicked
     document.getElementById("dropdown").onclick = (e) => {
@@ -32,7 +40,7 @@ function menuClick(userName, isAdmin){
   the info of the lab they can access with the lowest ID number. */
   function userLabs(userID, data){
     let flag = true; // To load the first lab's items by default
-  
+
     // Iterate over the allowed labs for the user
     for (let x of data.allowed_user_locations) {
       if (x.user_id === userID) {
@@ -43,8 +51,11 @@ function menuClick(userName, isAdmin){
         let checkedStatus = flag ? "checked" : "";
   
         // Add each lab as a radio button with label
-        document.getElementById("lab-list").innerHTML = document.getElementById("lab-list").innerHTML + `<li><input type="radio" id="lab${lab.id}" name="lab" ${checkedStatus} onClick='labItems(${lab.id}, ${JSON.stringify(data)})'><label for="lab${lab.id}">${labName}</label></li>`;
-        
+        document.getElementById("lab-list").innerHTML = document.getElementById("lab-list").innerHTML + `
+          <li>
+            <input type="radio" id="lab${lab.id}" name="lab" ${checkedStatus} onClick='labItems(${lab.id}, ${JSON.stringify(data)})'>
+            <label for="lab${lab.id}">${labName}</label>
+          </li>`;
   
         // Load items for the first lab by default
         if (flag) {

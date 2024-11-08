@@ -1,5 +1,10 @@
-<!DOCTYPE html>
+<?php
+    // Should the user come to the homepage, they should be logged out
+    session_start();
+    session_destroy();
+?>
 
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">

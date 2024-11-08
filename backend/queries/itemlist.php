@@ -1,7 +1,7 @@
 <?php
     require "db.php";
 
-    // location name is hte location the user clicks on
+    // location name is the location the user clicks on
     $location_name = $_GET["location_name"];
     $query = $db->prepare("SELECT * FROM items WHERE location_name = ?;");
     $query->bind_param("s", $location_name);

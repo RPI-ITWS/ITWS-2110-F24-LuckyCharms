@@ -1,7 +1,7 @@
 <?php
-	require "db.php";
-	if (!isset($_SESSION["userId"])) {
-		redirect("../../");
-		return;
+	function validateUser() {
+		if (isset($_SESSION["userId"]))
+			return true;
+		return false;
 	}
 ?>
