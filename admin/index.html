@@ -8,6 +8,7 @@
   <script src="../resources/lablist.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="../resources/checkout_form.js"></script>
+  <script src="../resources/add_form.js"></script>
   <script>
 
     document.addEventListener("DOMContentLoaded", function(){
@@ -125,15 +126,15 @@
           <label for="new-item-description">Item Description:</label>
           <textarea id="new-item-description" name="new-item-description" placeholder="Describe the item..."></textarea><br><br>
 
-          <label for="item-type">Item Type:</label>
+          <label for="type-dropdown">Item Type:</label>
           <select id="type-dropdown" required>
             <option value="" disabled selected>Select an option</option>
             <option value="Borrowable">Borrowable</option>
             <option value="Removable">Removable</option>
           </select><br><br>
 
-          <label for="item-quantity">Quantity:</label>
-          <input type="number" id="item-quantity" name="quantity" min="1" max="100" required><br><br>
+          <label for="item-quantity">Stock:</label>
+          <input type="number" id="item-quantity" name="item-quantity" min="1" max="1000" required><br><br>
 
           <label for="item-image">Item Image:</label>
           <input type="file" id="item-image" accept="image/*">
