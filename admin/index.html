@@ -124,7 +124,7 @@
           <input type="text" id="item-name" name="item-name" required><br><br>
 
           <label for="new-item-description">Item Description:</label>
-          <textarea id="new-item-description" name="new-item-description" placeholder="Describe the item..."></textarea><br><br>
+          <textarea id="new-item-description" name="new-item-description" maxlength="1000" placeholder="Describe the item..."></textarea><br><br>
 
           <label for="type-dropdown">Item Type:</label>
           <select id="type-dropdown" required>
@@ -159,7 +159,7 @@
           <input type="number" id="quantity" name="quantity" min="1" max="100" required><br><br>
 
           <label for="reason">Reason for Checkout:</label>
-          <textarea id="reason" name="reason" required placeholder="Explain why you need this item..."></textarea><br><br>
+          <textarea id="reason" name="reason" maxlength="1000" required placeholder="Explain why you need this item..."></textarea><br><br>
 
           <input type="checkbox" id="agreeReturn" name="agreeReturn" required>
           <label for="agreeReturn" id="agreeReturnLabel">I understand that I have a responsibility to return the item by the date provided.</label><br><br>
