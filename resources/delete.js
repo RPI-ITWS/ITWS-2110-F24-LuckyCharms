@@ -16,8 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const itemTitleContainer = document.getElementById('item-title-text');
         const itemTitle = itemTitleContainer.textContent;
 
-        // INsert PHP fetch statement here to delete the item
+        const labName = document.getElementById('lab-name').textContent;
 
+        // Insert PHP to find the specific item from the lab name and remove it
+
+        console.log("Lab to check:", labName);
         console.log("Item to delete: ", itemTitle);
 
         const deleteContainer = document.getElementById('delete-item');

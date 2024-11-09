@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
+        const labName = document.getElementById('lab-name').textContent;
         const itemName = document.getElementById('item-name').value;
         const itemType = document.getElementById('type-dropdown').value;
         const itemDescription = document.getElementById('new-item-description').value;
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Fetch and POST to PHP here
 
+            console.log("Lab Name: ", labName);
             console.log("Item Name: ", itemName);
             console.log("Item Type: ", itemType);
             console.log("Item Description: ", itemDescription);
