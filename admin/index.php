@@ -1,15 +1,18 @@
 <?php
-    session_start();
-    require "../backend/queries/db.php";
+	session_start();
+	require "../backend/queries/getActiveLabs.php";
 	if (!isset($_SESSION["isAdmin"])) {
 		redirect("../");
-        return;
+			return;
 	}
-
-    if ($_SESSION["isAdmin"] != 1) {
-	    redirect("../user");
-        return;
-    }
+	if ($_SESSION["isAdmin"] != 1) {
+		redirect("../user");
+		return;
+	}
+	$isAdmin = $_SESSION['isAdmin'];
+	$userId = $_SESSION['userId'];
+	$allowedUserLocations = getActiveLabs($userId);
+	$currentLocation = "No Labs";
 ?>
 
 <!DOCTYPE html>
@@ -23,33 +26,22 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="../resources/checkout_form.js"></script>
   <script>
-
-    document.addEventListener("DOMContentLoaded", function(){
-      //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
-      if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
-          document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
-        location.href="../login";
-      }
+    document.addEventListener("DOMContentLoaded", function() {
       // Populates the page based on the userid stored in the userid cookie
-      $.getJSON("../resources/data.json", function(dat) {
-        populate(dat);
+      populate();
 
-        const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
-        const user = dat.users.find(u => u.id === userID);
-        const userName = user ? user.username : "Guest";
-        <?php
-	      $isAdmin = $_SESSION['isAdmin'];
-	      echo "
-            const isAdmin = $isAdmin;
-            document.getElementById('menu-icon').onclick = () => { menuClick(userName, isAdmin); };
-          ";
-        ?>
+      const userName = "Guest";
+      <?php
+        $isAdmin = $_SESSION['isAdmin'];
+        echo "
+          const isAdmin = $isAdmin;
+          document.getElementById('menu-icon').onclick = () => { menuClick(userName, isAdmin); };
+        ";
+      ?>
 
-        // Populate labs with the user's labs
-        userLabs(userID, dat);
-      });
+      // Populate labs with the user's labs
+      // userLabs(userID, dat);
     });
-    
   </script>
   <link rel="stylesheet" href="../homepage.css" media="screen">
   <link rel="stylesheet" type="text/css" href="../user/style.css">
@@ -68,7 +60,25 @@
     <div class="sidebar">
       <div id="sidebar-title">Labs</div>
       <ul id="lab-list">
-        <!-- labs populated dynamically -->
+	      <?php
+		      // Populates the labs based on the user's allowed labs
+		      $allowedUserLocations = json_decode($allowedUserLocations);
+		      $checked = "checked";
+		      foreach ($allowedUserLocations as $location) {
+			      $locationName = $location->location_name;
+			      echo "
+              <li class='lab'>
+                <input type='radio' $checked id='$locationName' name='lab' onClick='labItems(`$locationName`)'>
+                <label for='$locationName'>$locationName</label>
+              </li>
+					  ";
+			      if ($checked === "checked") {
+				      $checked = "";
+				      $currentLocation = $locationName;
+				      echo "<script>labItems('$locationName')</script>";
+			      }
+		      }
+	      ?>
       </ul>
     </div>
 

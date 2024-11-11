@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  require "../backend/queries/validateUser.php";
+  if (!validateUser())
+    redirect("../");
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +13,7 @@
   <title>Home</title>
   <script src="../resources/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script>            
-    //If the userid or admin cookies aren't set, redirect to login page
-    if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1){
-      location.href="../login";
-    }
+  <script>
 
     function populateProfile(userID, data){
         for(let user of data.users){
@@ -23,7 +26,7 @@
     }
 
     // Populates the page based on the userid stored in the userid cookie
-    $.getJSON("/resources/data.json", function(dat) {
+    $.getJSON("../resources/data.json", function(dat) {
       const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
       const user = dat.users.find(u => u.id === userID);
       const userName = user ? user.username : "Guest";

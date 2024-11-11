@@ -233,10 +233,18 @@ td {
   cursor: pointer;
 }
 
-#highlighted {
+.highlighted {
   border-color: #778DA9;
   border-style: solid;
   border-width: 2px;
+  /*
+    The default display is 'table-row' which according to MDN:
+    https://developer.mozilla.org/en-US/docs/Web/CSS/display#syntax
+    states that all the css in one row gets applied to all rows.
+    We want to change this behavior specifically for a class that affects
+    one row.
+  */
+  display: block;
 }
 
 .tag {
@@ -247,13 +255,17 @@ td {
 }
 
 .right-sidebar {
-  border-left: black;
+  position: absolute;
+  width: 40vw;
   border-left-style: solid;
   border-left-width: 1px;
-  width: 50%;
   display: none;
   flex-direction: column;
-  margin-left: 20px;
+  background-color: white;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
 
 #show {

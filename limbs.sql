@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2024 at 07:20 AM
+-- Generation Time: Nov 11, 2024 at 04:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,7 +38,9 @@ CREATE TABLE `alloweduserlocations` (
 
 INSERT INTO `alloweduserlocations` (`user_id`, `location_name`) VALUES
 (1, 'Cogswell Laboratory'),
-(1, 'Darrin Communications Center');
+(1, 'Darrin Communications Center'),
+(1, 'Lally Hall'),
+(3, 'Darrin Communications Center');
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,8 @@ INSERT INTO `items` (`id`, `name`, `borrowable`, `description`, `stock`, `image_
 (4, 'Plasma TV', 0, 'Plz return it when done, it costed millions of munny.', 1, NULL, 'Lally Hall'),
 (5, 'Gigantic Light Bulb', 0, 'Read the name.', 45, NULL, 'Darrin Communications Center'),
 (6, 'Ball', 1, NULL, 4, 'https://www.yogadirect.com/cdn-cgi/image/quality%3D85/assets/images/anti-burst-yoga-ball-red.jpg', 'Low Center for Industrial Innovation'),
-(7, 'Scissors', 1, 'This cuts things', 99, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR84qsQGI5DqIGNR3Z80ALpzu7ZXfDkafybkEAqCz2iTfhVOK1nEu7NhjugZ_6RR6kOFmlpJcbY3afewrg-0sFOPD-WpRM4w5XprL-J9LSjU2_zSPoXPVvXhf8', 'Russell Sage Laboratory');
+(7, 'Scissors', 1, 'This cuts things', 99, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR84qsQGI5DqIGNR3Z80ALpzu7ZXfDkafybkEAqCz2iTfhVOK1nEu7NhjugZ_6RR6kOFmlpJcbY3afewrg-0sFOPD-WpRM4w5XprL-J9LSjU2_zSPoXPVvXhf8', 'Russell Sage Laboratory'),
+(8, 'Rat', 1, NULL, 24, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRXFAwxItMmQ3v6NUlkZPPAjvwrT1PKW2KnQ&s', 'Cogswell Laboratory');
 
 -- --------------------------------------------------------
 
@@ -150,8 +153,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `phone`, `creation_d
 -- Indexes for table `alloweduserlocations`
 --
 ALTER TABLE `alloweduserlocations`
-  ADD KEY `alloweduserlocations_ibfk_3` (`location_name`),
-  ADD KEY `alloweduserlocations_ibfk_4` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`,`location_name`),
+  ADD KEY `alloweduserlocations_ibfk_3` (`location_name`);
 
 --
 -- Indexes for table `items`
@@ -189,7 +192,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of item', AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of item', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `reservations`

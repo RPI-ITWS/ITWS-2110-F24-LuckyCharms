@@ -2,29 +2,24 @@
 
 /*Adds rows to the lab-items table displaying each item associated with the
   lab, if it's borrowable, and if it's available. */
-function labItems(labID, data) {
-  let labName = data.locations.find(l => l.id === labID).name;
-  
-  // Update the lab name
-  $("#lab-name").html(labName);
-
-  // Clear the table content
-  $("#lab-items").html("");
-  
+async function labItems(labName) {
+  const items = await fetch(`../backend/queries/itemlist.php?locationName=${labName}`).then((res) => res.json());
   // Iterate over the items in the lab
-  for (let item of data.items) {
-    if (item.location_id === labID) {
-      let status = (item.stock - countRemoved(item.id, data) > 0) ? "Available" : "Unavailable";
-      let type = item.borrowable ? "Borrowable" : "Removable";
-      
-      // Append each item as a row in the table
-      $("#lab-items").append(`<tr>
-        <td class="item-name">${item.name}</td>
-        <td><span class="tag">${type}</span></td>
-        <td>${status}</td>
-      </tr>`);
-    }
+  let labItems = "";
+  for (let item of items) {
+    let status = item.stock > 0 ? "Available" : "Unavailable";
+    let type = item.borrowable ? "Borrowable" : "Removable";
+    
+    // Append each item as a row in the table
+    labItems += `<tr id="${item.id}">
+      <td class="item-name">${item.name}</td>
+      <td><span class="tag">${type}</span></td>
+      <td>${status}</td>
+    </tr>`;
   }
+  // Updates the content
+  $("#lab-name").html(labName);
+  $("#lab-items").html(labItems);
 }
 
 //Returns number of items with id itemID currently removed/checked out
@@ -39,23 +34,8 @@ function countRemoved(itemID, data){
   return count;
 }
 
-function populateItemDetails(labName, itemName, itemData) {
-  var labLocation;
-  
-  // Get the current lab of the item clicked on
-  for (const location of itemData.locations) {
-    if (location.name === labName) {
-      labLocation = location.id;
-    }
-  }
-
-  // Find the specific item in the lab by name
-  var specificItem;
-  for (const item of itemData.items) {
-    if (item.location_id === labLocation && item.name === itemName) {
-      specificItem = item;
-    }
-  }
+async function populateItemDetails(labLocation, itemId) {
+  const item = await fetch(`../backend/queries/itemDetail.php?id=${itemId}`).then((res) => res.json());
 
   // Get the text container for the item title
   const itemTitleText = document.getElementById('item-title-text');
@@ -76,10 +56,10 @@ function populateItemDetails(labName, itemName, itemData) {
   const checkoutButton = document.getElementById('checkout-button');
 
   // Set the item title to the name of the item
-  itemTitleText.textContent = specificItem.name;
+  itemTitleText.textContent = item.name;
 
   // Set type according to whether the item is borrowable or not
-  if (specificItem.borrowable == 0) {
+  if (item.borrowable == 0) {
     itemBorrowableText.textContent = "Removable";
   }
   else {
@@ -88,7 +68,7 @@ function populateItemDetails(labName, itemName, itemData) {
 
   // Set the stock status based on whether there is stock left
   // The check out button will change depending on if the item is availible or not
-  if (specificItem.stock > 0) {
+  if (item.stock > 0) {
     itemStatusText.textContent = "In Stock";
     checkoutButton.textContent = "CHECK OUT";
     checkoutButton.style.backgroundColor = "lightgreen";
@@ -99,66 +79,66 @@ function populateItemDetails(labName, itemName, itemData) {
     checkoutButton.style.backgroundColor = "lightred";
   }
 
-  // Set the stock to the amount of items in stcok currently
-  itemQuantityText.textContent = specificItem.stock;
+  // Set the stock to the amount of items in stock currently
+  itemQuantityText.textContent = item.stock;
 
   // Set the item description text to the item description, if it exists
-  if (specificItem.description === "" || specificItem.description === null) {
+  if (item.description === "" || item.description === null) {
     descriptionText.textContent = "No Description Provided.";
   }
   else {
-    descriptionText.textContent = specificItem.description;
+    descriptionText.textContent = item.description;
   }
 }
 
-function populate(itemData) {
+function populate() {
   const table = document.getElementById('item-table');
   const checkoutPanels = document.getElementsByClassName('right-sidebar');
   const checkoutPanel = checkoutPanels[0];
   const closePanel = document.getElementById('go-back');
 
   // Check to see if any of the item in the table have been clicked on
-  table.addEventListener('click', function(event) {
+  table.addEventListener('click', async function (event) {
     event.preventDefault();
 
     if (event.target.tagName === 'TD') {
       // Display the side panel if an item is clicked on
       checkoutPanel.style.display = 'flex';
       const labName = document.getElementById('lab-name').textContent;
-      const itemName = event.target.textContent;
 
       // Select all <tr> elements
       const allTDs = document.querySelectorAll('tr');
 
       // Loop through all the <tr> elements
       allTDs.forEach(tr => {
-        if (tr.id === 'highlighted') {
+        if (tr.className === 'highlighted') {
           // Remove the highlight from all
-          tr.removeAttribute('id');
+          tr.removeAttribute('class');
         }
       });
 
       // Add the highlight to the clicked table item
       const trElement = event.target.parentElement;
-      trElement.id = 'highlighted';
+      trElement.className = 'highlighted';
+      const itemId = trElement.id;
 
       // Populate the side panel with that items details
-      populateItemDetails(labName, itemName, itemData);
+      await populateItemDetails(labName, itemId);
     }
   });
 
   // Check if the side panel shall be closed
   closePanel.addEventListener('click', function() {
     checkoutPanel.style.display = 'none';
-
+  
     // Select all <tr> elements
     const allTDs = document.querySelectorAll('tr');
-
+  
     // Loop through all the <tr> elements
     allTDs.forEach(tr => {
-      if (tr.id === 'highlighted') {
+      if (tr.className === 'highlighted') {
         // Remove the highlight from all
-        tr.removeAttribute('id');
+        tr.removeAttribute('class');
       }
     });
   });
