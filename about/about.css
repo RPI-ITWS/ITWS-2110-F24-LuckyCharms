@@ -5,19 +5,27 @@
 
 #about {
     margin-top: 100px;
-    /* width: min(80%); */
-
     width: min(80%, 1204px);
 }
 
 #about-title {
     margin-top: 65px;
+    padding: 20px;
+    /* color:white; */
+
+    background-color: #78849E;
+    border-radius: 20px;
 }
 
     #about-title p {
+        color: white;
         margin: 0;
         font-size: 20px;
     }
+
+#about-info {
+    padding: 20px;
+}
 
 h2 {
     margin: 0;
