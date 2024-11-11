@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Return Date:', returnDate);
         console.log('Quantity:', quantity);
         console.log('Reason:', reason);
+
+        checkoutForm.reset();
     });
 
     const cancelCheckoutFormButtn = document.getElementById('cancel-checkout-form-button');
