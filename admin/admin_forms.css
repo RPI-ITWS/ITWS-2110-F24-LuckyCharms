@@ -1,4 +1,3 @@
-
 /*Deletion form styling*/
 #delete-item {
   display: none;
@@ -30,34 +29,6 @@
   align-items: center;
   justify-content: center;
   width: 90%;
-}
-
-#delete-button {
-  display: block;
-  margin: 20px auto 0;
-  width: 75%;
-  border: none;
-  border-radius: 20px;
-  background-color: red;
-  margin-top: 10px;
-  height: 25px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: normal;
-}
-
-#cancel-delete-button {
-  display: block;
-  margin: 20px auto 0;
-  width: 75%;
-  border: none;
-  border-radius: 20px;
-  background-color: lightcoral;
-  margin-top: 10px;
-  height: 25px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: normal;
 }
 
 /*Add Item form styling.*/
@@ -100,32 +71,4 @@
 
 #item-image {
   border-radius: 0px;
-}
-
-#add-form-button {
-  display: block;
-  margin: 20px auto 0;
-  width: 75%;
-  border: none;
-  border-radius: 20px;
-  background-color: lightgreen;
-  margin-top: 10px;
-  height: 25px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: normal;
-}
-
-#cancel-add-form-button {
-  display: block;
-  margin: 20px auto 0;
-  width: 75%;
-  border: none;
-  border-radius: 20px;
-  background-color: lightcoral;
-  margin-top: 10px;
-  height: 25px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: normal;
 }

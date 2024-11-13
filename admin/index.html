@@ -34,11 +34,9 @@
     });
     
   </script>
-  <link rel="stylesheet" href="../homepage.css" media="screen">
+  <link rel="stylesheet" href="../resources/pages.css" media="screen">
   <link rel="stylesheet" type="text/css" href="../user/style.css">
-  <link rel="stylesheet" type="text/css" href="../resources/checkout_form.css">
-  <link rel="stylesheet" type="text/css" href="../resources/add_form.css">
-  <link rel="stylesheet" type="text/css" href="../resources/delete.css">
+  <link rel="stylesheet" type="text/css" href="admin_forms.css">
 <body>
   <header>
     <h1 class="logo">LIMBS</h1>
@@ -110,9 +108,9 @@
         <p id="item-description-list">Text</p>
       </div>
 
-      <button id="checkout-button">CHECK OUT</button>
-      <button id="edit-button">EDIT ITEM</button>
-      <button id="remove-button">REMOVE ITEM</button>
+      <button class="form-button" style="background-color: lightgreen;" id="checkout-button">CHECK OUT</button>
+      <button class="form-button" style="background-color: skyblue;" id="edit-button">EDIT ITEM</button>
+      <button class="form-button" style="background-color: red;" id="remove-button">REMOVE ITEM</button>
     </div>
 
     <div id="add-form">
@@ -139,8 +137,8 @@
           <label for="item-image">Item Image:</label>
           <input type="file" id="item-image" accept="image/*">
 
-          <button type="submit" id="add-form-button">ADD ITEM</button>
-          <button type="button" id="cancel-add-form-button">CANCEL</button>
+          <button type="submit" class="form-button" style="background-color: lightgreen;"  id="add-form-button">ADD ITEM</button>
+          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-add-form-button">CANCEL</button>
         </form>
       </div>
     </div>
@@ -167,8 +165,8 @@
           <input type="checkbox" id="agreeNotify" name="agreeNotify" required>
           <label for="agreeNotify" id="agreeNotifyLabel">I understand that if I want to change the return date, I have to notify the lab administrator.</label><br><br>
 
-          <button type="submit" id="checkout-form-button">CHECK OUT</button>
-          <button type="button" id="cancel-checkout-form-button">CANCEL</button>
+          <button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>
+          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-checkout-form-button">CANCEL</button>
         </form>
       </div>
     </div>
@@ -179,8 +177,8 @@
 
         <p id="warning">Are you sure you want to remove this item from the lab list?</p>
 
-        <button type="button" id="delete-button">DELETE ITEM</button>
-        <button type="button" id="cancel-delete-button">CANCEL</button>
+        <button type="button" class="form-button" style="background-color: red;" id="delete-button">DELETE ITEM</button>
+        <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-delete-button">CANCEL</button>
       </div>
     </div>
   </main>
