@@ -6,7 +6,7 @@
   border-radius: 20px;
   
   background-color: #78849E;
-  color: #323F50;
+  color: #242e3b;
   font-weight: 500;
 
   display: flex;
@@ -42,7 +42,11 @@ input {
   border-bottom: 2px solid black;
   outline:0;
   width: 358px;
-  color: hsla(0, 0%, 0%, 0.5);
+  color: #242e3b;
+}
+
+input::placeholder{
+  color: #242e3bc4;
 }
 
 #submit {
@@ -60,7 +64,7 @@ input {
 }
 
 #link {
-  color:#323F50;
+  color: #242e3b;;
   font-size: 14px;
   text-decoration: none;
 }
