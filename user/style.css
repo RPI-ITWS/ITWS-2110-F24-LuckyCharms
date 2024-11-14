@@ -244,7 +244,6 @@ td {
     We want to change this behavior specifically for a class that affects
     one row.
   */
-  display: block;
 }
 
 .tag {

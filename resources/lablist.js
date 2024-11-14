@@ -89,6 +89,10 @@ async function populateItemDetails(labLocation, itemId) {
   else {
     descriptionText.textContent = item.description;
   }
+
+  checkoutButton.onclick = function() {
+    checkout(itemId, item.stock);
+  };
 }
 
 function populate() {
