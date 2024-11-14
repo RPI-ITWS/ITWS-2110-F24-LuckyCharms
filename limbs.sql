@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2024 at 04:45 AM
+-- Generation Time: Nov 14, 2024 at 11:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,7 +70,7 @@ INSERT INTO `items` (`id`, `name`, `borrowable`, `description`, `stock`, `image_
 (5, 'Gigantic Light Bulb', 0, 'Read the name.', 45, NULL, 'Darrin Communications Center'),
 (6, 'Ball', 1, NULL, 4, 'https://www.yogadirect.com/cdn-cgi/image/quality%3D85/assets/images/anti-burst-yoga-ball-red.jpg', 'Low Center for Industrial Innovation'),
 (7, 'Scissors', 1, 'This cuts things', 99, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR84qsQGI5DqIGNR3Z80ALpzu7ZXfDkafybkEAqCz2iTfhVOK1nEu7NhjugZ_6RR6kOFmlpJcbY3afewrg-0sFOPD-WpRM4w5XprL-J9LSjU2_zSPoXPVvXhf8', 'Russell Sage Laboratory'),
-(8, 'Rat', 1, NULL, 24, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRXFAwxItMmQ3v6NUlkZPPAjvwrT1PKW2KnQ&s', 'Cogswell Laboratory');
+(8, 'Rat', 1, NULL, 22, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRXFAwxItMmQ3v6NUlkZPPAjvwrT1PKW2KnQ&s', 'Cogswell Laboratory');
 
 -- --------------------------------------------------------
 
@@ -105,6 +105,7 @@ CREATE TABLE `reservations` (
   `item_id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of item',
   `user_id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of user that made the reservation',
   `amount` int(11) NOT NULL COMMENT 'Amount of items user is reserving',
+  `reason` text NOT NULL COMMENT 'The reason the items is being taken.',
   `date_reserved` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Date the item was reserved',
   `date_expected_to_return` timestamp NULL DEFAULT NULL COMMENT 'The date the user is expected to return.',
   `date_returned` timestamp NULL DEFAULT NULL COMMENT 'The date the item was returned',
@@ -116,8 +117,9 @@ CREATE TABLE `reservations` (
 -- Dumping data for table `reservations`
 --
 
-INSERT INTO `reservations` (`id`, `item_id`, `user_id`, `amount`, `date_reserved`, `date_expected_to_return`, `date_returned`, `cancelled`, `completed`) VALUES
-(31, 1, 1, 1, '2024-10-14 21:21:59', '2024-10-22 01:05:44', '2024-10-15 01:21:59', 0, 1);
+INSERT INTO `reservations` (`id`, `item_id`, `user_id`, `amount`, `reason`, `date_reserved`, `date_expected_to_return`, `date_returned`, `cancelled`, `completed`) VALUES
+(31, 1, 1, 1, '', '2024-10-14 21:21:59', '2024-10-22 01:05:44', '2024-10-15 01:21:59', 0, 1),
+(32, 8, 1, 2, '2', '2024-11-14 22:06:51', '2024-11-20 05:00:00', NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -198,7 +200,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of reservation', AUTO_INCREMENT=32;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of reservation', AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users`
