@@ -40,6 +40,13 @@
     }
 
 
+    // limit constant is 10 for now, can change in the future
+    // PAGINATION
+    $offset = ($page - 1) * 10;
+    array_push($limits, "LIMIT 10 OFFSET ");
+    array_push($limits, $offset);
+
+
     // constructing the query
     $result = $db->prepare($query);
     $result->bind_param($binding, ...$filters);
