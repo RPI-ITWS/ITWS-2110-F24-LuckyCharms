@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <script src="../resources/script.js"></script>
-  <script src="../resources/lablist.js"></script>
+  <script src="../resources/lablist_and_checkout.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script src="../resources/checkout_form.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       
@@ -34,9 +33,8 @@
 
     });
   </script>
-  <link rel="stylesheet" href="../homepage.css" media="screen">
+  <link rel="stylesheet" href="../resources/pages.css" media="screen">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="../resources/checkout_form.css">
 <body>
   <header>
     <h1 class="logo">LIMBS</h1>
@@ -105,7 +103,7 @@
         <p id="item-description-list">Text</p>
       </div>
 
-      <button id="checkout-button">CHECK OUT</button>
+      <button class="form-button" style="background-color: lightgreen;" id="checkout-button">CHECK OUT</button>
     </div>
 
     <div id="checkout-form">
@@ -130,8 +128,8 @@
           <input type="checkbox" id="agreeNotify" name="agreeNotify" required>
           <label for="agreeNotify" id="agreeNotifyLabel">I understand that if I want to change the return date, I have to notify the lab administrator.</label><br><br>
 
-          <button type="submit" id="checkout-form-button">CHECK OUT</button>
-          <button type="button" id="cancel-checkout-form-button">CANCEL</button>
+          <button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>
+          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-checkout-form-button">CANCEL</button>
         </form>
       </div>
     </div>

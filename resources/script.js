@@ -27,30 +27,3 @@ function menuClick(userName, isAdmin){
       }
     }
 }
-
-/*Creates the list of labs the user has access to in the sidebar and displays
-  the info of the lab they can access with the lowest ID number. */
-  function userLabs(userID, data){
-    let flag = true; // To load the first lab's items by default
-  
-    // Iterate over the allowed labs for the user
-    for (let x of data.allowed_user_locations) {
-      if (x.user_id === userID) {
-        let lab = data.locations.find(l => l.id === x.location_id);
-        let labName = lab.name;
-  
-        // Check the first lab by default
-        let checkedStatus = flag ? "checked" : "";
-  
-        // Add each lab as a radio button with label
-        document.getElementById("lab-list").innerHTML = document.getElementById("lab-list").innerHTML + `<li><input type="radio" id="lab${lab.id}" name="lab" ${checkedStatus} onClick='labItems(${lab.id}, ${JSON.stringify(data)})'><label for="lab${lab.id}">${labName}</label></li>`;
-        
-  
-        // Load items for the first lab by default
-        if (flag) {
-          labItems(lab.id, data);
-          flag = false;
-        }
-      }
-    }
-  }
