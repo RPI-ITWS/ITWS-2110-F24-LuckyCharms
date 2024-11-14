@@ -1,28 +1,5 @@
-document.addEventListener("DOMContentLoaded", function(){
-    //populate labs
-
-    //If the userid or admin cookies aren't set, or if they are not an admin, redirect to login page
-    if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1 ||
-        document.cookie.substring(document.cookie.indexOf('admin=')+6)!=="1"){
-      location.href="../login";
-    }
-    // Populates the page based on the userid stored in the userid cookie
-    $.getJSON("../resources/data.json", function(dat) {
-      populate(dat);
-
-      const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
-      const user = dat.users.find(u => u.id === userID);
-      const userName = user ? user.username : "Guest";
-      const isAdmin = user.is_admin ? true : false;
-
-      // Call menuClick with the user's name when the menu button is clicked
-      document.getElementById("menu-icon").onclick = () => {menuClick(userName, isAdmin);}
-
-      // Populate labs with the user's labs
-      userLabs(userID, dat);
-    });
-
-    //code for the forms to add and delete items from the lab
+//code for the forms to add and delete items from the lab
+document.addEventListener('DOMContentLoaded', function () {
     const addButton = document.getElementById('add-button');
 
     addButton.addEventListener('click', function() {
