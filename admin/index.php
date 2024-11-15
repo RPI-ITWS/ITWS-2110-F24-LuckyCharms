@@ -25,9 +25,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <script src="../resources/script.js"></script>
-  <script src="../resources/lablist.js"></script>
+  <script src="../resources/lablist_and_checkout.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script defer src="../resources/checkout_form.js"></script>
+  <script src="admin.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       // Populates the page based on the userid stored in the userid cookie
@@ -47,9 +47,9 @@
       // userLabs(userID, dat);
     });
   </script>
-  <link rel="stylesheet" href="../homepage.css" media="screen">
+  <link rel="stylesheet" href="../resources/pages.css" media="screen">
   <link rel="stylesheet" type="text/css" href="../user/style.css">
-  <link rel="stylesheet" type="text/css" href="../resources/checkout_form.css">
+  <link rel="stylesheet" type="text/css" href="admin_forms.css">
 <body>
   <header>
     <h1 class="logo">LIMBS</h1>
@@ -107,6 +107,8 @@
           <!-- items populated dynamically -->
         </tbody>
       </table>
+
+      <button id="add-button"><span id="add-icon">+</span> Add Item</button>
     </div>
 
     <div class="right-sidebar">
@@ -137,9 +139,39 @@
         <p id="item-description-list">Text</p>
       </div>
 
-      <button id="checkout-button">CHECK OUT</button>
-      <button id="edit-button">EDIT ITEM</button>
-      <button id="remove-button">REMOVE ITEM</button>
+      <button class="form-button" style="background-color: lightgreen;" id="checkout-button">CHECK OUT</button>
+      <button class="form-button" style="background-color: skyblue;" id="edit-button">EDIT ITEM</button>
+      <button class="form-button" style="background-color: red;" id="remove-button">REMOVE ITEM</button>
+    </div>
+
+    <div id="add-form">
+      <div id="add-form-container">
+        <h2 id="add-form-title">Add Item</h2>
+
+        <form id="add-form-object">
+          <label for="item-name">Item Name:</label>
+          <input type="text" id="item-name" name="item-name" required><br><br>
+
+          <label for="new-item-description">Item Description:</label>
+          <textarea id="new-item-description" name="new-item-description" maxlength="1000" placeholder="Describe the item..."></textarea><br><br>
+
+          <label for="type-dropdown">Item Type:</label>
+          <select id="type-dropdown" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="Borrowable">Borrowable</option>
+            <option value="Removable">Removable</option>
+          </select><br><br>
+
+          <label for="item-quantity">Stock:</label>
+          <input type="number" id="item-quantity" name="item-quantity" min="1" max="1000" required><br><br>
+
+          <label for="item-image">Item Image:</label>
+          <input type="file" id="item-image" accept="image/*">
+
+          <button type="submit" class="form-button" style="background-color: lightgreen;"  id="add-form-button">ADD ITEM</button>
+          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-add-form-button">CANCEL</button>
+        </form>
+      </div>
     </div>
 
     <div id="checkout-form">
@@ -156,7 +188,7 @@
           <input type="number" id="quantity" name="quantity" min="1" max="100" value="1" required><br><br>
 
           <label for="reason">Reason for Checkout:</label>
-          <textarea id="reason" name="reason" required placeholder="Explain why you need this item..."></textarea><br><br>
+          <textarea id="reason" name="reason" maxlength="1000" required placeholder="Explain why you need this item..."></textarea><br><br>
 
           <input type="checkbox" id="agreeReturn" name="agreeReturn" required>
           <label for="agreeReturn" id="agreeReturnLabel">I understand that I have a responsibility to return the item by the date provided.</label><br><br>
@@ -164,9 +196,20 @@
           <input type="checkbox" id="agreeNotify" name="agreeNotify" required>
           <label for="agreeNotify" id="agreeNotifyLabel">I understand that if I want to change the return date, I have to notify the lab administrator.</label><br><br>
 
-          <button type="submit" id="checkout-form-button">CHECK OUT</button>
-          <button type="button" id="cancel-checkout-form-button">CANCEL</button>
+          <button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>
+          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-checkout-form-button">CANCEL</button>
         </form>
+      </div>
+    </div>
+
+    <div id="delete-item">
+      <div id="delete-container">
+        <h2 id="delete-title">Delete Item</h2>
+
+        <p id="warning">Are you sure you want to remove this item from the lab list?</p>
+
+        <button type="button" class="form-button" style="background-color: red;" id="delete-button">DELETE ITEM</button>
+        <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-delete-button">CANCEL</button>
       </div>
     </div>
   </main>

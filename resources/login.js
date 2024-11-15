@@ -1,5 +1,4 @@
 async function validateLogin(event) {
-  console.log("helo");
   const USER_DOES_NOT_EXIST = 1;
   const USER_LOGGED_IN = 2;
   const INCORRECT_PASSWORD = 3;
