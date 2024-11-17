@@ -173,13 +173,16 @@ td {
 }
 
 .right-sidebar {
-  border-left: black;
+  position: absolute;
+  width: 40vw;
   border-left-style: solid;
   border-left-width: 1px;
-  width: 50%;
   display: none;
   flex-direction: column;
-  margin-left: 20px;
+  background-color: white;
+  height: 100vh;
+  right: 0;
+  top: 0;
   z-index: 1;
 }
 
