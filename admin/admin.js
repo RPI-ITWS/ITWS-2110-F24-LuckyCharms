@@ -1,4 +1,5 @@
 //code for the forms to add and delete items from the lab
+
 async function add_form() {
     const addForm = document.getElementById('add-form');
     addForm.style.display = "flex";
@@ -89,6 +90,7 @@ async function cancel_delete() {
 
 // THESE SHOULD BE MOVED TO Lablist.js UNDER populate_item_details() WHEN MERGED WITH BACKEND!
 // Should be right below the call for checkout form in the current backend branch
+// The addButtonContainer function can be run when the page is loaded (checkout side panel does not need to show for this button to display)
 const addButtonContainer = document.getElementById('add-button');
 addButtonContainer.onclick = async function() {
     add_form();

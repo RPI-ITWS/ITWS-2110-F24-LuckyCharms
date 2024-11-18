@@ -109,7 +109,7 @@
       </div>
 
       <button class="form-button" style="background-color: lightgreen;" id="checkout-button">CHECK OUT</button>
-      <button class="form-button" style="background-color: skyblue;" id="edit-button">EDIT ITEM</button>
+      <button class="form-button" style="background-color: #778DA9;" id="edit-button">EDIT ITEM</button>
       <button class="form-button" style="background-color: red;" id="remove-button">REMOVE ITEM</button>
     </div>
 
@@ -146,6 +146,7 @@
     <div id="checkout-form">
       <div id="form-container">
         <h2 id="form-title">Checkout Item</h2>
+
         <form id="form-object">
           <label for="name">Full Name (Counts As Signiture):</label>
           <input type="text" id="name" name="name" required><br><br>
@@ -167,6 +168,36 @@
 
           <button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>
           <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-checkout-form-button">CANCEL</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="edit-form">
+      <div id="edit-form-container">
+        <h2 id="edit-form-title">Edit Item</h2>
+
+        <form id="edit-form-object">
+          <label for="edit-name">Edit Name:</label>
+          <input type="text" id="edit-name" name="edit-name" required><br><br>
+
+          <label for="edit-description">Edit Description:</label>
+          <textarea id="edit-description" name="edit-description" maxlength="10000" required placeholder="Currently Empty."></textarea><br><br>
+
+          <label for="edit-type-dropdown">Edit Type:</label>
+          <select id="edit-type-dropdown" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="Borrowable">Borrowable</option>
+            <option value="Removable">Removable</option>
+          </select><br><br>
+          
+          <label for="edit-quantity">Edit Stock:</label>
+          <input type="number" id="edit-quantity" name="edit-quantity" min="1" max="1000000" required><br><br>
+
+          <label for="edit-item-image">Edit Item Image (Will keep old image if no file attached):</label>
+          <input type="file" id="edit-item-image" accept="image/*">
+
+          <button type="submit" class="form-button" style="background-color: #778DA9;" id="edit-form-button">EDIT ITEM</button>
+          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-edit-form-button">CANCEL</button>
         </form>
       </div>
     </div>
