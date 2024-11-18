@@ -72,9 +72,11 @@
 					if ($checked === "checked") {
 						$checked = "";
 						$currentLocation = $locationName;
-						echo "<script>labItems('$locationName')</script>";
+						echo "<script>
+              labItems('$locationName');
+            </script>";
 					}
-                }
+        }
 			?>
 	  </ul>
 	</div>
@@ -84,23 +86,26 @@
 		<h2 id="lab-name">
 		</h2>
 		<div class="search-bar">
-		  <input type="text" placeholder="Search">
+      <input id="search" type="text" placeholder="Search" onkeydown="search(event)">
+      <button onclick="search()">Search</button>
 		</div>
 	  </div>
   
 	  <table id="item-table">
-		<thead>
-		  <tr>
-			<th>Item Name</th>
-			<th>Item Type</th>
-			<th>Status</th>
-		  </tr>
-		</thead>
-  
-		<tbody id="lab-items">
-		  <!-- items populated dynamically -->
-		</tbody>
+      <thead>
+        <tr>
+        <th>Item Name</th>
+        <th>Item Type</th>
+        <th>Status</th>
+        </tr>
+      </thead>
+    
+      <tbody id="lab-items">
+        <!-- items populated dynamically -->
+      </tbody>
 	  </table>
+	  <br>
+	  <div id="pagination"></div>
 	</div>
 
 	<div class="right-sidebar">

@@ -2,7 +2,9 @@
 	// Set error reporting to display all errors
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL);
-
+	
+	$itemLimit = 10;
+	
 	// https://stackoverflow.com/questions/768431/how-do-i-make-a-redirect-in-php
 	function redirect($url, $permanent = false) {
 		header('Location: ' . $url, true, $permanent ? 301 : 302);

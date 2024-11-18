@@ -90,7 +90,8 @@
       <div class="lab-title">
         <h2 id="lab-name">No Labs</h2>
         <div class="search-bar">
-          <input type="text" placeholder="Search">
+          <input id="search" type="text" placeholder="Search" onkeydown="search(event)">
+          <button onclick="search()">Search</button>
         </div>
       </div>
   
@@ -107,6 +108,8 @@
           <!-- items populated dynamically -->
         </tbody>
       </table>
+      <br>
+      <div id="pagination"></div>
     </div>
 
     <div class="right-sidebar">

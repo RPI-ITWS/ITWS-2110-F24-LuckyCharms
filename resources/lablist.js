@@ -2,8 +2,24 @@
 
 /*Adds rows to the lab-items table displaying each item associated with the
   lab, if it's borrowable, and if it's available. */
-async function labItems(labName) {
-  const items = await fetch(`../backend/queries/itemlist.php?locationName=${labName}`).then((res) => res.json());
+async function labItems(labName, currentPage=1, searchValue="") {
+  // Hide the checkout panel
+  const checkoutPanel = document.getElementsByClassName('right-sidebar')[0];
+  if (checkoutPanel)
+    checkoutPanel.style.display = 'none';
+
+  // Pagination
+  const pagination = await fetch(`../backend/queries/totalItems.php?locationName=${labName}&name=${searchValue}`).then((res) => res.json());
+  const totalPages = Math.ceil(pagination.totalItems / 10);
+
+  $("#pagination").html("");
+  for (let i = 1; i <= totalPages; i++) {
+    $("#pagination").append(`<button class="page-button" ${currentPage === i ? "disabled" : ""} 
+      onclick="labItems('${labName}', ${i}, '${searchValue}')">${i}
+    </button>`);
+  }
+
+  const items = await fetch(`../backend/queries/filterItems.php?locationName=${labName}&page=${currentPage}&name=${searchValue}`).then((res) => res.json());
   // Iterate over the items in the lab
   let labItems = "";
   for (let item of items) {
@@ -20,6 +36,17 @@ async function labItems(labName) {
   // Updates the content
   $("#lab-name").html(labName);
   $("#lab-items").html(labItems);
+
+}
+
+async function search(event=null) {
+  if (event) {
+    if (event.key !== 'Enter') {
+      return;
+    }
+  }
+  const searchValue = document.getElementById('search').value;
+  await labItems(document.getElementById('lab-name').textContent, 1, searchValue);
 }
 
 //Returns number of items with id itemID currently removed/checked out
