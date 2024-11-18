@@ -19,51 +19,51 @@
   <script src="../../resources/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>            
-    //If the userid or admin cookies aren't set, redirect to login page
-    if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1){
-      location.href="../../login";
-    }
+    // //If the userid or admin cookies aren't set, redirect to login page
+    // if(document.cookie.indexOf('userid=')===-1 || document.cookie.indexOf('admin=')===-1){
+    //   location.href="../../login";
+    // }
 
-    function populateProfile(userID, data){
-        for(let user of data.users){
-            if(user.id === userID){
-              document.getElementById("username").innerText = user.username;
-            }
-        }
-    }
+    // function populateProfile(userID, data){
+    //     for(let user of data.users){
+    //         if(user.id === userID){
+    //           document.getElementById("username").innerText = user.username;
+    //         }
+    //     }
+    // }
 
-    // Populates the page based on the userid stored in the userid cookie
-    $.getJSON("../../resources/data.json", function(dat) {
-      const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
-      const user = dat.users.find(u => u.id === userID);
-      const userName = user ? user.username : "Guest";
-      const isAdmin = user.is_admin;
+    // // Populates the page based on the userid stored in the userid cookie
+    // $.getJSON("../../resources/data.json", function(dat) {
+    //   const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
+    //   const user = dat.users.find(u => u.id === userID);
+    //   const userName = user ? user.username : "Guest";
+    //   const isAdmin = user.is_admin;
 
-      document.getElementById("menu-icon").onclick = () => {
-        let labsPage = "../user"
-        if (isAdmin) {
-          labsPage = "../admin"
-        }
+    //   document.getElementById("menu-icon").onclick = () => {
+    //     let labsPage = "../user"
+    //     if (isAdmin) {
+    //       labsPage = "../admin"
+    //     }
     
-        // Append the new dropdown content
-        document.getElementById("dropdown").innerHTML = document.getElementById("dropdown").innerHTML + `<div class="dropdown-content"><h3>${userName}</h3><a href="../../profile">Profile</a><a href=../${labsPage}>My Labs</a><a href="../../profile/borrowingHistory">Borrowing History</a><a href="../../" id="logout">Logout</a></div>`;
+    //     // Append the new dropdown content
+    //     document.getElementById("dropdown").innerHTML = document.getElementById("dropdown").innerHTML + `<div class="dropdown-content"><h3>${userName}</h3><a href="../../profile">Profile</a><a href=../${labsPage}>My Labs</a><a href="../../profile/borrowingHistory">Borrowing History</a><a href="../../" id="logout">Logout</a></div>`;
     
-        // Toggle visibility when the menu is clicked
-        document.getElementById("dropdown").onclick = (e) => {
-            let coll = document.getElementsByClassName("dropdown-content");
-            for(let i=0; i<coll.length; i++){
-              if (coll[i].classList.contains("show")) {
-                  // If it is visible, hide it
-                  coll[i].classList.remove("show");
-              } else{
-                  // If it is hidden, show it
-                  coll[i].classList.add("show");
-              }
-            }
-        };
-      };
-      populateProfile(userID, dat);
-    });
+    //     // Toggle visibility when the menu is clicked
+    //     document.getElementById("dropdown").onclick = (e) => {
+    //         let coll = document.getElementsByClassName("dropdown-content");
+    //         for(let i=0; i<coll.length; i++){
+    //           if (coll[i].classList.contains("show")) {
+    //               // If it is visible, hide it
+    //               coll[i].classList.remove("show");
+    //           } else{
+    //               // If it is hidden, show it
+    //               coll[i].classList.add("show");
+    //           }
+    //         }
+    //     };
+    //   };
+    //   populateProfile(userID, dat);
+    // });
   </script>
   <link rel="stylesheet" type="text/css" href="../../resources/style.css">
   <link rel="stylesheet" type="text/css" href="../profile.css">
@@ -80,7 +80,10 @@
   </header>
 
   <div class="change-password-container">
-    <h2 id="username">John Doe</h2>
+    <h2 id="username">
+      <?php
+        print_r($userInfo->username);
+      ?></h2>
     <form id="change-password-form" onsubmit="return validateChange(event);">
         <div class="field">
             <label for="old-password">Old Password</label>
@@ -95,8 +98,14 @@
         </div>
         <button type="submit" class="change-password-btn">Save New Password</button>
     </form>
-</div>
+  </div>
 
-    <script src="changePW.js"></script>
+  <script src="changePW.js"></script>
+  <script>
+    const menuIcon = document.getElementById("menu-icon");
+    menuIcon.addEventListener("click", function() {
+      menuClick("<?php echo $userInfo->username?>", <?php echo $_SESSION["isAdmin"] ?>);
+    })
+  </script>
 </body>
 </html>
