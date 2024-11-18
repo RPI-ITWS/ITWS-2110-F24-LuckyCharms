@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	require "../backend/queries/getActiveLabs.php";
+	require "../backend/queries/userInformation.php";
+	
 	if (!isset($_SESSION["isAdmin"])) {
 		redirect("../");
 			return;
@@ -13,6 +15,7 @@
 	$userId = $_SESSION['userId'];
 	$allowedUserLocations = getActiveLabs($userId);
 	$currentLocation = "No Labs";
+	$userInfo = userInformation();
 ?>
 
 <!DOCTYPE html>
@@ -24,16 +27,17 @@
   <script src="../resources/script.js"></script>
   <script src="../resources/lablist.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script src="../resources/checkout_form.js"></script>
+  <script defer src="../resources/checkout_form.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       // Populates the page based on the userid stored in the userid cookie
       populate();
-
-      const userName = "Guest";
+      
       <?php
         $isAdmin = $_SESSION['isAdmin'];
         echo "
+          const user = $userInfo;
+          const userName = user.username;
           const isAdmin = $isAdmin;
           document.getElementById('menu-icon').onclick = () => { menuClick(userName, isAdmin); };
         ";
@@ -86,7 +90,8 @@
       <div class="lab-title">
         <h2 id="lab-name">No Labs</h2>
         <div class="search-bar">
-          <input type="text" placeholder="Search">
+          <input id="search" type="text" placeholder="Search" onkeydown="search(event)">
+          <button onclick="search()">Search</button>
         </div>
       </div>
   
@@ -103,6 +108,8 @@
           <!-- items populated dynamically -->
         </tbody>
       </table>
+      <br>
+      <div id="pagination"></div>
     </div>
 
     <div class="right-sidebar">
@@ -149,7 +156,7 @@
           <input type="date" id="returnDate" name="returnDate" required><br id="returnDateBreak1"><br id="returnDateBreak2">
           
           <label for="quantity">Quantity:</label>
-          <input type="number" id="quantity" name="quantity" min="1" max="100" required><br><br>
+          <input type="number" id="quantity" name="quantity" min="1" max="100" value="1" required><br><br>
 
           <label for="reason">Reason for Checkout:</label>
           <textarea id="reason" name="reason" required placeholder="Explain why you need this item..."></textarea><br><br>
