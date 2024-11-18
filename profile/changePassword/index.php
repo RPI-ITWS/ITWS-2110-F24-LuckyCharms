@@ -1,3 +1,15 @@
+<?php
+	session_start();
+  require "../../backend/queries/db.php";
+  require "../../backend/queries/validateUser.php";
+  require "../../backend/queries/userInformation.php";
+  if (!validateUser())
+    redirect("../../");
+  
+  $userInfo = json_decode(userInformation());
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,21 +79,24 @@
     </nav>
   </header>
 
-    <div class="change-password-container">
-        <h2 id="username">John Doe</h2>
+  <div class="change-password-container">
+    <h2 id="username">John Doe</h2>
+    <form id="change-password-form" onsubmit="return validateChange(event);">
         <div class="field">
             <label for="old-password">Old Password</label>
-            <input type="old-password" id="old-password" required>
+            <input type="password" id="old-password" name="old-password" required>
         </div>
         <div class="field">
             <label for="new-password">Enter your new password</label>
-            <input type="text" id="new-password" value="" required>
+            <input type="password" id="new-password" name="new-password" required>
 
             <label for="new-password-confirm">Re-enter the new password</label>
-            <input type="text" id="new-password-confirm" value="" required>
-          
+            <input type="password" id="new-password-confirm" name="new-password-confirm" required>
         </div>
-        <button class="change-password-btn">Save New Password</button>
-    </div>
+        <button type="submit" class="change-password-btn">Save New Password</button>
+    </form>
+</div>
+
+    <script src="changePW.js"></script>
 </body>
 </html>

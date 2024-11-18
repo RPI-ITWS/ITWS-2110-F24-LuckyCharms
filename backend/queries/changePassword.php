@@ -1,7 +1,8 @@
 <?php
+    session_start();
     require "db.php";
 
-	$INCORRECT_PASSWORD = 1;
+    $INCORRECT_PASSWORD = 1;
     $REPEAT_PASSWORD_WRONG = 2;
     $PASSWORD_CHANGED = 3;
 
@@ -10,18 +11,19 @@
         return;
     }
 
-	$oldPassword = $_GET["oldPassword"];
-	$newPassword = $_GET["newPassword"];
+    $oldPassword = $_GET["oldPassword"];
+    $newPassword = $_GET["newPassword"];
     $newPasswordConfirm = $_GET["newPasswordConfirm"];
     $userId = $_SESSION['userId'];
 
     $passwordMatch = $newPassword == $newPasswordConfirm;
 
     $user = $db->prepare("SELECT * FROM users WHERE id = ?");
-	$user->bind_param("i", $userId);
-	$user->execute();
+    $user->bind_param("i", $userId);
+    $user->execute();
 
-	$userInfo = $user->get_result()->fetch_assoc();
+    $userInfo = $user->get_result()->fetch_assoc();
+
     if (password_verify($oldPassword, $userInfo["password"])) {
 
         if ($passwordMatch) {
@@ -31,12 +33,12 @@
             $updateStmt->bind_param("si", $hashedNewPassword, $userId);
             $updateStmt->execute();
 
-            echo $PASSWORD_CHANGED;
+            echo json_encode(['status' => $PASSWORD_CHANGED]);
         } else {
-            echo $REPEAT_PASSWORD_WRONG;
+            echo json_encode(['status' => $REPEAT_PASSWORD_WRONG]);
         }
 
     } else {
-       echo $INCORRECT_PASSWORD;
+        echo json_encode(['status' => $INCORRECT_PASSWORD]);
     }
 ?>
