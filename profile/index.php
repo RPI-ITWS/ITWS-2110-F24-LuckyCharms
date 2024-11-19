@@ -45,7 +45,7 @@
 //      populateProfile(userID, dat);
 //    });
   </script>
-  <link rel="stylesheet" type="text/css" href="../resources/style.css">
+  <link rel="stylesheet" type="text/css" href="../resources/pages.css">
   <link rel="stylesheet" type="text/css" href="profile.css">
 <body>
 

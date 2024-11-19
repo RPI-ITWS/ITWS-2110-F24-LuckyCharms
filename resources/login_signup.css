@@ -1,0 +1,70 @@
+/* Below are used in both login.html and signup.html */
+.login_signup {
+  margin-top: 160px;
+  width: 451px;
+  height: 479px;
+  border-radius: 20px;
+  
+  background-color: #78849E;
+  color: #242e3b;
+  font-weight: 500;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#form {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 11px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input {
+  margin-top: 5px;
+  background-color: #78849E;
+  border: none;
+  border-bottom: 2px solid black;
+  outline:0;
+  width: 358px;
+  color: #242e3b;
+}
+
+input::placeholder{
+  color: #242e3bc4;
+}
+
+#submit {
+  height: 30px;
+  margin: auto;
+  margin-top: 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: black;
+  width: 125px;
+}
+
+#link {
+  color: #242e3b;;
+  font-size: 14px;
+  text-decoration: none;
+}

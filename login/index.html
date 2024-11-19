@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log In</title>
   <link rel="stylesheet" href="../resources/style.css" media="screen">
+  <link rel="stylesheet" href="../resources/login_signup.css" media="screen">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="../homepage.js" defer></script>
   <script src="../resources/login.js" defer></script>
@@ -16,10 +17,10 @@
       event.preventDefault();
       $.getJSON("../resources/data.json", function(data){
         for(let x of data.users){
-          if(x.username === $("#username").val()){
-            if(x.password !== $("#pass").val()){
+          if(x.username === document.getElementById("username").value){
+            if(x.password !== document.getElementById("pass").value){
               alert("Incorrect password.");
-              $("#pass").css("border", "2px solid red");
+              document.getElementById("pass").style.border = "2px solid red";
               return false;
             } else {
               //delete old cookies
@@ -57,8 +58,8 @@
   </div>
   <div id="content">
     <div class="login_signup">
-      <h4 class="first-letter">Log In</h4>
-      <form id="login" onsubmit="return validateLogin(event);">
+      <h4 class="form-title">Log In</h4>
+      <form id="form" onsubmit="return validateLogin(event);">
         <label for="username">username</label>
         <input name="username" id="username" type="text" required placeholder="type username here">
         <label for="pass">password</label>
@@ -67,7 +68,7 @@
         <a style="text-align: right; margin-top: 11px; font-size: 12px; font-weight: bold;">Forgot Password?</a>
         <button id="submit" type="submit">Log In</button>
       </form>
-      <a href="../signup/index.html">Sign Up</a>
+      <a id="link" href="../signup/index.html">Sign Up</a>
     </div>
   </div>
 </body>
