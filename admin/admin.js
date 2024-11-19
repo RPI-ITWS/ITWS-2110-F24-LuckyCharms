@@ -3,7 +3,7 @@
 async function add_form() {
     const addForm = document.getElementById('add-form');
     addForm.style.display = "flex";
-
+    console.log("called");
     addForm.onsubmit = async function(event) {
         event.preventDefault();
         await add_item(event);
@@ -162,21 +162,3 @@ async function cancel_delete() {
     const deleteContainer = document.getElementById('delete-item');
     deleteContainer.style.display = "none";
 }
-
-// THESE SHOULD BE MOVED TO Lablist.js UNDER populate_item_details() WHEN MERGED WITH BACKEND!
-// Should be right below the call for checkout form in the current backend branch
-// The addButtonContainer function can be run when the page is loaded (checkout side panel does not need to show for this button to display)
-const addButtonContainer = document.getElementById('add-button');
-addButtonContainer.onclick = async function() {
-    add_form();
-};
-
-const editButtonContainer = document.getElementById('edit-button');
-editButtonContainer.onclick = async function() {
-    edit_form();
-};
-
-const removeButtonContainer = document.getElementById('remove-button');
-removeButtonContainer.onclick = async function() {
-    delete_form();
-};
