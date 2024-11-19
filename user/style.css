@@ -115,7 +115,6 @@ table {
   border-collapse: collapse;
   border: 1px solid black;
   border-radius: 10px;
-  overflow: hidden;
 }
 
 th, td {
@@ -138,16 +137,9 @@ td {
 }
 
 .highlighted {
-  border-color: #778DA9;
+  border-color: #457ec7;
   border-style: solid;
-  border-width: 2px;
-  /*
-    The default display is 'table-row' which according to MDN:
-    https://developer.mozilla.org/en-US/docs/Web/CSS/display#syntax
-    states that all the css in one row gets applied to all rows.
-    We want to change this behavior specifically for a class that affects
-    one row.
-  */
+  border-width: 3px;
 }
 
 #add-button {
@@ -188,6 +180,14 @@ td {
 
 #show {
   display: flex;
+}
+
+#pagination {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .right-sidebar div {

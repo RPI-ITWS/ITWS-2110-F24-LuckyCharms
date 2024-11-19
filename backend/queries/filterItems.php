@@ -1,62 +1,35 @@
 <?php
-    require "db.php";
-
-    // TAKE OUT ID AND STOCK FILTER
-    // array should hold `name`, `borrowable, `location_name`
-    // to make the query writing easier
-    $filters = array();
-    $columns = array();
-    $query = "SELECT * FROM items";
-    // for the binding parameters string
-    $binding = "";
-
-
-    // Location is mandatory but just in case...
-    $location_name = $_GET["location_name"];
-    if ($location_name) {
-        array_push($filters, $location_name);
-        array_push($columns, "location_name = ?");
-        $binding .= "s";
-    }
-
+  require "db.php";
+  
+  // Make sure these are set
+	if (!isset($_GET["locationName"]) || !isset($_GET["page"])) return;
+	
+	
+	$location_name = $_GET["locationName"];
+	$page = $_GET["page"];
+	
+	// Name is optional
+  $name = "";
+  if (isset($_GET["name"])) {
     $name = $_GET["name"];
-    if ($name) {
-        array_push($filters, "%".$name."%");
-        array_push($columns, "name LIKE ?");
-        $binding .= "s";
-    }
+  }
+	$name = '%'.$name.'%';
 
-    $borrowable = $_GET["borrowable"];
-    if ($borrowable) {
-        array_push($filters, $borrowable);
-        array_push($columns, "borrowable = ?");
-        $binding .= "i";
-    }
+  // limit constant is 10 for now, can change in the future
+  // PAGINATION
+  $offset = ($page - 1) * $itemLimit;
 
-    if (count($filters) > 0) {
-        $query .= " WHERE (";
-        $query .= join(" AND ", $columns);
-        $query .= ")";
-    }
+	$query = "SELECT * FROM items WHERE location_name = ? AND name LIKE ? LIMIT $itemLimit OFFSET ?";
+  // constructing the query
+  $result = $db->prepare($query);
+  $result->bind_param("ssi", $location_name, $name, $offset);
+  $result->execute();
 
+  $items = $result->get_result();
+  $filteredItems = array();
+  while ($row = $items->fetch_assoc()) {
+      array_push($filteredItems, $row);
+  }
 
-    // limit constant is 10 for now, can change in the future
-    // PAGINATION
-    $offset = ($page - 1) * 10;
-    array_push($limits, "LIMIT 10 OFFSET ");
-    array_push($limits, $offset);
-
-
-    // constructing the query
-    $result = $db->prepare($query);
-    $result->bind_param($binding, ...$filters);
-    $result->execute();
-
-    $items = $result->get_result();
-    $filteredItems = array();
-    while ($row = $items->fetch_assoc()) {
-        array_push($filteredItems, $row);
-    }
-
-    print_r(json_encode($filteredItems));
+  print_r(json_encode($filteredItems));
 ?>
