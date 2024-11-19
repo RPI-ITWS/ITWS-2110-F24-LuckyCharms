@@ -205,6 +205,36 @@
       </div>
     </div>
 
+    <div id="edit-form">
+      <div id="edit-form-container">
+        <h2 id="edit-form-title">Edit Item</h2>
+
+        <form id="edit-form-object">
+          <label for="edit-name">Name:</label>
+          <input type="text" id="edit-name" name="edit-name" required><br><br>
+
+          <label for="edit-description">Description:</label>
+          <textarea id="edit-description" name="edit-description" maxlength="1000" required placeholder="Currently Empty."></textarea><br><br>
+
+          <label for="edit-type-dropdown">Type:</label>
+          <select id="edit-type-dropdown" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="Borrowable">Borrowable</option>
+            <option value="Removable">Removable</option>
+          </select><br><br>
+          
+          <label for="edit-quantity">Stock:</label>
+          <input type="number" id="edit-quantity" name="edit-quantity" min="1" max="1000" required><br><br>
+
+          <label for="edit-item-image">Item Image (Will keep old image if no file attached):</label>
+          <input type="file" id="edit-item-image" accept="image/*">
+
+          <button type="submit" class="form-button" style="background-color: #778DA9;" id="edit-form-button">EDIT ITEM</button>
+          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-edit-form-button">CANCEL</button>
+        </form>
+      </div>
+    </div>
+
     <div id="delete-item">
       <div id="delete-container">
         <h2 id="delete-title">Delete Item</h2>
