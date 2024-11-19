@@ -104,7 +104,7 @@
   <script>
     const menuIcon = document.getElementById("menu-icon");
     menuIcon.addEventListener("click", function() {
-      menuClick("<?php echo $userInfo->username?>", <?php echo $_SESSION["isAdmin"] ?>);
+      menuClick("<?php echo $userInfo->username?>", <?php echo $_SESSION["isAdmin"] ?>, "../../");
     })
   </script>
 </body>

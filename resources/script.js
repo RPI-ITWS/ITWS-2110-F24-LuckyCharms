@@ -1,23 +1,22 @@
 //used by many different pages
 
-
 /* This should show the menu options when the menu button
   on the navbar is clicked. */
-function menuClick(userName, isAdmin){
+function menuClick(userName, isAdmin, routing="../"){
 
-    let labsPage = "../user"
+    let labsPage = `${routing}user`;
     if (isAdmin) {
-      labsPage = "../admin"
+      labsPage = `${routing}admin`;
     }
 
     // Append the new dropdown content
     document.getElementById("dropdown").innerHTML = document.getElementById("dropdown").innerHTML + `
         <div class="dropdown-content">
             <h3>${userName}</h3>
-            <a href="../profile">Profile</a>
+            <a href="${routing}profile">Profile</a>
             <a href=${labsPage}>My Labs</a>
-            <a href="../profile/borrowingHistory">Borrowing History</a>
-            <a href="../" id="logout">Logout</a>
+            <a href="${routing}profile/borrowingHistory">Borrowing History</a>
+            <a href="${routing}" id="logout">Logout</a>
         </div>
     `;
 
