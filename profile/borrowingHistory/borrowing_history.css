@@ -1,111 +1,16 @@
-html {
-    font-family: Arial;
-    min-width: 1150px;
-}
-
-body {
-    margin: 0;
-    margin-top: 80px;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: calc(100% - 40px);
-    z-index: 1000;
-
-    padding: 10px 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.logo {
-font-weight: bold;
-margin: 5px;
-cursor: pointer;
-}
-
-.navbar {
-display: flex;
-align-items: center;
-}
-
-#menu-icon {
-font-size: 24px;
-background: none;
-border: none;
-cursor: pointer;
-}
-
-#dropdown {
-position: relative;
-display: inline-block;
-}
-
-.dropdown-content {
-display: none;
-position: absolute;
-padding: 20px;
-border-radius: 10px;
-top: 80%;
-right: 30%;
-background-color: white;
-box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-min-width: 160px;
-z-index: 1;
-}
-
-.show {
-    display: block;
-}
-
-h3 {
-color: black;
-display: block;
-font-weight: bold;
-margin: 0;
-margin-bottom: 20px;
-font-size: 18px;
-}
-
-a {
-color: black;
-display: block;
-margin: 0;
-cursor: pointer;
-text-decoration: none;
-margin-top: 5px;
-margin-bottom: 5px;
-font-weight: normal;
-font-size: 15px;
-}
-
-#logout {
-color: black;
-display: block;
-margin: 0;
-cursor: pointer;
-font-weight: bold;
-margin-top: 20px;
-font-size: 18px;
-}
-
 #tab-bar {
     display: flex;
     border: 0;
     border-bottom: 1px;
     border-style: solid;
-    border-color: darkgrey;
+    border-color: rgb(132, 132, 132);
     margin-bottom: 15px;
     margin-left: 40px;
     margin-right: 40px;
 }
 
 .tab-button {
-    color: darkgrey;
+    color: rgb(132, 132, 132);
     margin-right: 40px;
     cursor: pointer;
     height: 40px;
@@ -145,30 +50,30 @@ table {
     border-collapse: separate;
     border: 0.5px;
     border-style: solid;
-    border-color: darkgray;
+    border-color: rgb(132, 132, 132);
     border-radius: 5px;
     overflow: hidden;
     font-size: 12px;
 }
 
-table thead {
+thead {
     background-color: #f0f0f0;
 }
 
-table th {
+th {
     padding: 10px;
     text-align: left;
     border: 0.5px;
     border-style: solid;
-    border-color: darkgray;
+    border-color: rgb(132, 132, 132);
 }
 
-table td {
+td {
     padding: 10px;
     text-align: left;
     border: 0.5px;
     border-style: solid;
-    border-color: darkgray;
+    border-color: rgb(132, 132, 132);
     height: 20px;
     width: 15%;
     white-space: nowrap;
