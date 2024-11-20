@@ -143,16 +143,17 @@ async function delete_form() {
     cancelDeleteButton.onclick = async function() { await cancel_delete(); };
 }
 
-async function delete_item() {
-    const itemTitleContainer = document.getElementById('item-title-text');
-    const itemTitle = itemTitleContainer.textContent;
+async function delete_item(id) {
 
-    const labName = document.getElementById('lab-name').textContent;
+    let queryParams = `?itemId=${id}`;
 
-    // Insert PHP to find the specific item from the lab name and remove it
-
-    console.log("Lab to check:", labName);
-    console.log("Item to delete: ", itemTitle);
+    await fetch(`../backend/queries/deleteItem.php${queryParams}`).then((response) => response.text())
+    .then((result) => {
+      if (isJsonString(result)){
+        result = JSON.parse(result);
+      }
+      console.log(result);
+    });
 
     const deleteContainer = document.getElementById('delete-item');
     deleteContainer.style.display = "none";

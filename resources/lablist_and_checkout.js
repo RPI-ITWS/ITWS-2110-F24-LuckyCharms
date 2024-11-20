@@ -151,6 +151,12 @@ async function populateItemDetails(labLocation, itemId) {
   checkoutButton.onclick = function() {
     checkout(itemId, item.stock);
   };
+
+  const deleteButton = document.getElementById("delete-button");
+  console.log(deleteButton);
+  deleteButton.onclick = function() {
+    delete_item(itemId);
+  };
 }
 
 function populate() {
