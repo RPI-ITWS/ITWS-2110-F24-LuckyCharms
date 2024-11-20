@@ -16,7 +16,10 @@
     $newPasswordConfirm = $_GET["newPasswordConfirm"];
     $userId = $_SESSION['userId'];
 
-    $passwordMatch = $newPassword == $newPasswordConfirm;
+    if($newPassword != $newPasswordConfirm){
+        echo json_encode(['status' => $REPEAT_PASSWORD_WRONG]);
+        return;
+    }
 
     $user = $db->prepare("SELECT * FROM users WHERE id = ?");
     $user->bind_param("i", $userId);
@@ -25,19 +28,13 @@
     $userInfo = $user->get_result()->fetch_assoc();
 
     if (password_verify($oldPassword, $userInfo["password"])) {
+        $hashedNewPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+        
+        $updateStmt = $db->prepare("UPDATE users SET `password` = ? WHERE id = ?");
+        $updateStmt->bind_param("si", $hashedNewPassword, $userId);
+        $updateStmt->execute();
 
-        if ($passwordMatch) {
-            $hashedNewPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-            
-            $updateStmt = $db->prepare("UPDATE users SET `password` = ? WHERE id = ?");
-            $updateStmt->bind_param("si", $hashedNewPassword, $userId);
-            $updateStmt->execute();
-
-            echo json_encode(['status' => $PASSWORD_CHANGED]);
-        } else {
-            echo json_encode(['status' => $REPEAT_PASSWORD_WRONG]);
-        }
-
+        echo json_encode(['status' => $PASSWORD_CHANGED]);
     } else {
         echo json_encode(['status' => $INCORRECT_PASSWORD]);
     }
