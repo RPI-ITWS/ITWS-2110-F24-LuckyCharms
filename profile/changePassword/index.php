@@ -18,7 +18,7 @@
   <title>Home</title>
   <script src="../../resources/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="../../resources/style.css">
+  <link rel="stylesheet" type="text/css" href="../../resources/pages.css">
   <link rel="stylesheet" type="text/css" href="../profile.css">
   <link rel="stylesheet" type="text/css" href="change_password.css">
 <body>
