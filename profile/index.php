@@ -74,7 +74,7 @@
         </div>
         <div class="field-with-button">
             <label for="password">Password</label>
-            <a href="changePassword/index.html"><button class="change-password-btn">Change Password</button></a>
+            <a href="changePassword/index.php"><button class="change-password-btn">Change Password</button></a>
         </div>
     </div>
     <script>
