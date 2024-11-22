@@ -12,7 +12,7 @@
 	}
 	$name = '%'.$name.'%';
 	
-	$query = $db->prepare("SELECT COUNT(*) as totalItems FROM ITEMS where location_name = ? AND name LIKE ?;");
+	$query = $db->prepare("SELECT COUNT(*) as totalItems FROM items where location_name = ? AND name LIKE ?;");
 	$query->bind_param("ss", $locationName, $name);
 	$query->execute();
 	$result = $query->get_result();
