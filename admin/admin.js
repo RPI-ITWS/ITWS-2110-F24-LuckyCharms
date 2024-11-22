@@ -3,7 +3,6 @@
 async function add_form() {
     const addForm = document.getElementById('add-form');
     addForm.style.display = "flex";
-    console.log("called");
     addForm.onsubmit = async function(event) {
         event.preventDefault();
         await add_item(event);
@@ -137,7 +136,7 @@ async function delete_form() {
     deleteTitle.textContent = "Delete " + itemTitle;
 
     const deleteButton = document.getElementById('delete-button');
-    deleteButton.onclick = async function() { await delete_item(); };
+    // deleteButton.onclick = async function() { await delete_item(); };
 
     const cancelDeleteButton = document.getElementById('cancel-delete-button');
     cancelDeleteButton.onclick = async function() { await cancel_delete(); };
@@ -146,7 +145,6 @@ async function delete_form() {
 async function delete_item(id) {
 
     let queryParams = `?itemId=${id}`;
-
     await fetch(`../backend/queries/deleteItem.php${queryParams}`).then((response) => response.text())
     .then((result) => {
       if (isJsonString(result)){

@@ -153,7 +153,6 @@ async function populateItemDetails(labLocation, itemId) {
   };
 
   const deleteButton = document.getElementById("delete-button");
-  console.log(deleteButton);
   deleteButton.onclick = function() {
     delete_item(itemId);
   };
