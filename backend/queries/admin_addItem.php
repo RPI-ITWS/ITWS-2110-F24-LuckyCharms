@@ -22,6 +22,6 @@
     }
 
     $result = db->prepare("INSERT INTO items (`name`, `borrowable`, `description`, `stock`, `image_link`, `location_name`) VALUES (?, ?, ?, ?, ?, ?)");
-    $result->bind_param("siisss", $name, $borrowable, $item_desc, $stock, $image, $location_name);
+    $result->bind_param("sisiss", $name, $borrowable, $item_desc, $stock, $image, $location_name);
     $result->execute();
 ?>
