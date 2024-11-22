@@ -28,6 +28,13 @@ async function labItemsClick() {
         tableItem.classList.remove('narrow');
     });
 
+    const tableBody = document.getElementById('lab-items');
+    const tableEntries = tableBody.querySelectorAll('tr');
+    tableEntries.forEach(function(tr) {
+        const secondTD = tr.querySelectorAll('td')[1];
+        secondTD.classList.remove('email-column');
+    });
+
     const addButton = document.getElementById('add-button');
     addButton.innerHTML = '<span id="add-icon">+</span> Add Item';
 
@@ -65,6 +72,13 @@ async function labUsersClick() {
     const tableItems = document.querySelectorAll('.item-name');
     tableItems.forEach(tableItem => {
         tableItem.classList.add('narrow');
+    });
+
+    const tableBody = document.getElementById('lab-items');
+    const tableEntries = tableBody.querySelectorAll('tr');
+    tableEntries.forEach(function(tr) {
+        const secondTD = tr.querySelectorAll('td')[1];
+        secondTD.classList.add('email-column');
     });
 
     const addButton = document.getElementById('add-button');
