@@ -1,3 +1,25 @@
+/*Admin Tab Bar*/
+#tab-bar {
+  display: flex;
+  border: 0;
+  margin-bottom: 5px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tab-button {
+  color: rgb(132, 132, 132);
+  margin-right: 40px;
+  cursor: pointer;
+  height: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#chosen {
+  color: black;
+}
+
 /*Deletion form styling*/
 #delete-item {
   display: none;

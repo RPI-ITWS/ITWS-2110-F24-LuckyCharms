@@ -1,16 +1,118 @@
 //code for the forms to add and delete items from the lab
+let current_page = 'item';
+
+async function labItemsClick() {
+    const current = document.getElementById('chosen');
+
+    if (current) {
+        current.removeAttribute('id');
+    }
+
+    const tabBar = document.getElementById('tab-bar');
+    const tabBarButtons = tabBar.querySelectorAll('h2');
+    const labItemsButton = tabBarButtons[0];
+
+    labItemsButton.id = 'chosen';
+
+    const table = document.getElementById('item-table');
+    const tableHeaders = table.querySelectorAll('th');
+    const itemName = tableHeaders[0];
+    const itemType = tableHeaders[1];
+    const itemStatus = tableHeaders[2];
+    itemName.textContent = "Item Name";
+    itemType.textContent = "Item Type";
+    itemStatus.textContent = "Status";
+
+    const tableItems = document.querySelectorAll('.item-name');
+    tableItems.forEach(tableItem => {
+        tableItem.classList.remove('narrow');
+    });
+
+    const addButton = document.getElementById('add-button');
+    addButton.innerHTML = '<span id="add-icon">+</span> Add Item';
+
+    current_page = 'item';
+
+    const labTable = document.getElementById('lab-items');
+    labTable.innerHTML = "";
+
+    const labName = document.getElementById('lab-name').textContent;
+    labItems(labName, 1, "");
+}
+
+async function labUsersClick() {
+    const current = document.getElementById('chosen');
+
+    if (current) {
+        current.removeAttribute('id');
+    }
+
+    const tabBar = document.getElementById('tab-bar');
+    const tabBarButtons = tabBar.querySelectorAll('h2');
+    const labUsersButton = tabBarButtons[1];
+
+    labUsersButton.id = 'chosen';
+
+    const table = document.getElementById('item-table');
+    const tableHeaders = table.querySelectorAll('th');
+    const userName = tableHeaders[0];
+    const userEmail = tableHeaders[1];
+    const userActions = tableHeaders[2];
+    userName.textContent = "Full Name";
+    userEmail.textContent = "Email";
+    userActions.textContent = "Actions";
+
+    const tableItems = document.querySelectorAll('.item-name');
+    tableItems.forEach(tableItem => {
+        tableItem.classList.add('narrow');
+    });
+
+    const addButton = document.getElementById('add-button');
+    addButton.innerHTML = '<span id="add-icon">+</span> Add User';
+
+    current_page = 'user';
+
+    const checkoutPanels = document.getElementsByClassName('right-sidebar');
+    const checkoutPanel = checkoutPanels[0];
+    checkoutPanel.style.display = 'none';
+  
+    // Select all <tr> elements
+    const allTDs = document.querySelectorAll('tr');
+  
+    // Loop through all the <tr> elements
+    allTDs.forEach(tr => {
+        if (tr.className === 'highlighted') {
+            // Remove the highlight from all
+            tr.removeAttribute('class');
+        }
+    });
+
+    const labTable = document.getElementById('lab-items');
+    labTable.innerHTML = "";
+
+    // Create a query called "getActiveUsers" where it fetches from the alloweduserLocations the user ids associated with a specific lab
+    // Make that fetch call here
+    // This works similarly to the getActiveUsers, but the lab name is given and the users ids associated are what need to be fetched.
+
+    // After that, fetch user information for every user based on the ids associated with the specific lab current displayed and then display those users in the table.
+    // Also make that fetch call here
+
+    // You will now have an array of users with their information, which you can divide by 10 so that they can be displayed via pagation.
+}
 
 async function add_form() {
-    const addForm = document.getElementById('add-form');
-    addForm.style.display = "flex";
-    console.log("called");
-    addForm.onsubmit = async function(event) {
-        event.preventDefault();
-        await add_item(event);
-    };
+    if (current_page === 'item') {
+        const addForm = document.getElementById('add-form');
+        addForm.style.display = "flex";
+        console.log("called");
+        addForm.onsubmit = async function(event) {
+            event.preventDefault();
+            await add_item(event);
+        };
 
-    const cancelAddButton = document.getElementById('cancel-add-form-button');
-    cancelAddButton.onclick = async function() { await cancel_add(); };
+        const cancelAddButton = document.getElementById('cancel-add-form-button');
+        cancelAddButton.onclick = async function() { await cancel_add(); };
+    }
 }
 
 async function add_item(event) {
