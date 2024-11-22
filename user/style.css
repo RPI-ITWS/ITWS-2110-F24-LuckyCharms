@@ -145,8 +145,12 @@ thead {
 }
 
 .item-name.narrow {
-  width: 30vw;
+  width: 35vw;
   cursor: pointer;
+}
+
+.email-column {
+  width: 30vw;
 }
 
 td {
