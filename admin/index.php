@@ -94,6 +94,11 @@
           <button onclick="search()">Search</button>
         </div>
       </div>
+
+      <div id="tab-bar">
+        <h2 class="tab-button" id="chosen" onclick="labItemsClick()">Lab Items</h2>
+        <h2 class="tab-button" onclick="labUsersClick()">Lab Users</h2>
+      </div>
   
       <table id="item-table">
         <thead>
@@ -108,10 +113,10 @@
           <!-- items populated dynamically -->
         </tbody>
       </table>
+      <button id="add-button"><span id="add-icon">+</span> Add Item</button>
+      
       <br>
       <div id="pagination"></div>
-
-      <button id="add-button"><span id="add-icon">+</span> Add Item</button>
     </div>
 
     <div class="right-sidebar">

@@ -1,5 +1,37 @@
 //code for the forms to add and delete items from the lab
 
+async function labItemsClick() {
+    const current = document.getElementById('chosen');
+
+    if (current) {
+        current.removeAttribute('id');
+    }
+
+    const tabBar = document.getElementById('tab-bar');
+    const tabBarButtons = tabBar.querySelectorAll('h2');
+    const labItemsButton = tabBarButtons[0];
+
+    labItemsButton.id = 'chosen';
+    
+    // Populate table with lab items 
+}
+
+async function labUsersClick() {
+    const current = document.getElementById('chosen');
+
+    if (current) {
+        current.removeAttribute('id');
+    }
+
+    const tabBar = document.getElementById('tab-bar');
+    const tabBarButtons = tabBar.querySelectorAll('h2');
+    const labUsersButton = tabBarButtons[1];
+
+    labUsersButton.id = 'chosen';
+
+    // Populate table with lab users
+}
+
 async function add_form() {
     const addForm = document.getElementById('add-form');
     addForm.style.display = "flex";

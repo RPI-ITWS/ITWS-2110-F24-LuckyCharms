@@ -40,10 +40,12 @@ async function labItems(labName, currentPage=1, searchValue="") {
   const totalPages = Math.ceil(pagination.totalItems / 10);
 
   $("#pagination").html("");
-  for (let i = 1; i <= totalPages; i++) {
-    $("#pagination").append(`<button class="page-button" ${currentPage === i ? "disabled" : ""} 
-      onclick="labItems('${labName}', ${i}, '${searchValue}')">${i}
-    </button>`);
+  if (totalPages != 1) {
+    for (let i = 1; i <= totalPages; i++) {
+      $("#pagination").append(`<button class="page-button" ${currentPage === i ? "disabled" : ""} 
+        onclick="labItems('${labName}', ${i}, '${searchValue}')">${i}
+      </button>`);
+    }
   }
 
   const items = await fetch(`../backend/queries/filterItems.php?locationName=${labName}&page=${currentPage}&name=${searchValue}`).then((res) => res.json());
