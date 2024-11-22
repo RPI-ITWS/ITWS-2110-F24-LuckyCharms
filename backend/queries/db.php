@@ -2,6 +2,9 @@
 	// Set error reporting to display all errors
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL);
+
+	// Set CSP here
+	header("Content-Security-Policy: default-src: 'self';");
 	
 	$itemLimit = 10;
 	

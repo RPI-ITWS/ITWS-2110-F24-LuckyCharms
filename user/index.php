@@ -4,7 +4,10 @@
   require "../backend/queries/validateUser.php";
   require "../backend/queries/getActiveLabs.php";
   require "../backend/queries/userInformation.php";
-  
+
+  // Set CSP Here
+  header("Content-Security-Policy: default-src: 'self';");
+
   if (!validateUser())
 	  redirect("../");
   $isAdmin = $_SESSION['isAdmin'];
