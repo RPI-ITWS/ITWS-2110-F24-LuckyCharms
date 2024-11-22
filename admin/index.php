@@ -91,7 +91,7 @@
         <h2 id="lab-name">No Labs</h2>
         <div class="search-bar">
           <input id="search" type="text" placeholder="Search" onkeydown="search(event)">
-          <button onclick="search()">Search</button>
+          <button id="search-button" onclick="search()">Search</button>
         </div>
       </div>
 
@@ -114,7 +114,7 @@
         </tbody>
       </table>
       <button id="add-button"><span id="add-icon">+</span> Add Item</button>
-      
+
       <br>
       <div id="pagination"></div>
     </div>

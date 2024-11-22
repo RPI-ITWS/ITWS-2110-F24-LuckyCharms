@@ -85,7 +85,7 @@
 		</h2>
 		<div class="search-bar">
       <input id="search" type="text" placeholder="Search" onkeydown="search(event)">
-      <button onclick="search()">Search</button>
+      <button id="search-button" onclick="search()">Search</button>
 		</div>
 	  </div>
   

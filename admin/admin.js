@@ -1,4 +1,5 @@
 //code for the forms to add and delete items from the lab
+let current_page = 'item';
 
 async function labItemsClick() {
     const current = document.getElementById('chosen');
@@ -12,8 +13,25 @@ async function labItemsClick() {
     const labItemsButton = tabBarButtons[0];
 
     labItemsButton.id = 'chosen';
-    
-    // Populate table with lab items 
+
+    const table = document.getElementById('item-table');
+    const tableHeaders = table.querySelectorAll('th');
+    const itemName = tableHeaders[0];
+    const itemType = tableHeaders[1];
+    const itemStatus = tableHeaders[2];
+    itemName.textContent = "Item Name";
+    itemType.textContent = "Item Type";
+    itemStatus.textContent = "Status";
+
+    const tableItems = document.querySelectorAll('.item-name');
+    tableItems.forEach(tableItem => {
+        tableItem.classList.remove('narrow');
+    });
+
+    const addButton = document.getElementById('add-button');
+    addButton.innerHTML = '<span id="add-icon">+</span> Add Item';
+
+    current_page = 'item';
 }
 
 async function labUsersClick() {
@@ -29,20 +47,54 @@ async function labUsersClick() {
 
     labUsersButton.id = 'chosen';
 
-    // Populate table with lab users
+    const table = document.getElementById('item-table');
+    const tableHeaders = table.querySelectorAll('th');
+    const userName = tableHeaders[0];
+    const userEmail = tableHeaders[1];
+    const userActions = tableHeaders[2];
+    userName.textContent = "Full Name";
+    userEmail.textContent = "Email";
+    userActions.textContent = "Actions";
+
+    const tableItems = document.querySelectorAll('.item-name');
+    tableItems.forEach(tableItem => {
+        tableItem.classList.add('narrow');
+    });
+
+    const addButton = document.getElementById('add-button');
+    addButton.innerHTML = '<span id="add-icon">+</span> Add User';
+
+    current_page = 'user';
+
+    const checkoutPanels = document.getElementsByClassName('right-sidebar');
+    const checkoutPanel = checkoutPanels[0];
+    checkoutPanel.style.display = 'none';
+  
+    // Select all <tr> elements
+    const allTDs = document.querySelectorAll('tr');
+  
+    // Loop through all the <tr> elements
+    allTDs.forEach(tr => {
+        if (tr.className === 'highlighted') {
+            // Remove the highlight from all
+            tr.removeAttribute('class');
+        }
+    });
 }
 
 async function add_form() {
-    const addForm = document.getElementById('add-form');
-    addForm.style.display = "flex";
-    console.log("called");
-    addForm.onsubmit = async function(event) {
-        event.preventDefault();
-        await add_item(event);
-    };
+    if (current_page === 'item') {
+        const addForm = document.getElementById('add-form');
+        addForm.style.display = "flex";
+        console.log("called");
+        addForm.onsubmit = async function(event) {
+            event.preventDefault();
+            await add_item(event);
+        };
 
-    const cancelAddButton = document.getElementById('cancel-add-form-button');
-    cancelAddButton.onclick = async function() { await cancel_add(); };
+        const cancelAddButton = document.getElementById('cancel-add-form-button');
+        cancelAddButton.onclick = async function() { await cancel_add(); };
+    }
 }
 
 async function add_item(event) {

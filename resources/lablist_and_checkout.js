@@ -167,7 +167,7 @@ function populate() {
   table.addEventListener('click', async function (event) {
     event.preventDefault();
 
-    if (event.target.tagName === 'TD') {
+    if (event.target.tagName === 'TD' && current_page === 'item') {
       // Display the side panel if an item is clicked on
       checkoutPanel.style.display = 'flex';
       const labName = document.getElementById('lab-name').textContent;
