@@ -142,8 +142,8 @@
         <p id="item-description-list">Text</p>
       </div>
 
-      <button class="form-button" style="background-color: lightgreen;" id="checkout-button">CHECK OUT</button>
-      <button class="form-button" style="background-color: skyblue;" id="edit-button">EDIT ITEM</button>
+      <button class="form-button" id="checkout-button">CHECK OUT</button>
+      <button class="form-button" style="background-color: #778DA9;" id="edit-button">EDIT ITEM</button>
       <button class="form-button" style="background-color: red;" id="remove-button">REMOVE ITEM</button>
     </div>
 
@@ -165,8 +165,8 @@
             <option value="Removable">Removable</option>
           </select><br><br>
 
-          <label for="item-quantity">Stock:</label>
-          <input type="number" id="item-quantity" name="item-quantity" min="1" max="1000" required><br><br>
+          <label for="item-quantity-input">Stock:</label>
+          <input type="number" id="item-quantity-input" name="item-quantity-input" min="1" max="1000" required><br><br>
 
           <label for="item-image">Item Image:</label>
           <input type="file" id="item-image" accept="image/*">

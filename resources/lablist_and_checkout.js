@@ -130,11 +130,13 @@ async function populateItemDetails(labLocation, itemId) {
     itemStatusText.textContent = "In Stock";
     checkoutButton.textContent = "CHECK OUT";
     checkoutButton.style.backgroundColor = "lightgreen";
+    checkoutButton.style.cursor = "pointer";
   }
   else {
     itemStatusText.textContent = "Out Of Stock";
-    checkoutButton.textContent = "UNAVAILIBLE";
-    checkoutButton.style.backgroundColor = "lightred";
+    checkoutButton.textContent = "UNAVAILABLE";
+    checkoutButton.style.backgroundColor = "lightcoral";
+    checkoutButton.style.cursor = "not-allowed";
   }
 
   // Set the stock to the amount of items in stock currently
@@ -220,7 +222,7 @@ async function checkout(id, stock) {
   });
 
   const checkoutButton = document.getElementById('checkout-button');
-  if (checkoutButton.textContent !== "UNAVAILABLE") {
+  if (checkoutButton.textContent != "UNAVAILABLE") {
     const checkoutForm = document.getElementById('checkout-form');
     checkoutForm.style.display = "flex";
 
