@@ -68,20 +68,22 @@ async function labItems(labName, currentPage=1, searchValue="") {
 
     
 
-  const addButtonContainer = document.getElementById('add-button');
-  addButtonContainer.onclick = async function() {
-      add_form();
-  };
+  if (window.location.href == "https://luckycharms.eastus.cloudapp.azure.com/admin/") {
+    const addButtonContainer = document.getElementById('add-button');
+    addButtonContainer.onclick = async function() {
+        add_form();
+    };
 
-  const editButtonContainer = document.getElementById('edit-button');
-  editButtonContainer.onclick = async function() {
-      edit_form();
-  };
+    const editButtonContainer = document.getElementById('edit-button');
+    editButtonContainer.onclick = async function() {
+        edit_form();
+    };
 
-  const removeButtonContainer = document.getElementById('remove-button');
-  removeButtonContainer.onclick = async function() {
-      delete_form();
-  };
+    const removeButtonContainer = document.getElementById('remove-button');
+    removeButtonContainer.onclick = async function() {
+        delete_form();
+    };
+  }
 }
 
 async function search(event=null) {
@@ -167,7 +169,7 @@ function populate() {
   table.addEventListener('click', async function (event) {
     event.preventDefault();
 
-    if (event.target.tagName === 'TD' && current_page === 'item') {
+    if (event.target.tagName === 'TD' || (window.location.href == "https://luckycharms.eastus.cloudapp.azure.com/admin/" && current_page === 'item')) {
       // Display the side panel if an item is clicked on
       checkoutPanel.style.display = 'flex';
       const labName = document.getElementById('lab-name').textContent;
