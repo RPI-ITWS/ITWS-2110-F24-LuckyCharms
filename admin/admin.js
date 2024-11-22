@@ -32,6 +32,12 @@ async function labItemsClick() {
     addButton.innerHTML = '<span id="add-icon">+</span> Add Item';
 
     current_page = 'item';
+
+    const labTable = document.getElementById('lab-items');
+    labTable.innerHTML = "";
+
+    const labName = document.getElementById('lab-name').textContent;
+    labItems(labName, 1, "");
 }
 
 async function labUsersClick() {
@@ -80,6 +86,18 @@ async function labUsersClick() {
             tr.removeAttribute('class');
         }
     });
+
+    const labTable = document.getElementById('lab-items');
+    labTable.innerHTML = "";
+
+    // Create a query called "getActiveUsers" where it fetches from the alloweduserLocations the user ids associated with a specific lab
+    // Make that fetch call here
+    // This works similarly to the getActiveUsers, but the lab name is given and the users ids associated are what need to be fetched.
+
+    // After that, fetch user information for every user based on the ids associated with the specific lab current displayed and then display those users in the table.
+    // Also make that fetch call here
+
+    // You will now have an array of users with their information, which you can divide by 10 so that they can be displayed via pagation.
 }
 
 async function add_form() {
