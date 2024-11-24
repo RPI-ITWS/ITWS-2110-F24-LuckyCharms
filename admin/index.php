@@ -116,7 +116,7 @@
           <!-- items populated dynamically -->
         </tbody>
       </table>
-      <button id="add-button"><span id="add-icon">+</span> Add Item</button>
+      <button id="add-button" onclick="add_form()"><span id="add-icon">+</span> Add Item</button>
 
       <br>
       <div id="pagination"></div>
@@ -151,8 +151,8 @@
       </div>
 
       <button class="form-button" id="checkout-button">CHECK OUT</button>
-      <button class="form-button" style="background-color: #778DA9;" id="edit-button">EDIT ITEM</button>
-      <button class="form-button" style="background-color: red;" id="remove-button">REMOVE ITEM</button>
+      <button class="form-button" style="background-color: #778DA9;" id="edit-button" onclick="edit_form()">EDIT ITEM</button>
+      <button class="form-button" style="background-color: red;" id="remove-button" onclick="delete_form()">REMOVE ITEM</button>
     </div>
 
     <div id="add-form">
