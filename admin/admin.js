@@ -104,6 +104,19 @@ async function labUsersClick() {
     const labTable = document.getElementById('lab-items');
     labTable.innerHTML = "";
 
+    const labName = document.getElementById('lab-name').textContent;
+    console.log(labName);
+
+    await fetch(`../backend/queries/getActiveUsers.php?locationName=${labName}`)
+        .then((response) => response.json())
+        .then((result) => {
+            if (isJsonString(result)) {
+                result = JSON.parse(result);
+            }
+            
+            console.log(result);
+        }
+    );
     // Create a query called "getActiveUsers" where it fetches from the alloweduserLocations the user ids associated with a specific lab
     // Make that fetch call here
     // This works similarly to the getActiveUsers, but the lab name is given and the users ids associated are what need to be fetched.
