@@ -105,7 +105,6 @@ async function labUsersClick() {
     labTable.innerHTML = "";
 
     const labName = document.getElementById('lab-name').textContent;
-    console.log(labName);
 
     const result = await fetchAssociatedUsers(labName);
 
@@ -117,19 +116,18 @@ async function labUsersClick() {
         users.push(resultUser);
     }
 
-    console.log(users);
+    let labUsers = "";
 
-    
+    // Must divide this by 10
+    for (const user of users) {
+        labUsers += `<tr id="">
+        <td class="item-name">${user.username}</td>
+        <td>${user.email}</td>
+        <td><button class="removeUser">Remove</button></td>
+        </tr>`;
+    }
 
-
-    // Create a query called "getActiveUsers" where it fetches from the alloweduserLocations the user ids associated with a specific lab
-    // Make that fetch call here
-    // This works similarly to the getActiveUsers, but the lab name is given and the users ids associated are what need to be fetched.
-
-    // After that, fetch user information for every user based on the ids associated with the specific lab current displayed and then display those users in the table.
-    // Also make that fetch call here
-
-    // You will now have an array of users with their information, which you can divide by 10 so that they can be displayed via pagation.
+    $("#lab-items").html(labUsers);
 }
 
 async function fetchAssociatedUsers(labName) {
