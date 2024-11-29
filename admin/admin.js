@@ -107,16 +107,21 @@ async function labUsersClick() {
     const labName = document.getElementById('lab-name').textContent;
     console.log(labName);
 
-    await fetch(`../backend/queries/getActiveUsers.php?locationName=${labName}`)
-        .then((response) => response.json())
-        .then((result) => {
-            if (isJsonString(result)) {
-                result = JSON.parse(result);
-            }
-            
-            console.log(result);
-        }
-    );
+    const result = await fetchAssociatedUsers(labName);
+
+    let users = [];
+
+    for (const item of result) {
+        const resultUser = await fetchUserInformation(item.user_id);
+
+        users.push(resultUser);
+    }
+
+    console.log(users);
+
+    
+
+
     // Create a query called "getActiveUsers" where it fetches from the alloweduserLocations the user ids associated with a specific lab
     // Make that fetch call here
     // This works similarly to the getActiveUsers, but the lab name is given and the users ids associated are what need to be fetched.
@@ -125,6 +130,20 @@ async function labUsersClick() {
     // Also make that fetch call here
 
     // You will now have an array of users with their information, which you can divide by 10 so that they can be displayed via pagation.
+}
+
+async function fetchAssociatedUsers(labName) {
+    const response = await fetch(`../backend/queries/getActiveUsers.php?locationName=${labName}`);
+    const userIds = await response.json();
+
+    return userIds;
+}
+
+async function fetchUserInformation(item_user_id) {
+    const response = await fetch(`../backend/queries/getUserInformation.php?userId=${item_user_id}`);
+    const user = await response.json();
+
+    return user;
 }
 
 async function add_form() {
