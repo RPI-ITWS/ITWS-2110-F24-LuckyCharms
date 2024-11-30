@@ -116,14 +116,34 @@ async function labUsersClick() {
         users.push(resultUser);
     }
 
+    const totalPages = Math.floor(users.length/10 + 1);
+    console.log(totalPages);
+    $("#pagination").html("");
+    if (totalPages != 1) {
+        for (let i = 1; i <= totalPages; i++) {
+            $("#pagination").append(`<button class="page-button" ${i === 1 ? "disabled" : ""} </button>`);
+        }
+    }
+
+    // Must seperate the list of users into pages.
+    let page = 1;
+    const pageButtons = document.querySelectorAll('page-button');
+    pageButtons.forEach(button => {
+        if (button.hasAttribute('disabled')) {
+            page = button.textContent;
+        }
+    });
+
+    console.log(page);
+
     let labUsers = "";
 
-    // Must divide this by 10
+    // Must divide this by 10 and display it on pages.
     for (const user of users) {
         labUsers += `<tr id="">
-        <td class="item-name">${user.username}</td>
+        <td class="item-name narrow">${user.username}</td>
         <td>${user.email}</td>
-        <td><button class="removeUser">Remove</button></td>
+        <td><button class="removeUser">REMOVE</button></td>
         </tr>`;
     }
 
