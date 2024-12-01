@@ -161,26 +161,32 @@
 
         <form id="add-form-object">
           <label for="item-name">Item Name:</label>
-          <input type="text" id="item-name" name="item-name" required><br><br>
+          <input type="text" id="item-name" name="item-name" required>
+          <br><br>
 
           <label for="new-item-description">Item Description:</label>
-          <textarea id="new-item-description" name="new-item-description" maxlength="1000" placeholder="Describe the item..."></textarea><br><br>
+          <textarea id="new-item-description" name="new-item-description" maxlength="1000" placeholder="Describe the item..." style="margin-top: 10px; width: 99%; border-radius: 10px; "></textarea>
+          <br><br>
 
           <label for="type-dropdown">Item Type:</label>
           <select id="type-dropdown" required>
             <option value="" disabled selected>Select an option</option>
             <option value="Borrowable">Borrowable</option>
             <option value="Removable">Removable</option>
-          </select><br><br>
+          </select>
+          <br><br>
 
           <label for="item-quantity-input">Stock:</label>
-          <input type="number" id="item-quantity-input" name="item-quantity-input" min="1" max="1000" required><br><br>
+          <input type="number" id="item-quantity-input" name="item-quantity-input" min="1" max="1000" required>
+          <br><br>
 
           <label for="item-image">Item Image:</label>
-          <input type="file" id="item-image" accept="image/*">
+          <input type="file" id="item-image" style="border: none;" accept="image/*">
 
-          <button type="submit" class="form-button" style="background-color: lightgreen;"  id="add-form-button">ADD ITEM</button>
-          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-add-form-button">CANCEL</button>
+          <div style="display: flex; flex-direction: flex-row; gap: 20px; justify-content: center; margin-top: 20px;">
+            <button type="button" class="form-button" style="margin: 0; width: 40%; background-color: lightcoral;" id="cancel-add-form-button">CANCEL</button>
+            <button type="submit" class="form-button" style="margin: 0; width: 40%; background-color: lightgreen;"  id="add-form-button">ADD ITEM</button>
+          </div>
         </form>
       </div>
     </div>
