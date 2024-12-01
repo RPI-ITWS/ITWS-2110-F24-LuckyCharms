@@ -7,8 +7,12 @@
 
 h2 {
     margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
+    background-color: #78849E;
+    border-radius: 20px;
+    padding: 20px;
+    color:white;
+    width: 1040px;
+    justify-self: center;
 }
 
 .field {

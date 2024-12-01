@@ -11,11 +11,11 @@
 
 .tab-button {
     color: rgb(132, 132, 132);
-    margin-right: 40px;
     cursor: pointer;
-    height: 40px;
-    margin-top: 10px;
-    margin-bottom: 0;
+    /* height: 40px; */
+    padding: 10px 20px;
+    margin: 0px;
+    font-size: 18px;
 }
 
 #chosen {
@@ -34,13 +34,10 @@
 }
 
 #search-bar input {
-    padding: 5px 10px;
     border: 1px solid black;
-    border-radius: 20px;
-    margin-right: 10px;
+    border-radius: 10px;
     color: black;
     height: 25px;
-    margin-bottom: 10px;
 }
 
 table {
