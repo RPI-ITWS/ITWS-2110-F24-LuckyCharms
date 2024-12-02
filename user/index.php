@@ -109,7 +109,7 @@
 	  <div id="pagination"></div>
 	</div>
 
-	<div class="right-sidebar">
+	<div class="right-sidebar hidden">
 		<p id="go-back">&raquo;</p>
 
 		<div id="item-title">

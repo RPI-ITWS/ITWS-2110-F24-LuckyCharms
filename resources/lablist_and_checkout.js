@@ -153,6 +153,10 @@ function populate() {
     if (event.target.tagName === 'TD' && (window.location.href.includes("user") || current_page === 'item')) {
       // Display the side panel if an item is clicked on
       checkoutPanel.style.display = 'flex';
+
+      checkoutPanel.classList.remove('hidden');
+      checkoutPanel.classList.add('visible');
+
       const labName = document.getElementById('lab-name').textContent;
 
       // Select all <tr> elements
@@ -178,7 +182,9 @@ function populate() {
 
   // Check if the side panel shall be closed
   closePanel.addEventListener('click', function() {
-    checkoutPanel.style.display = 'none';
+    // checkoutPanel.style.display = 'none';
+    checkoutPanel.classList.remove('visible');
+    checkoutPanel.classList.add('hidden');
   
     // Select all <tr> elements
     const allTDs = document.querySelectorAll('tr');
