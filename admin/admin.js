@@ -47,7 +47,7 @@ async function labItemsClick() {
     labItems(labName, 1, "");
 }
 
-async function labUsersClick() {
+async function labUsersClick(page=1) {
     const current = document.getElementById('chosen');
 
     if (current) {
@@ -106,7 +106,7 @@ async function labUsersClick() {
 
     const labName = document.getElementById('lab-name').textContent;
 
-    const result = await fetchAssociatedUsers(labName);
+    const result = await fetchAssociatedUsers(labName, page);
 
     let users = [];
 
@@ -116,25 +116,22 @@ async function labUsersClick() {
         users.push(resultUser);
     }
 
-    const totalPages = Math.floor(users.length/10 + 1);
-    console.log(totalPages);
-    $("#pagination").html("");
-    if (totalPages != 1) {
+    const pagination = await fetch(`../backend/queries/totalUsers.php?locationName=${labName}`).then(response => response.json());
+
+    const totalPages = Math.ceil(pagination.totalUsers / 10);
+
+    let pageButtons = "";
+
+    if (totalPages !== 1) {
         for (let i = 1; i <= totalPages; i++) {
-            $("#pagination").append(`<button class="page-button" ${i === 1 ? "disabled" : ""} </button>`);
+            pageButtons += `<button class="page-button" onclick="labUsersClick(${i})" ${i === page ? "disabled" : ""}>${i}</button>`;
         }
     }
 
-    // Must seperate the list of users into pages.
-    let page = 1;
-    const pageButtons = document.querySelectorAll('page-button');
-    pageButtons.forEach(button => {
-        if (button.hasAttribute('disabled')) {
-            page = button.textContent;
-        }
-    });
+    document.getElementById('pagination').innerHTML = pageButtons;
 
-    console.log(page);
+    // Must seperate the list of users into pages.
+
 
     let labUsers = "";
 
@@ -150,11 +147,11 @@ async function labUsersClick() {
     $("#lab-items").html(labUsers);
 }
 
-async function fetchAssociatedUsers(labName) {
-    const response = await fetch(`../backend/queries/getActiveUsers.php?locationName=${labName}`);
-    const userIds = await response.json();
+async function fetchAssociatedUsers(labName, page=1) {
+    const response = await fetch(`../backend/queries/getActiveUsers.php?locationName=${labName}&page=${page}`)
+      .then((res) => res.json());
 
-    return userIds;
+    return response;
 }
 
 async function fetchUserInformation(item_user_id) {
