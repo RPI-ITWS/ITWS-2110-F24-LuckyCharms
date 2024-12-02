@@ -218,14 +218,6 @@ td {
   display: flex;
 }
 
-#pagination {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-  overflow-x: auto;
-}
-
 .right-sidebar div {
   margin-left: auto;
   margin-right: auto;
