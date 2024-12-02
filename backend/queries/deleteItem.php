@@ -19,9 +19,14 @@
 
   print_r($item_id);
 
-  $delete = $db->prepare("DELETE FROM `items` WHERE `id` = ?");
-  $delete->bind_param("i", $item_id);
-  $delete->execute();
+  
+  $delete_res = $db->prepare("DELETE FROM `reservations` WHERE `item_id` = ?");
+  $delete_res->bind_param("i", $item_id);
+  $delete_res->execute();
+
+  $delete_item = $db->prepare("DELETE FROM `items` WHERE `id` = ?");
+  $delete_item->bind_param("i", $item_id);
+  $delete_item->execute();
 
   print_r(json_encode(['status' => 0]));
 ?>

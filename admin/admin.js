@@ -136,7 +136,6 @@ async function delete_form() {
     deleteTitle.textContent = "Delete " + itemTitle;
 
     const deleteButton = document.getElementById('delete-button');
-    // deleteButton.onclick = async function() { await delete_item(); };
 
     const cancelDeleteButton = document.getElementById('cancel-delete-button');
     cancelDeleteButton.onclick = async function() { await cancel_delete(); };
