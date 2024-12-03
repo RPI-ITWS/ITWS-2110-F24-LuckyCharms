@@ -14,9 +14,6 @@
   require "db.php";
 
   $item_id = $_GET["itemId"];
-
-  print_r($item_id);
-
   
   $delete_res = $db->prepare("DELETE FROM `reservations` WHERE `item_id` = ?");
   $delete_res->bind_param("i", $item_id);

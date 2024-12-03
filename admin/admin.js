@@ -307,7 +307,7 @@ async function delete_form() {
 
 async function delete_item(labName, id, page, searchValue) {
     let queryParams = `?itemId=${id}`;
-    await fetch(`../backend/queries/deleteItem.php${queryParams}`).then((response) => response.text())
+    await fetch(`../backend/queries/admin_deleteItem.php${queryParams}`).then((response) => response.text())
     .then((result) => {
       if (isJsonString(result)){
         result = JSON.parse(result);
