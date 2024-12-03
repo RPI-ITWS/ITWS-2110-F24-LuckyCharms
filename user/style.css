@@ -225,14 +225,6 @@ td {
   display: flex;
 }
 
-#pagination {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-  overflow-x: auto;
-}
-
 .right-sidebar div {
   margin-left: auto;
   margin-right: auto;
@@ -357,3 +349,28 @@ textarea {
   border-radius: 10px;
   border-width: 1px;
 }
+
+.page-button {
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.page-button:disabled {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+

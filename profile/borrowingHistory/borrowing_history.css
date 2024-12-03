@@ -84,3 +84,34 @@ td {
     padding: 10px;
     border-radius: 20px;
 }
+
+.no-reservations {
+  text-align: center;
+  width: 100%;
+  align-content: center;
+  font-size: 2rem;
+}
+
+.ongoing {
+  background-color: #0f78f1;
+  color: white;
+  text-align: center;
+}
+
+.completed {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+}
+
+.cancelled {
+  background-color: #656565;
+  color: white;
+  text-align: center;
+}
+
+.danger {
+  background-color: #e73131;
+  color: white;
+  text-align: center;
+}

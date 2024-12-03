@@ -47,7 +47,7 @@ async function labItemsClick() {
     labItems(labName, 1, "");
 }
 
-async function labUsersClick() {
+async function labUsersClick(page=1) {
     const current = document.getElementById('chosen');
 
     if (current) {
@@ -104,14 +104,61 @@ async function labUsersClick() {
     const labTable = document.getElementById('lab-items');
     labTable.innerHTML = "";
 
-    // Create a query called "getActiveUsers" where it fetches from the alloweduserLocations the user ids associated with a specific lab
-    // Make that fetch call here
-    // This works similarly to the getActiveUsers, but the lab name is given and the users ids associated are what need to be fetched.
+    const labName = document.getElementById('lab-name').textContent;
 
-    // After that, fetch user information for every user based on the ids associated with the specific lab current displayed and then display those users in the table.
-    // Also make that fetch call here
+    const result = await fetchAssociatedUsers(labName, page);
 
-    // You will now have an array of users with their information, which you can divide by 10 so that they can be displayed via pagation.
+    let users = [];
+
+    for (const item of result) {
+        const resultUser = await fetchUserInformation(item.user_id);
+
+        users.push(resultUser);
+    }
+
+    const pagination = await fetch(`../backend/queries/totalUsers.php?locationName=${labName}`).then(response => response.json());
+
+    const totalPages = Math.ceil(pagination.totalUsers / 10);
+
+    let pageButtons = "";
+
+    if (totalPages !== 1) {
+        for (let i = 1; i <= totalPages; i++) {
+            pageButtons += `<button class="page-button" onclick="labUsersClick(${i})" ${i === page ? "disabled" : ""}>${i}</button>`;
+        }
+    }
+
+    document.getElementById('pagination').innerHTML = pageButtons;
+
+    // Must seperate the list of users into pages.
+
+
+    let labUsers = "";
+
+    // Must divide this by 10 and display it on pages.
+    for (const user of users) {
+        labUsers += `<tr id="">
+        <td class="item-name narrow">${user.username}</td>
+        <td>${user.email}</td>
+        <td><button class="removeUser">REMOVE</button></td>
+        </tr>`;
+    }
+
+    $("#lab-items").html(labUsers);
+}
+
+async function fetchAssociatedUsers(labName, page=1) {
+    const response = await fetch(`../backend/queries/getActiveUsers.php?locationName=${labName}&page=${page}`)
+      .then((res) => res.json());
+
+    return response;
+}
+
+async function fetchUserInformation(item_user_id) {
+    const response = await fetch(`../backend/queries/getUserInformation.php?userId=${item_user_id}`);
+    const user = await response.json();
+
+    return user;
 }
 
 async function add_form() {
