@@ -2,6 +2,9 @@
 	session_start();
 	require "../backend/queries/getActiveLabs.php";
 	require "../backend/queries/userInformation.php";
+
+  // Set CSP Here
+  header("Content-Security-Policy: default-src: 'self';");
 	
 	if (!isset($_SESSION["isAdmin"])) {
 		redirect("../");
@@ -91,8 +94,13 @@
         <h2 id="lab-name">No Labs</h2>
         <div class="search-bar">
           <input id="search" type="text" placeholder="Search" onkeydown="search(event)">
-          <button onclick="search()">Search</button>
+          <button id="search-button" onclick="search()">Search</button>
         </div>
+      </div>
+
+      <div id="tab-bar">
+        <h2 class="tab-button" id="chosen" onclick="labItemsClick()">Lab Items</h2>
+        <h2 class="tab-button" onclick="labUsersClick()">Lab Users</h2>
       </div>
   
       <table id="item-table">
@@ -108,10 +116,10 @@
           <!-- items populated dynamically -->
         </tbody>
       </table>
+      <button id="add-button" onclick="add_form()"><span id="add-icon">+</span> Add Item</button>
+
       <br>
       <div id="pagination"></div>
-
-      <button id="add-button"><span id="add-icon">+</span> Add Item</button>
     </div>
 
     <div class="right-sidebar">
@@ -142,9 +150,9 @@
         <p id="item-description-list">Text</p>
       </div>
 
-      <button class="form-button" style="background-color: lightgreen;" id="checkout-button">CHECK OUT</button>
-      <button class="form-button" style="background-color: skyblue;" id="edit-button">EDIT ITEM</button>
-      <button class="form-button" style="background-color: red;" id="remove-button">REMOVE ITEM</button>
+      <button class="form-button" id="checkout-button">CHECK OUT</button>
+      <button class="form-button" style="background-color: #778DA9;" id="edit-button" onclick="edit_form()">EDIT ITEM</button>
+      <button class="form-button" style="background-color: red;" id="remove-button" onclick="delete_form()">REMOVE ITEM</button>
     </div>
 
     <div id="add-form">
@@ -165,8 +173,8 @@
             <option value="Removable">Removable</option>
           </select><br><br>
 
-          <label for="item-quantity">Stock:</label>
-          <input type="number" id="item-quantity" name="item-quantity" min="1" max="1000" required><br><br>
+          <label for="item-quantity-input">Stock:</label>
+          <input type="number" id="item-quantity-input" name="item-quantity-input" min="1" max="1000" required><br><br>
 
           <label for="item-image">Item Image:</label>
           <input type="file" id="item-image" accept="image/*">

@@ -16,35 +16,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <script src="../resources/script.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script>
-//
-//    function populateProfile(userID, data){
-//        for(let user of data.users){
-//            if(user.id === userID){
-//                document.getElementById("username").innerText = user.username;
-//                document.getElementById("email").value = user.email;
-//                // add in for phone number if we add it to the json file
-//            }
-//        }
-//    }
-//
-//    // Populates the page based on the userid stored in the userid cookie
-//    $.getJSON("../resources/data.json", function(dat) {
-//      const userID = parseInt(document.cookie.substring(7, document.cookie.indexOf(";")));
-//      const user = dat.users.find(u => u.id === userID);
-//      const userName = user ? user.username : "Guest";
-//      const isAdmin = true;
-//
-//      // Call menuClick with the user's name when the menu button is clicked
-//      $('#menu-icon').on('click', function() {
-//        menuClick(userName, isAdmin);
-//      });
-//
-//      // Populate labs with the user's labs
-//      populateProfile(userID, dat);
-//    });
-  </script>
   <link rel="stylesheet" type="text/css" href="../resources/pages.css">
   <link rel="stylesheet" type="text/css" href="profile.css">
 <body>

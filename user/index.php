@@ -4,7 +4,10 @@
   require "../backend/queries/validateUser.php";
   require "../backend/queries/getActiveLabs.php";
   require "../backend/queries/userInformation.php";
-  
+
+  // Set CSP Here
+  header("Content-Security-Policy: default-src: 'self';");
+
   if (!validateUser())
 	  redirect("../");
   $isAdmin = $_SESSION['isAdmin'];
@@ -85,7 +88,7 @@
 		</h2>
 		<div class="search-bar">
       <input id="search" type="text" placeholder="Search" onkeydown="search(event)">
-      <button onclick="search()">Search</button>
+      <button id="search-button" onclick="search()">Search</button>
 		</div>
 	  </div>
   

@@ -110,6 +110,18 @@ main {
   margin-right: 10px;
 }
 
+#search-button {
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: black;
+  height: 25px;
+  width: 100px;
+  cursor: pointer;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -130,6 +142,15 @@ thead {
 .item-name {
   width: 45vw;
   cursor: pointer;
+}
+
+.item-name.narrow {
+  width: 35vw;
+  cursor: pointer;
+}
+
+.email-column {
+  width: 30vw;
 }
 
 td {
@@ -195,14 +216,6 @@ td {
 
 #show {
   display: flex;
-}
-
-#pagination {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-  overflow-x: auto;
 }
 
 .right-sidebar div {
@@ -329,3 +342,28 @@ textarea {
   border-radius: 10px;
   border-width: 1px;
 }
+
+.page-button {
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.page-button:disabled {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+

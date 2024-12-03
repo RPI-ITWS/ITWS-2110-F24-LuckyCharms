@@ -40,10 +40,12 @@ async function labItems(labName, currentPage=1, searchValue="") {
   const totalPages = Math.ceil(pagination.totalItems / 10);
 
   $("#pagination").html("");
-  for (let i = 1; i <= totalPages; i++) {
-    $("#pagination").append(`<button class="page-button" ${currentPage === i ? "disabled" : ""} 
-      onclick="labItems('${labName}', ${i}, '${searchValue}')">${i}
-    </button>`);
+  if (totalPages > 1) {
+    for (let i = 1; i <= totalPages; i++) {
+      $("#pagination").append(`<button class="page-button" ${currentPage === i ? "disabled" : ""} 
+        onclick="labItems('${labName}', ${i}, '${searchValue}')">${i}
+      </button>`);
+    }
   }
 
   const items = await fetch(`../backend/queries/filterItems.php?locationName=${labName}&page=${currentPage}&name=${searchValue}`).then((res) => res.json());
@@ -63,23 +65,6 @@ async function labItems(labName, currentPage=1, searchValue="") {
   // Updates the content
   $("#lab-name").html(labName);
   $("#lab-items").html(labItems);
-
-    
-
-  const addButtonContainer = document.getElementById('add-button');
-  addButtonContainer.onclick = async function() {
-      add_form();
-  };
-
-  const editButtonContainer = document.getElementById('edit-button');
-  editButtonContainer.onclick = async function() {
-      edit_form();
-  };
-
-  const removeButtonContainer = document.getElementById('remove-button');
-  removeButtonContainer.onclick = async function() {
-      delete_form();
-  };
 }
 
 async function search(event=null) {
@@ -130,11 +115,13 @@ async function populateItemDetails(labLocation, itemId) {
     itemStatusText.textContent = "In Stock";
     checkoutButton.textContent = "CHECK OUT";
     checkoutButton.style.backgroundColor = "lightgreen";
+    checkoutButton.style.cursor = "pointer";
   }
   else {
     itemStatusText.textContent = "Out Of Stock";
-    checkoutButton.textContent = "UNAVAILIBLE";
-    checkoutButton.style.backgroundColor = "lightred";
+    checkoutButton.textContent = "UNAVAILABLE";
+    checkoutButton.style.backgroundColor = "lightcoral";
+    checkoutButton.style.cursor = "not-allowed";
   }
 
   // Set the stock to the amount of items in stock currently
@@ -171,7 +158,7 @@ function populate() {
   table.addEventListener('click', async function (event) {
     event.preventDefault();
 
-    if (event.target.tagName === 'TD') {
+    if (event.target.tagName === 'TD' && (window.location.href.includes("user") || current_page === 'item')) {
       // Display the side panel if an item is clicked on
       checkoutPanel.style.display = 'flex';
       const labName = document.getElementById('lab-name').textContent;
@@ -216,8 +203,6 @@ function populate() {
 
 //Checkout form
 async function checkout(id, stock) {
-  
-
   const cancelCheckoutFormButtn = document.getElementById('cancel-checkout-form-button');
   cancelCheckoutFormButtn.addEventListener('click', function () {
     const checkoutForm = document.getElementById('form-object');
@@ -228,7 +213,7 @@ async function checkout(id, stock) {
   });
 
   const checkoutButton = document.getElementById('checkout-button');
-  if (checkoutButton.textContent !== "UNAVAILABLE") {
+  if (checkoutButton.textContent != "UNAVAILABLE") {
     const checkoutForm = document.getElementById('checkout-form');
     checkoutForm.style.display = "flex";
 
@@ -241,7 +226,7 @@ async function checkout(id, stock) {
     quantityEl.setAttribute('max', stock);
 
 
-    checkoutForm.onsubmit = function() { finalCheckout(id) };
+    checkoutForm.onsubmit = function(e) { e.preventDefault(); finalCheckout(id) };
 
     const itemTypeText = document.getElementById('item-type-text').textContent;
     if (itemTypeText === "Borrowable") {
