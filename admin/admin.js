@@ -237,7 +237,7 @@ async function edit_item(event) {
         }
 
         // Pass these values into PHP File starting here
-        await fetch(`../backend/queries/admin_updateItem.php${queryParams}`).then((response) => response.text())
+        await fetch(`../backend/queries/admin_editItem.php${queryParams}`).then((response) => response.text())
 
         const editForm = document.getElementById('edit-form-object');
         editForm.reset();
