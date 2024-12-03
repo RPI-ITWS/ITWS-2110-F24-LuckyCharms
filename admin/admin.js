@@ -225,10 +225,19 @@ async function edit_item(event) {
         console.log("New Item Type: " + newItemType);
         console.log("New Item Stock: " + newItemStock);
         console.log("New Item Image: " + newItemImage);
+        console.log(newItemImage==="");
 
         // Insert PHP to find the specific item from the lab name and the old item name and edit it
         // All of the items properties should be changed to what was submitted in the form, with the exception of the item image.
         // If the item image is left blank, then any old image stored for the item should remain.
+        
+        let queryParams = `?itemId=${id}&editName=${newItemName}&editDescription=${newItemDescription}&editType=${newItemType==="Borrowable" ? 1 : 0}&editStock=${newItemStock}`;
+        if(newItemImage!==""){
+            queryParams += `&editImage=${newItemImage}`
+        }
+
+        // Pass these values into PHP File starting here
+        await fetch(`../backend/queries/admin_updateItem.php${queryParams}`).then((response) => response.text())
 
         const editForm = document.getElementById('edit-form-object');
         editForm.reset();
