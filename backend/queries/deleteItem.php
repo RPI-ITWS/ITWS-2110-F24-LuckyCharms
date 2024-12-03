@@ -13,8 +13,6 @@
 
   require "db.php";
 
-  var_dump($_GET);
-
   $item_id = $_GET["itemId"];
 
   print_r($item_id);

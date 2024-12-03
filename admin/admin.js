@@ -161,8 +161,7 @@ async function fetchUserInformation(item_user_id) {
     return user;
 }
 
-async function 
-  () {
+async function add_form() {
     if (current_page === 'item') {
         const addForm = document.getElementById('add-form');
         addForm.style.display = "flex";
