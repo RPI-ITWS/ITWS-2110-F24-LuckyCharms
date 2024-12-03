@@ -154,7 +154,10 @@ async function populateItemDetails(labLocation, itemId) {
 
   const deleteButton = document.getElementById("delete-button");
   deleteButton.onclick = function() {
-    delete_item(itemId);
+    const labName = document.getElementById('lab-name').textContent;
+    const currentPage = parseInt(document.querySelector('#pagination button[disabled]').textContent);
+    const searchValue = document.getElementById('search').value;
+    delete_item(labName, itemId, currentPage, searchValue);
   };
 }
 

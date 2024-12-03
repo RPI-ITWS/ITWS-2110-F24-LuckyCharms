@@ -141,8 +141,7 @@ async function delete_form() {
     cancelDeleteButton.onclick = async function() { await cancel_delete(); };
 }
 
-async function delete_item(id) {
-
+async function delete_item(labName, id, page, searchValue) {
     let queryParams = `?itemId=${id}`;
     await fetch(`../backend/queries/deleteItem.php${queryParams}`).then((response) => response.text())
     .then((result) => {
@@ -154,6 +153,7 @@ async function delete_item(id) {
 
     const deleteContainer = document.getElementById('delete-item');
     deleteContainer.style.display = "none";
+    await labItems(labName, page, searchValue);
 }
 
 async function cancel_delete() {
