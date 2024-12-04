@@ -13,7 +13,7 @@
 	if (!isset($_GET["username"]) || !isset($_GET["password"])) {
 		echo $USER_DOES_NOT_EXIST;
 		return;
-	};
+	}
 	$username = $_GET["username"];
 	$password = $_GET["password"];
 
