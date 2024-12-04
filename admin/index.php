@@ -116,7 +116,7 @@
           <!-- items populated dynamically -->
         </tbody>
       </table>
-      <button id="add-button" onclick="add_form()"><span id="add-icon">+</span> Add Item</button>
+      <button id="add-button" onclick="add()"><span id="add-icon">+</span> Add Item</button>
 
       <br>
       <div id="pagination"></div>

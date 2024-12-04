@@ -165,7 +165,7 @@ async function add_form() {
     if (current_page === 'item') {
         const addForm = document.getElementById('add-form');
         addForm.style.display = "flex";
-        console.log("called");
+
         addForm.onsubmit = async function(event) {
             event.preventDefault();
             await add_item(event);
@@ -324,4 +324,51 @@ async function delete_item() {
 async function cancel_delete() {
     const deleteContainer = document.getElementById('delete-item');
     deleteContainer.style.display = "none";
+}
+
+async function add() {
+    const firstTab = document.getElementsByClassName('tab-button')[0];
+
+    if (firstTab && firstTab.id === 'chosen') {
+        add_form();
+    } else {
+        add_user_form();
+    }
+}
+
+async function add_user_form() {
+    const addUserForm = document.getElementById('add-user');
+    addUserForm.style.display = "flex";
+
+    addUserForm.onsubmit = async function(event) {
+        event.preventDefault();
+        await add_user(event);
+    };
+
+    const cancelAddUserButton = document.getElementById('cancel-add-user-button');
+    cancelAddUserButton.onclick = async function() { 
+        await cancel_add_user(); 
+    };
+}
+
+async function add_user(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('add-username').value;
+
+    const addUserFormContainer = document.getElementById('add-user');
+    addUserFormContainer.style.display = "none";
+
+    console.log(username);
+
+    const addUserForm = document.getElementById('add-user-object');
+    addUserForm.reset();
+}
+
+async function cancel_add_user() {
+    const addUserForm = document.getElementById('add-user-object');
+    addUserForm.reset();
+
+    const addUserFormContainer = document.getElementById('add-user');
+    addUserFormContainer.style.display = "none";
 }
