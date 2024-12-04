@@ -140,7 +140,7 @@ async function labUsersClick(page=1) {
         labUsers += `<tr id="">
         <td class="item-name narrow">${user.username}</td>
         <td>${user.email}</td>
-        <td><button class="removeUser">REMOVE</button></td>
+        <td><button class="removeUser" onclick="remove_user_form(event)">REMOVE</button></td>
         </tr>`;
     }
 
@@ -371,4 +371,43 @@ async function cancel_add_user() {
 
     const addUserFormContainer = document.getElementById('add-user');
     addUserFormContainer.style.display = "none";
+}
+
+async function remove_user_form(event) {
+    event.preventDefault();
+
+    const removeUserForm = document.getElementById('remove-user');
+    removeUserForm.style.display = "flex";
+
+    const clickedButton = event.target;
+    const tdElement = clickedButton.parentElement;
+    const trElement = tdElement.parentElement;
+    const usernameText = trElement.getElementsByTagName('td')[0].textContent;
+
+    const removeUserFormTitle = document.getElementById('remove-user-title');
+    removeUserFormTitle.textContent = 'Remove ' + usernameText;
+
+    const removeUserButton = document.getElementById('delete-user-button');
+    removeUserButton.onclick = async function() { 
+        await remove_user(); 
+    };
+
+    const cancelRemoveUserButton = document.getElementById('cancel-delete-user-button');
+    cancelRemoveUserButton.onclick = async function() { 
+        await cancel_remove_user(); 
+    };
+}
+
+async function remove_user() {
+    const username = document.getElementById('remove-user-title').textContent.slice(7);
+
+    const removeUserFormContainer = document.getElementById('remove-user');
+    removeUserFormContainer.style.display = "none";
+
+    console.log("Remove the following username: " + username);
+}
+
+async function cancel_remove_user() {
+    const removeUserFormContainer = document.getElementById('remove-user');
+    removeUserFormContainer.style.display = "none";
 }
