@@ -34,46 +34,42 @@
 }
 
 #search-bar input {
+    padding: 5px 10px;
     border: 1px solid black;
     border-radius: 10px;
-    color: black;
+    margin-right: 10px;
+    outline: none;
+}
+
+#search-button {
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #778DA9;
     height: 25px;
+    width: 100px;
+    cursor: pointer;
 }
 
 table {
     width: 90%;
     margin: auto;
-    border-spacing: 0;
-    border-collapse: separate;
-    border: 0.5px;
-    border-style: solid;
-    border-color: rgb(132, 132, 132);
-    border-radius: 5px;
+    border-collapse: collapse;
+    border: 1px solid black;
     overflow: hidden;
     font-size: 12px;
 }
 
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid black;
+}
+  
 thead {
     background-color: #f0f0f0;
-}
-
-th {
-    padding: 10px;
-    text-align: left;
-    border: 0.5px;
-    border-style: solid;
-    border-color: rgb(132, 132, 132);
-}
-
-td {
-    padding: 10px;
-    text-align: left;
-    border: 0.5px;
-    border-style: solid;
-    border-color: rgb(132, 132, 132);
-    height: 20px;
-    width: 15%;
-    white-space: nowrap;
 }
 
 .item-name {
