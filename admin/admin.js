@@ -280,6 +280,11 @@ async function edit_item(event) {
         const editForm = document.getElementById('edit-form-object');
         editForm.reset();
     }
+
+    const currentPage = parseInt(document.querySelector('#pagination button[disabled]') === null ? 1 : document.querySelector('#pagination button[disabled]').textContent);
+    const searchValue = document.getElementById('search').value;
+    
+    await labItems(labName, currentPage, searchValue);
 }
 
 async function cancel_edit() {
