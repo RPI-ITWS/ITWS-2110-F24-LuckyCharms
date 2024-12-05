@@ -1,15 +1,18 @@
 <?php
     require "db.php";
 
-    if ($isset($_GET["itemName"], $_GET["itemType"], $_GET["itemStock"], $_GET["labName"])) {
-        $name = $_GET["itemName"];
-        $borrowable = $_GET["itemType"]; // borrowable
-        $stock = $_GET["itemStock"];
-        $location_name = $_GET["labName"];
+    $data = json_decode(file_get_contents("php://input"), true);
 
-    } else {
+    if (!isset($data["itemName"], $data["itemType"], $data["itemStock"], $data["labName"])) {
+        echo json_encode(["error" => "Missing required fields"]);
         return;
     }
+
+    $name = $data["itemName"];
+    $borrowable = $data["itemType"];
+    $stock = $data["itemStock"];
+    $location_name = $data["labName"];
+
     if (isset($_GET["itemDescription"])) {
         $item_desc = $_GET["itemDescription"]; // optional
     } else {
@@ -21,7 +24,18 @@
         $image = NULL;
     }
 
-    $result = $db->prepare("INSERT INTO items (`name`, `borrowable`, `description`, `stock`, `image_link`, `location_name`) VALUES (?, ?, ?, ?, ?, ?)");
-    $result->bind_param("sisiss", $name, $borrowable, $item_desc, $stock, $image, $location_name);
-    $result->execute();
+    try {
+        $stmt = $db->prepare("INSERT INTO items (`name`, `borrowable`, `description`, `stock`, `image_link`, `location_name`) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("siisss", $name, $borrowable, $item_desc, $stock, $image, $location_name);
+
+        if ($stmt->execute()) {
+            echo json_encode(["message" => "Item added successfully"]);
+        } else {
+            echo json_encode(["error" => "Failed to add item"]);
+        }
+
+        $stmt->close();
+    } catch (Exception $e) {
+        echo json_encode(["error" => "Server error: " . $e->getMessage()]);
+    }
 ?>
