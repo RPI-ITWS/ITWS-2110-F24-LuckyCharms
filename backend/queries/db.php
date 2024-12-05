@@ -4,7 +4,7 @@
 	error_reporting(E_ALL);
 
 	// Set CSP here
-	header("Content-Security-Policy: default-src: 'self';");
+	header("Content-Security-Policy: default-src 'self';");
 	
 	$itemLimit = 10;
 	
