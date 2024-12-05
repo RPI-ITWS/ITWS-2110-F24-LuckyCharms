@@ -129,7 +129,7 @@ async function cancelReservation(reservationId) {
 (
   async () => {
     const isAdmin = await fetch('../../backend/queries/isAdmin.php').then(res => res.text());
-    console.log(isAdmin);
-    await borrowingHistory(isAdmin);
+
+    await borrowingHistory(isAdmin === "1");
   }
 )();
