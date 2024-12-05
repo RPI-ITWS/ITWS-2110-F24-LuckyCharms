@@ -406,6 +406,11 @@ async function remove_user() {
     removeUserFormContainer.style.display = "none";
 
     console.log("Remove the following username: " + username);
+    console.log("In the following location: " + labName);
+
+    const removeUser = await fetch(`../backend/queries/removeUser.php?username=${username}&labName=${labName}`).then(response => response.json());
+
+    console.log(removeUser);
 }
 
 async function cancel_remove_user() {

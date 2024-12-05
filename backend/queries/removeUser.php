@@ -21,8 +21,12 @@
         $nextQuery = $db->prepare("DELETE FROM alloweduserlocations WHERE user_id = ? AND location_name = ?");
         $nextQuery->bind_param("is", $userId, $labName);
         $nextQuery->execute();
+
+        header("Content-Type: application/json");
+        echo "success";
     }
     else {
+        header("Content-Type: application/json");
         echo "No results found!";
     }
 ?>
