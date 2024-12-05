@@ -141,3 +141,14 @@
   border-radius: 0;
   margin-bottom: 20px;
 }
+
+.removeUser {
+  background-color: red;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: none;
+  cursor: pointer;
+}

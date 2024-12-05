@@ -40,7 +40,7 @@ async function labItems(labName, currentPage=1, searchValue="") {
   const totalPages = Math.ceil(pagination.totalItems / 10);
 
   $("#pagination").html("");
-  if (totalPages != 1) {
+  if (totalPages > 1) {
     for (let i = 1; i <= totalPages; i++) {
       $("#pagination").append(`<button class="page-button" ${currentPage === i ? "disabled" : ""} 
         onclick="labItems('${labName}', ${i}, '${searchValue}')">${i}
@@ -138,6 +138,14 @@ async function populateItemDetails(labLocation, itemId) {
   checkoutButton.onclick = function() {
     checkout(itemId, item.stock);
   };
+
+  const deleteButton = document.getElementById("delete-button");
+  deleteButton.onclick = function() {
+    const labName = document.getElementById('lab-name').textContent;
+    const currentPage = parseInt(document.querySelector('#pagination button[disabled]') === null ? 1 : document.querySelector('#pagination button[disabled]').textContent);
+    const searchValue = document.getElementById('search').value;
+    delete_item(labName, itemId, currentPage, searchValue);
+  };
 }
 
 function populate() {
@@ -195,8 +203,6 @@ function populate() {
 
 //Checkout form
 async function checkout(id, stock) {
-  
-
   const cancelCheckoutFormButtn = document.getElementById('cancel-checkout-form-button');
   cancelCheckoutFormButtn.addEventListener('click', function () {
     const checkoutForm = document.getElementById('form-object');
@@ -220,7 +226,7 @@ async function checkout(id, stock) {
     quantityEl.setAttribute('max', stock);
 
 
-    checkoutForm.onsubmit = function() { finalCheckout(id) };
+    checkoutForm.onsubmit = function(e) { e.preventDefault(); finalCheckout(id) };
 
     const itemTypeText = document.getElementById('item-type-text').textContent;
     if (itemTypeText === "Borrowable") {

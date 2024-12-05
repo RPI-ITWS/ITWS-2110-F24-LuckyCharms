@@ -94,3 +94,11 @@ a {
   margin-top: 20px;
   font-size: 18px;
 }
+
+#pagination {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  overflow-x: auto;
+}
