@@ -193,6 +193,28 @@ async function add_item(event) {
         formContainer.style.display = "none";
 
         // Fetch and POST to PHP here
+        const response = await fetch('../backend/queries/admin_addItem.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                itemName,
+                itemType,
+                itemDescription,
+                itemStock,
+                labName,
+                itemImage,
+            }),
+        });
+    
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message || 'Item added successfully!');
+        } else {
+            alert(result.error || 'Failed to add item.');
+            formContainer.style.display = "block";
+        }
 
         console.log("Lab Name: ", labName);
         console.log("Item Name: ", itemName);
