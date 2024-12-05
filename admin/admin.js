@@ -47,7 +47,7 @@ async function labItemsClick() {
     labItems(labName, 1, "");
 }
 
-async function labUsersClick() {
+async function labUsersClick(page=1) {
     const current = document.getElementById('chosen');
 
     if (current) {
@@ -106,7 +106,7 @@ async function labUsersClick() {
 
     const labName = document.getElementById('lab-name').textContent;
 
-    const result = await fetchAssociatedUsers(labName);
+    const result = await fetchAssociatedUsers(labName, page);
 
     let users = [];
 
@@ -116,25 +116,22 @@ async function labUsersClick() {
         users.push(resultUser);
     }
 
-    const totalPages = Math.floor(users.length/10 + 1);
-    console.log(totalPages);
-    $("#pagination").html("");
-    if (totalPages != 1) {
+    const pagination = await fetch(`../backend/queries/totalUsers.php?locationName=${labName}`).then(response => response.json());
+
+    const totalPages = Math.ceil(pagination.totalUsers / 10);
+
+    let pageButtons = "";
+
+    if (totalPages !== 1) {
         for (let i = 1; i <= totalPages; i++) {
-            $("#pagination").append(`<button class="page-button" ${i === 1 ? "disabled" : ""} </button>`);
+            pageButtons += `<button class="page-button" onclick="labUsersClick(${i})" ${i === page ? "disabled" : ""}>${i}</button>`;
         }
     }
 
-    // Must seperate the list of users into pages.
-    let page = 1;
-    const pageButtons = document.querySelectorAll('page-button');
-    pageButtons.forEach(button => {
-        if (button.hasAttribute('disabled')) {
-            page = button.textContent;
-        }
-    });
+    document.getElementById('pagination').innerHTML = pageButtons;
 
-    console.log(page);
+    // Must seperate the list of users into pages.
+
 
     let labUsers = "";
 
@@ -143,18 +140,18 @@ async function labUsersClick() {
         labUsers += `<tr id="">
         <td class="item-name narrow">${user.username}</td>
         <td>${user.email}</td>
-        <td><button class="removeUser">REMOVE</button></td>
+        <td><button class="removeUser" onclick="remove_user_form(event)">REMOVE</button></td>
         </tr>`;
     }
 
     $("#lab-items").html(labUsers);
 }
 
-async function fetchAssociatedUsers(labName) {
-    const response = await fetch(`../backend/queries/getActiveUsers.php?locationName=${labName}`);
-    const userIds = await response.json();
+async function fetchAssociatedUsers(labName, page=1) {
+    const response = await fetch(`../backend/queries/getActiveUsers.php?locationName=${labName}&page=${page}`)
+      .then((res) => res.json());
 
-    return userIds;
+    return response;
 }
 
 async function fetchUserInformation(item_user_id) {
@@ -168,7 +165,6 @@ async function add_form() {
     if (current_page === 'item') {
         const addForm = document.getElementById('add-form');
         addForm.style.display = "flex";
-        console.log("called");
         addForm.onsubmit = async function(event) {
             event.preventDefault();
             await add_item(event);
@@ -290,21 +286,27 @@ async function edit_item(event) {
         const formContainer = document.getElementById('edit-form');
         formContainer.style.display = "none";
 
-        console.log("Old Item Name: " + oldItemName);
-        console.log("Current Lab: " + labName);
-        console.log("New Item Name: " + newItemName);
-        console.log("New Item Description: " + newItemDescription);
-        console.log("New Item Type: " + newItemType);
-        console.log("New Item Stock: " + newItemStock);
-        console.log("New Item Image: " + newItemImage);
-
-        // Insert PHP to find the specific item from the lab name and the old item name and edit it
         // All of the items properties should be changed to what was submitted in the form, with the exception of the item image.
         // If the item image is left blank, then any old image stored for the item should remain.
+        
+        let id = document.getElementsByClassName("highlighted")[0].id;
+
+        let queryParams = `?itemId=${id}&editName=${newItemName}&editDescription=${newItemDescription}&editType=${newItemType==="Borrowable" ? 1 : 0}&editStock=${newItemStock}`;
+        if(newItemImage!==""){
+            queryParams += `&editImage=${newItemImage}`
+        }
+
+        // Pass these values into PHP File starting here
+        await fetch(`../backend/queries/admin_editItem.php${queryParams}`).then((response) => response.text())
 
         const editForm = document.getElementById('edit-form-object');
         editForm.reset();
     }
+
+    const currentPage = parseInt(document.querySelector('#pagination button[disabled]') === null ? 1 : document.querySelector('#pagination button[disabled]').textContent);
+    const searchValue = document.getElementById('search').value;
+    
+    await labItems(labName, currentPage, searchValue);
 }
 
 async function cancel_edit() {
@@ -325,28 +327,185 @@ async function delete_form() {
     deleteTitle.textContent = "Delete " + itemTitle;
 
     const deleteButton = document.getElementById('delete-button');
-    deleteButton.onclick = async function() { await delete_item(); };
 
     const cancelDeleteButton = document.getElementById('cancel-delete-button');
     cancelDeleteButton.onclick = async function() { await cancel_delete(); };
 }
 
-async function delete_item() {
-    const itemTitleContainer = document.getElementById('item-title-text');
-    const itemTitle = itemTitleContainer.textContent;
-
-    const labName = document.getElementById('lab-name').textContent;
-
-    // Insert PHP to find the specific item from the lab name and remove it
-
-    console.log("Lab to check:", labName);
-    console.log("Item to delete: ", itemTitle);
+async function delete_item(labName, id, page, searchValue) {
+    let queryParams = `?itemId=${id}`;
+    await fetch(`../backend/queries/admin_deleteItem.php${queryParams}`).then((response) => response.text())
+    .then((result) => {
+      if (isJsonString(result)){
+        result = JSON.parse(result);
+      }
+      console.log(result);
+    });
 
     const deleteContainer = document.getElementById('delete-item');
     deleteContainer.style.display = "none";
+    await labItems(labName, page, searchValue);
 }
 
 async function cancel_delete() {
     const deleteContainer = document.getElementById('delete-item');
     deleteContainer.style.display = "none";
+}
+
+async function add() {
+    const firstTab = document.getElementsByClassName('tab-button')[0];
+
+    if (firstTab && firstTab.id === 'chosen') {
+        add_form();
+    } else {
+        add_user_form();
+    }
+}
+
+async function add_user_form() {
+    const addUserForm = document.getElementById('add-user');
+    addUserForm.style.display = "flex";
+
+    addUserForm.onsubmit = async function(event) {
+        event.preventDefault();
+        await add_user(event);
+    };
+
+    const cancelAddUserButton = document.getElementById('cancel-add-user-button');
+    cancelAddUserButton.onclick = async function() { 
+        await cancel_add_user(); 
+    };
+}
+
+async function add_user(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('add-username').value;
+    const labName = document.getElementById('lab-name').textContent;
+
+    const addUserFormContainer = document.getElementById('add-user');
+    addUserFormContainer.style.display = "none";
+
+    console.log("User to add: " + username);
+    console.log("Lab to add the user to: " + labName);
+
+    await fetch(`../backend/queries/admin_addUserLocation.php?username=${username}&labName=${labName}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                console.log("Success!");
+
+                const pages = document.querySelectorAll('#pagination .page-button');
+                
+                if (pages.length === 0) {
+                    labUsersClick(1);
+                }
+                else {
+                    pages.forEach(page => {
+                        if (page.disabled) {
+                            const pageNumber = page.textContent;
+                            labUsersClick(pageNumber);
+                        }
+                    });
+                }
+            } else if (data.error) {
+                alert(`Error: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An unexpected error occurred.");
+        }
+    );
+
+    const addUserForm = document.getElementById('add-user-object');
+    addUserForm.reset();
+}
+
+async function cancel_add_user() {
+    const addUserForm = document.getElementById('add-user-object');
+    addUserForm.reset();
+
+    const addUserFormContainer = document.getElementById('add-user');
+    addUserFormContainer.style.display = "none";
+}
+
+async function remove_user_form(event) {
+    event.preventDefault();
+
+    const removeUserForm = document.getElementById('remove-user');
+    removeUserForm.style.display = "flex";
+
+    const clickedButton = event.target;
+    const tdElement = clickedButton.parentElement;
+    const trElement = tdElement.parentElement;
+    const usernameText = trElement.getElementsByTagName('td')[0].textContent;
+
+    const removeUserFormTitle = document.getElementById('remove-user-title');
+    removeUserFormTitle.textContent = 'Remove ' + usernameText;
+
+    const removeUserButton = document.getElementById('delete-user-button');
+    removeUserButton.onclick = async function() { 
+        await remove_user(); 
+    };
+
+    const cancelRemoveUserButton = document.getElementById('cancel-delete-user-button');
+    cancelRemoveUserButton.onclick = async function() { 
+        await cancel_remove_user(); 
+    };
+}
+
+async function remove_user() {
+    const username = document.getElementById('remove-user-title').textContent.slice(7);
+    const labName = document.getElementById('lab-name').textContent;
+
+    const removeUserFormContainer = document.getElementById('remove-user');
+    removeUserFormContainer.style.display = "none";
+
+    console.log("Remove the following username: " + username);
+    console.log("In the following location: " + labName);
+
+    await fetch(`../backend/queries/removeUser.php?username=${username}&labName=${labName}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                console.log("Success!");
+
+                const pages = document.querySelectorAll('#pagination .page-button');
+                
+                if (pages.length === 0) {
+                    labUsersClick(1);
+                }
+                else {
+                    pages.forEach(page => {
+                        if (page.disabled) {
+                            const pageNumber = page.textContent;
+                            labUsersClick(pageNumber);
+                        }
+                    });
+                }
+            } else if (data.error) {
+                alert(`Error: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An unexpected error occurred.");
+        }
+    );
+}
+
+async function cancel_remove_user() {
+    const removeUserFormContainer = document.getElementById('remove-user');
+    removeUserFormContainer.style.display = "none";
 }
