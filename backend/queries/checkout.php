@@ -27,6 +27,9 @@
 	$itemId = $_GET["itemId"];
 	$quantity = $_GET["quantity"];
 	$reason = $_GET["reason"];
+	$returnDate = $_GET["returnDate"];
+
+	$returnDateTime = $returnDate . " 17:00:00";
 
 	$item = $db->query("SELECT * FROM items WHERE id = $itemId");
 	$itemDetails = $item->fetch_assoc();
@@ -35,12 +38,10 @@
 		return;
 	}
 
-
-	$mutation = $db->prepare("INSERT INTO reservations (item_id, user_id, amount, reason, date_expected_to_return) VALUES (?, ?, ?, ?, ?)");
-	$mutation->bind_param("iiiss", $itemId, $userId, $quantity, $reason, $_GET["returnDate"]);
+	$mutation = $db->prepare("INSERT INTO reservations (item_id, user_id, amount, date_reserved, date_expected_to_return) VALUES (?, ?, ?, NOW(), ?)");
+	$mutation->bind_param("iiis", $itemId, $userId, $quantity, $returnDateTime);
 	$mutation->execute();
 
-//	$row = $result->fetch_assoc();
 	$id = mysqli_insert_id($db);
 	$query = $db->query("SELECT * FROM reservations WHERE id = $id");
 	$row = $query->fetch_assoc();
