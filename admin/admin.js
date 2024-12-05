@@ -372,6 +372,20 @@ async function add_user(event) {
         .then(data => {
             if (data.success) {
                 console.log("Success!");
+
+                const pages = document.querySelectorAll('#pagination .page-button');
+                
+                if (pages.length === 0) {
+                    labUsersClick(1);
+                }
+                else {
+                    pages.forEach(page => {
+                        if (page.disabled) {
+                            const pageNumber = page.textContent;
+                            labUsersClick(pageNumber);
+                        }
+                    });
+                }
             } else if (data.error) {
                 alert(`Error: ${data.error}`);
             }
@@ -439,6 +453,20 @@ async function remove_user() {
         .then(data => {
             if (data.success) {
                 console.log("Success!");
+
+                const pages = document.querySelectorAll('#pagination .page-button');
+                
+                if (pages.length === 0) {
+                    labUsersClick(1);
+                }
+                else {
+                    pages.forEach(page => {
+                        if (page.disabled) {
+                            const pageNumber = page.textContent;
+                            labUsersClick(pageNumber);
+                        }
+                    });
+                }
             } else if (data.error) {
                 alert(`Error: ${data.error}`);
             }
