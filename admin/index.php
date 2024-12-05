@@ -155,8 +155,8 @@
       <button class="form-button" style="background-color: red;" id="remove-button" onclick="delete_form()">REMOVE ITEM</button>
     </div>
 
-    <div id="add-form">
-      <div id="add-form-container">
+    <div class="form" id="add-form">
+      <div class="form-container" id="add-form-container">
         <h2 id="add-form-title">Add Item</h2>
 
         <form id="add-form-object">
@@ -165,7 +165,7 @@
           <br><br>
 
           <label for="new-item-description">Item Description:</label>
-          <textarea id="new-item-description" name="new-item-description" maxlength="1000" placeholder="Describe the item..." style="margin-top: 10px; width: 99%; border-radius: 10px; "></textarea>
+          <textarea id="new-item-description" name="new-item-description" maxlength="1000" placeholder="Describe the item..."></textarea>
           <br><br>
 
           <label for="type-dropdown">Item Type:</label>
@@ -177,50 +177,52 @@
           <br><br>
 
           <label for="item-quantity-input">Stock:</label>
-          <input type="number" id="item-quantity-input" name="item-quantity-input" min="1" max="1000" required>
+          <input type="number" class="quantity" id="item-quantity-input" name="item-quantity-input" min="1" max="1000" required>
           <br><br>
 
           <label for="item-image">Item Image:</label>
           <input type="file" id="item-image" style="border: none;" accept="image/*">
 
-          <div style="display: flex; flex-direction: flex-row; gap: 20px; justify-content: center; margin-top: 20px;">
-            <button type="button" class="form-button" style="margin: 0; width: 40%; background-color: lightcoral;" id="cancel-add-form-button">CANCEL</button>
-            <button type="submit" class="form-button" style="margin: 0; width: 40%; background-color: lightgreen;"  id="add-form-button">ADD ITEM</button>
+          <div class="button-container">
+            <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-add-form-button">CANCEL</button>
+            <button type="submit" class="form-button" style="background-color: lightgreen;"  id="add-form-button">ADD ITEM</button>
           </div>
         </form>
       </div>
     </div>
 
-    <div id="checkout-form">
-      <div id="form-container">
+    <div class="form" id="checkout-form">
+      <div class="form-container" id="form-container">
         <h2 id="form-title">Checkout Item</h2>
         <form id="form-object">
-          <label for="name">Full Name (Counts As Signiture):</label>
+          <label for="name">Full Name (Counts As Signature):</label>
           <input type="text" id="name" name="name" required><br><br>
 
           <label for="returnDate" id="returnDateLabel">Planned Return Date (Within 2 weeks):</label>
           <input type="date" id="returnDate" name="returnDate" required><br id="returnDateBreak1"><br id="returnDateBreak2">
           
           <label for="quantity">Quantity:</label>
-          <input type="number" id="quantity" name="quantity" min="1" max="100" value="1" required><br><br>
+          <input type="number" class="quantity" id="quantity" name="quantity" min="1" max="100" value="1" required><br><br>
 
           <label for="reason">Reason for Checkout:</label>
           <textarea id="reason" name="reason" maxlength="1000" required placeholder="Explain why you need this item..."></textarea><br><br>
 
-          <input type="checkbox" id="agreeReturn" name="agreeReturn" required>
+          <input type="checkbox" class="checkbox" id="agreeReturn" name="agreeReturn" required>
           <label for="agreeReturn" id="agreeReturnLabel">I understand that I have a responsibility to return the item by the date provided.</label><br><br>
 
-          <input type="checkbox" id="agreeNotify" name="agreeNotify" required>
+          <input type="checkbox" class="checkbox" id="agreeNotify" name="agreeNotify" required>
           <label for="agreeNotify" id="agreeNotifyLabel">I understand that if I want to change the return date, I have to notify the lab administrator.</label><br><br>
 
-          <button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>
-          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-checkout-form-button">CANCEL</button>
+          <div class="button-container">
+            <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-checkout-form-button">CANCEL</button>
+            <button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>
+          </div>
         </form>
       </div>
     </div>
 
-    <div id="edit-form">
-      <div id="edit-form-container">
+    <div class="form" id="edit-form">
+      <div class="form-container" id="edit-form-container">
         <h2 id="edit-form-title">Edit Item</h2>
 
         <form id="edit-form-object">
@@ -238,44 +240,50 @@
           </select><br><br>
           
           <label for="edit-quantity">Stock:</label>
-          <input type="number" id="edit-quantity" name="edit-quantity" min="1" max="1000" required><br><br>
+          <input type="number" class="quantity" id="edit-quantity" name="edit-quantity" min="1" max="1000" required><br><br>
 
           <label for="edit-item-image">Item Image (Will keep old image if no file attached):</label>
           <input type="file" id="edit-item-image" accept="image/*">
 
-          <button type="submit" class="form-button" style="background-color: #778DA9;" id="edit-form-button">EDIT ITEM</button>
-          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-edit-form-button">CANCEL</button>
+          <div class="button-container">
+            <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-edit-form-button">CANCEL</button>
+            <button type="submit" class="form-button" style="background-color: #778DA9;" id="edit-form-button">EDIT ITEM</button>
+          </div>
         </form>
       </div>
     </div>
 
-    <div id="delete-item">
-      <div id="delete-container">
+    <div class="form" id="delete-item">
+      <div class="form-container" id="delete-container">
         <h2 id="delete-title">Delete Item</h2>
 
         <p id="warning">Are you sure you want to remove this item from the lab list?</p>
-
-        <button type="button" class="form-button" style="background-color: red;" id="delete-button">DELETE ITEM</button>
-        <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-delete-button">CANCEL</button>
+        
+        <div class="button-container">
+          <button type="button" class="form-button" style="width: 200px; background-color: lightcoral;" id="cancel-delete-button">CANCEL</button>
+          <button type="button" class="form-button" style="width: 200px; background-color: red;" id="delete-button">DELETE ITEM</button>
+        </div>
       </div>
     </div>
 
-    <div id="add-user">
-      <div id="add-user-container">
+    <div class="form" id="add-user">
+      <div class="form-container" id="add-user-container">
           <h2 id="add-user-title">Add User</h2>
 
           <form id="add-user-object">
-            <label for="add-username">Username:</label><br>
-            <input type="text" id="add-username" name="add-username" min="1" max="100" required><br><br>
+            <label for="add-username">Username:</label>
+            <input type="text" id="add-username" name="add-username" min="1" max="100" required style="width: 70%" ><br><br>
 
-            <button type="submit" class="form-button" style="background-color: lightgreen;" id="add-user-button">ADD USER</button>
-            <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-add-user-button">CANCEL</button>
+            <div class="button-container">
+              <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-add-user-button">CANCEL</button>
+              <button type="submit" class="form-button" style="background-color: lightgreen;" id="add-user-button">ADD USER</button>
+            </div>
           </form>
       </div>
     </div>
 
-    <div id="remove-user">
-      <div id="remove-user-container">
+    <div  class="form" id="remove-user">
+      <div class="form-container" id="remove-user-container">
           <h2 id="remove-user-title">Remove User</h2>
 
           <p id="user-warning">Are you sure you want to remove this user from the lab?</p>

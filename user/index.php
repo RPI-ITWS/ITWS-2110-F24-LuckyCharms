@@ -151,15 +151,15 @@
 			<input type="date" id="returnDate" name="returnDate" required><br id="returnDateBreak1"><br id="returnDateBreak2">
 			
 			<label for="quantity">Quantity:</label>
-			<input type="number" id="quantity" name="quantity" min="1" max="100" required><br><br>
+			<input type="number" class="quantity" id="quantity" name="quantity" min="1" max="100" required><br><br>
 
 			<label for="reason">Reason for Checkout:</label>
 			<textarea id="reason" name="reason" required placeholder="Explain why you need this item..."></textarea><br><br>
 
-			<input type="checkbox" id="agreeReturn" name="agreeReturn" required>
+			<input type="checkbox" class="checkbox" id="agreeReturn" name="agreeReturn" required>
 			<label for="agreeReturn" id="agreeReturnLabel">I understand that I have a responsibility to return the item by the date provided.</label><br><br>
 
-			<input type="checkbox" id="agreeNotify" name="agreeNotify" required>
+			<input type="checkbox" class="checkbox" id="agreeNotify" name="agreeNotify" required>
 			<label for="agreeNotify" id="agreeNotifyLabel">I understand that if I want to change the return date, I have to notify the lab administrator.</label><br><br>
 
 			<button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>

@@ -1,3 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* General Input Form Styling */
+textarea {
+  margin-top: 10px; 
+  width: 99%; 
+  border-radius: 10px;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #000000;
+  width: 80%;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+.quantity {
+  width: 10%;
+}
+
+.checkbox {
+  width: 5%;
+}
+
+#returnDate {
+  width: 200px;
+}
+
+.button-container {
+  display: flex; 
+  flex-direction: flex-row; 
+  gap: 20px; 
+  justify-content: center; 
+  margin-top: 20px;
+}
+
+.form-button {
+  display: block;
+  margin: 20px auto 0;
+  width: 75%;
+  border: none;
+  border-radius: 20px;
+  margin-top: 10px;
+  height: 25px;
+  cursor: pointer;
+}
+
 /*Admin Tab Bar*/
 #tab-bar {
   display: flex;
@@ -39,7 +91,8 @@
   flex-direction: column;
   background-color: white;
   padding: 20px;
-  border-radius: 20px;
+  padding-bottom: 40px;
+  border-radius: 10px;
   width: 500px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -85,15 +138,10 @@
   width: 100%;
 }
 
-#add-form-object input {
-  border: none;
-  border-bottom: 1px solid #000000;
-  width: 80%;
-}
-
 #item-image {
   border-radius: 0px;
   width: 300px;
+  font-size: 12px;
 }
 
 /*Edit Item form styling*/
@@ -127,11 +175,6 @@
   align-items: center;
   justify-content: center;
   width: 90%;
-}
-
-#edit-form-object input {
-  border-radius: 10px;
-  border-width: 1px;
 }
 
 #edit-type-dropdown {
@@ -172,7 +215,8 @@
   flex-direction: column;
   background-color: white;
   padding: 20px;
-  border-radius: 20px;
+  padding-bottom: 40px;
+  border-radius: 10px;
   width: 500px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -181,16 +225,7 @@
 }
 
 #add-user-object {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 90%;
-}
-
-#add-user-object input {
-  border-radius: 10px;
-  border-width: 1px;
-  width: 60%;
+  width: 100%;
 }
 
 #remove-user {
