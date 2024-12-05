@@ -355,11 +355,15 @@ async function add_user(event) {
     event.preventDefault();
 
     const username = document.getElementById('add-username').value;
+    const labName = document.getElementById('lab-name').textContent;
 
     const addUserFormContainer = document.getElementById('add-user');
     addUserFormContainer.style.display = "none";
 
-    console.log(username);
+    console.log("User to add:" + username);
+    console.log("Lab to add the user to: " + labName);
+
+    
 
     const addUserForm = document.getElementById('add-user-object');
     addUserForm.reset();
