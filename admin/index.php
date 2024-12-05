@@ -4,7 +4,7 @@
 	require "../backend/queries/userInformation.php";
 
   // Set CSP Here
-  header("Content-Security-Policy: default-src 'self';");
+  //header("Content-Security-Policy: default-src 'self';");
 	
 	if (!isset($_SESSION["isAdmin"])) {
 		redirect("../");
