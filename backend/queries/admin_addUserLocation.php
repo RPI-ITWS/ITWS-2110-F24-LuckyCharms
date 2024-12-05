@@ -1,16 +1,4 @@
 <?php
-    /*require "db.php";
-    if (isset($_GET["location"], $_SESSION["user_id"])) {
-        $userid = $_SESSION["user_id"];
-        $location_name = $_GET["location"];
-    } else {
-        return;
-    }
-
-    $result = db->prepare("INSERT INTO alloweduserlocations (`user_id`, `location_name`) VALUES (?, ?)");
-    $result->bind_param("ss", $userid, $location_name);
-    $result->execute();*/
-
     require "db.php";
 
     if (!isset($_GET["username"], $_GET["labName"])) return;
@@ -32,13 +20,17 @@
 
         $nextQuery = $db->prepare("INSERT INTO alloweduserlocations (user_id, location_name) VALUES (?, ?)");
         $nextQuery->bind_param("is", $userId, $labName);
-        $nextQuery->execute();
 
-        header("Content-Type: application/json");
-        echo "success!";
+        if ($nextQuery->execute()) {
+            header("Content-Type: application/json");
+            echo json_encode(["success" => true]);
+        } else {
+            header("Content-Type: application/json");
+            echo json_encode(["error" => "Database operation failed"]);
+        }
     }
     else {
         header("Content-Type: application/json");
-        echo "No results found!";
+        echo json_encode(["error" => "User not found"]);
     }
 ?>

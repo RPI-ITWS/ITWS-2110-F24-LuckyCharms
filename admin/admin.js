@@ -360,10 +360,28 @@ async function add_user(event) {
     const addUserFormContainer = document.getElementById('add-user');
     addUserFormContainer.style.display = "none";
 
-    console.log("User to add:" + username);
+    console.log("User to add: " + username);
     console.log("Lab to add the user to: " + labName);
 
-    
+    await fetch(`../backend/queries/admin_addUserLocation.php?username=${username}&labName=${labName}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                console.log("Success!");
+            } else if (data.error) {
+                alert(`Error: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An unexpected error occurred.");
+        }
+    );
 
     const addUserForm = document.getElementById('add-user-object');
     addUserForm.reset();
@@ -412,9 +430,25 @@ async function remove_user() {
     console.log("Remove the following username: " + username);
     console.log("In the following location: " + labName);
 
-    const removeUser = await fetch(`../backend/queries/removeUser.php?username=${username}&labName=${labName}`).then(response => response.json());
-
-    console.log(removeUser);
+    await fetch(`../backend/queries/removeUser.php?username=${username}&labName=${labName}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                console.log("Success!");
+            } else if (data.error) {
+                alert(`Error: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An unexpected error occurred.");
+        }
+    );
 }
 
 async function cancel_remove_user() {
