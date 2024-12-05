@@ -400,6 +400,7 @@ async function remove_user_form(event) {
 
 async function remove_user() {
     const username = document.getElementById('remove-user-title').textContent.slice(7);
+    const labName = document.getElementById('lab-name').textContent;
 
     const removeUserFormContainer = document.getElementById('remove-user');
     removeUserFormContainer.style.display = "none";
