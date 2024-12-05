@@ -116,7 +116,7 @@
           <!-- items populated dynamically -->
         </tbody>
       </table>
-      <button id="add-button" onclick="add_form()"><span id="add-icon">+</span> Add Item</button>
+      <button id="add-button" onclick="add()"><span id="add-icon">+</span> Add Item</button>
 
       <br>
       <div id="pagination"></div>
@@ -259,6 +259,32 @@
         <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-delete-button">CANCEL</button>
       </div>
     </div>
+
+    <div id="add-user">
+      <div id="add-user-container">
+          <h2 id="add-user-title">Add User</h2>
+
+          <form id="add-user-object">
+            <label for="add-username">Username:</label><br>
+            <input type="text" id="add-username" name="add-username" min="1" max="100" required><br><br>
+
+            <button type="submit" class="form-button" style="background-color: lightgreen;" id="add-user-button">ADD USER</button>
+            <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-add-user-button">CANCEL</button>
+          </form>
+      </div>
+    </div>
+
+    <div id="remove-user">
+      <div id="remove-user-container">
+          <h2 id="remove-user-title">Remove User</h2>
+
+          <p id="user-warning">Are you sure you want to remove this user from the lab?</p>
+
+          <button type="button" class="form-button" style="background-color: red;" id="delete-user-button">DELETE USER</button>
+          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-delete-user-button">CANCEL</button>
+      </div>
+    </div>
+
   </main>
 
 </body>

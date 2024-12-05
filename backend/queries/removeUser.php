@@ -18,7 +18,7 @@
         $row = $result->fetch_assoc();
         $userId = (int) $row['id'];
 
-        $nextQuery = $db->prepare("INSERT INTO alloweduserlocations (user_id, location_name) VALUES (?, ?)");
+        $nextQuery = $db->prepare("DELETE FROM alloweduserlocations WHERE user_id = ? AND location_name = ?");
         $nextQuery->bind_param("is", $userId, $labName);
 
         if ($nextQuery->execute()) {

@@ -138,6 +138,14 @@ async function populateItemDetails(labLocation, itemId) {
   checkoutButton.onclick = function() {
     checkout(itemId, item.stock);
   };
+
+  const deleteButton = document.getElementById("delete-button");
+  deleteButton.onclick = function() {
+    const labName = document.getElementById('lab-name').textContent;
+    const currentPage = parseInt(document.querySelector('#pagination button[disabled]') === null ? 1 : document.querySelector('#pagination button[disabled]').textContent);
+    const searchValue = document.getElementById('search').value;
+    delete_item(labName, itemId, currentPage, searchValue);
+  };
 }
 
 function populate() {
@@ -150,7 +158,7 @@ function populate() {
   table.addEventListener('click', async function (event) {
     event.preventDefault();
 
-    if (event.target.tagName === 'TD' && (window.location.href.includes("user") || current_page === 'item')) {
+    if (event.target.tagName === 'TD' && (window.location.href.includes("user") || document.getElementsByClassName('tab-button')[0]?.id === 'chosen')) {
       // Display the side panel if an item is clicked on
       checkoutPanel.style.display = 'flex';
 

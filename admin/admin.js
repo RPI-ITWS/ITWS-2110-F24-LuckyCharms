@@ -140,7 +140,7 @@ async function labUsersClick(page=1) {
         labUsers += `<tr id="">
         <td class="item-name narrow">${user.username}</td>
         <td>${user.email}</td>
-        <td><button class="removeUser">REMOVE</button></td>
+        <td><button class="removeUser" onclick="remove_user_form(event)">REMOVE</button></td>
         </tr>`;
     }
 
@@ -165,7 +165,7 @@ async function add_form() {
     if (current_page === 'item') {
         const addForm = document.getElementById('add-form');
         addForm.style.display = "flex";
-        console.log("called");
+
         addForm.onsubmit = async function(event) {
             event.preventDefault();
             await add_item(event);
@@ -300,28 +300,157 @@ async function delete_form() {
     deleteTitle.textContent = "Delete " + itemTitle;
 
     const deleteButton = document.getElementById('delete-button');
-    deleteButton.onclick = async function() { await delete_item(); };
 
     const cancelDeleteButton = document.getElementById('cancel-delete-button');
     cancelDeleteButton.onclick = async function() { await cancel_delete(); };
 }
 
-async function delete_item() {
-    const itemTitleContainer = document.getElementById('item-title-text');
-    const itemTitle = itemTitleContainer.textContent;
-
-    const labName = document.getElementById('lab-name').textContent;
-
-    // Insert PHP to find the specific item from the lab name and remove it
-
-    console.log("Lab to check:", labName);
-    console.log("Item to delete: ", itemTitle);
+async function delete_item(labName, id, page, searchValue) {
+    let queryParams = `?itemId=${id}`;
+    await fetch(`../backend/queries/admin_deleteItem.php${queryParams}`).then((response) => response.text())
+    .then((result) => {
+      if (isJsonString(result)){
+        result = JSON.parse(result);
+      }
+      console.log(result);
+    });
 
     const deleteContainer = document.getElementById('delete-item');
     deleteContainer.style.display = "none";
+    await labItems(labName, page, searchValue);
 }
 
 async function cancel_delete() {
     const deleteContainer = document.getElementById('delete-item');
     deleteContainer.style.display = "none";
+}
+
+async function add() {
+    const firstTab = document.getElementsByClassName('tab-button')[0];
+
+    if (firstTab && firstTab.id === 'chosen') {
+        add_form();
+    } else {
+        add_user_form();
+    }
+}
+
+async function add_user_form() {
+    const addUserForm = document.getElementById('add-user');
+    addUserForm.style.display = "flex";
+
+    addUserForm.onsubmit = async function(event) {
+        event.preventDefault();
+        await add_user(event);
+    };
+
+    const cancelAddUserButton = document.getElementById('cancel-add-user-button');
+    cancelAddUserButton.onclick = async function() { 
+        await cancel_add_user(); 
+    };
+}
+
+async function add_user(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('add-username').value;
+    const labName = document.getElementById('lab-name').textContent;
+
+    const addUserFormContainer = document.getElementById('add-user');
+    addUserFormContainer.style.display = "none";
+
+    console.log("User to add: " + username);
+    console.log("Lab to add the user to: " + labName);
+
+    await fetch(`../backend/queries/admin_addUserLocation.php?username=${username}&labName=${labName}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                console.log("Success!");
+            } else if (data.error) {
+                alert(`Error: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An unexpected error occurred.");
+        }
+    );
+
+    const addUserForm = document.getElementById('add-user-object');
+    addUserForm.reset();
+}
+
+async function cancel_add_user() {
+    const addUserForm = document.getElementById('add-user-object');
+    addUserForm.reset();
+
+    const addUserFormContainer = document.getElementById('add-user');
+    addUserFormContainer.style.display = "none";
+}
+
+async function remove_user_form(event) {
+    event.preventDefault();
+
+    const removeUserForm = document.getElementById('remove-user');
+    removeUserForm.style.display = "flex";
+
+    const clickedButton = event.target;
+    const tdElement = clickedButton.parentElement;
+    const trElement = tdElement.parentElement;
+    const usernameText = trElement.getElementsByTagName('td')[0].textContent;
+
+    const removeUserFormTitle = document.getElementById('remove-user-title');
+    removeUserFormTitle.textContent = 'Remove ' + usernameText;
+
+    const removeUserButton = document.getElementById('delete-user-button');
+    removeUserButton.onclick = async function() { 
+        await remove_user(); 
+    };
+
+    const cancelRemoveUserButton = document.getElementById('cancel-delete-user-button');
+    cancelRemoveUserButton.onclick = async function() { 
+        await cancel_remove_user(); 
+    };
+}
+
+async function remove_user() {
+    const username = document.getElementById('remove-user-title').textContent.slice(7);
+    const labName = document.getElementById('lab-name').textContent;
+
+    const removeUserFormContainer = document.getElementById('remove-user');
+    removeUserFormContainer.style.display = "none";
+
+    console.log("Remove the following username: " + username);
+    console.log("In the following location: " + labName);
+
+    await fetch(`../backend/queries/removeUser.php?username=${username}&labName=${labName}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                console.log("Success!");
+            } else if (data.error) {
+                alert(`Error: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An unexpected error occurred.");
+        }
+    );
+}
+
+async function cancel_remove_user() {
+    const removeUserFormContainer = document.getElementById('remove-user');
+    removeUserFormContainer.style.display = "none";
 }
