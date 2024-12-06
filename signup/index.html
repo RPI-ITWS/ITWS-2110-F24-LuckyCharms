@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../resources/login_signup.css" media="screen">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="../homepage.js" defer></script>
+  <script src="index.js" defer></script>
   <script>
     function validateSignup(){
       if(document.getElementById("pass1").value!==document.getElementById("pass2").value){
@@ -49,7 +50,7 @@
   <div id="content">
     <div class="login_signup">
       <h4 class="form-title">Sign Up</h4>
-      <form id="form" onsubmit="return validateSignup()">
+      <form id="form" onsubmit="return signup(event)">
         <label for="email">email</label>
         <input name="email" id="email" type="email" required>
         <label for="username">username</label>

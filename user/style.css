@@ -110,12 +110,23 @@ main {
   margin-right: 10px;
 }
 
+#search-button {
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: black;
+  height: 25px;
+  width: 100px;
+  cursor: pointer;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid black;
   border-radius: 10px;
-  overflow: hidden;
 }
 
 th, td {
@@ -133,14 +144,38 @@ thead {
   cursor: pointer;
 }
 
+.item-name.narrow {
+  width: 35vw;
+  cursor: pointer;
+}
+
+.email-column {
+  width: 30vw;
+}
+
 td {
   cursor: pointer;
 }
 
-#highlighted {
-  border-color: #778DA9;
+.highlighted {
+  border-color: #457ec7;
   border-style: solid;
-  border-width: 2px;
+  border-width: 3px;
+}
+
+#add-button {
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+}
+
+#add-icon {
+  font-size: 35px;
+  font-weight: bold;
+  color: #778DA9;
+  vertical-align: middle;
 }
 
 #add-button {
@@ -166,13 +201,17 @@ td {
 }
 
 .right-sidebar {
-  border-left: black;
+  position: absolute;
+  width: 40vw;
   border-left-style: solid;
   border-left-width: 1px;
-  width: 50%;
   display: none;
   flex-direction: column;
-  margin-left: 20px;
+  background-color: white;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
 
 #show {
@@ -303,3 +342,28 @@ textarea {
   border-radius: 10px;
   border-width: 1px;
 }
+
+.page-button {
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.page-button:disabled {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+

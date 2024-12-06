@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="index.css"  />
+        <title>Backend Testing</title>
+    </head>
+    <body>
+        <div>
+            <h1>Item Details Query</h1>
+            <form name="item-details">
+                <input type="number" name="item_id" placeholder="ID of Item">
+                <input onclick="getItemDetails(this)" type="button" value="Get details of item">
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h1>Checkout</h1>
+            <form name="item-checkout">
+                <input type="number" name="item_id" placeholder="ID of Item">
+                <input type="number" name="account_id" placeholder="ID of User">
+                <input type="number" name="item_count" placeholder="# of Items">
+                <input onclick="checkout(this)" type="button" value="Checkout Item" />
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h1>Get Active Labs</h1>
+            <form name="active-labs">
+                <input type="number" name="account_id" placeholder="ID of User">
+                <input onclick="getActiveLabs(this)" type="button" value="Get Active Labs" />
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h1>Mark reserved item as returned</h1>
+            <form name="returned-items">
+                <input type="number" name="item_id" placeholder="ID of Reservation">
+                <input onclick="markReservedItemAsReturned(this)" type="button" value="Mark reserved item as returned" />
+            </form>
+        </div>
+        <div>
+            <h1>Get Locations</h1>
+            <form name="get-locations">
+                <input type="number" name="user_id" placeholder="ID of User">
+                <input onclick="getLocation(this)" type="button" value="Get Location" />
+            </form>
+        </div>
+        <div>
+            <h1>Search/Filter items</h1>
+            <form name="filter-search-items" id="filter-search-items">
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h1>Login</h1>
+            <form name="login">
+                <input placeholder="Username">
+                <input type="password" placeholder="Password">
+                <input onclick="userLogin(this)" type="button" value="Login">
+            </form>
+        </div>
+    </body>
+</html>
