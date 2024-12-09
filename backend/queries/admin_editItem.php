@@ -1,5 +1,7 @@
 <?php
-  require "db.php";
+  session_start();
+	require "db.php";
+	require "validateUserLocation.php";
 
   if(!isset($_GET["itemId"])){
     print_r("MISSING ID");
