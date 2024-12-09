@@ -7,43 +7,8 @@
   <link rel="stylesheet" href="../resources/style.css" media="screen">
   <link rel="stylesheet" href="../resources/login_signup.css" media="screen">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script>
-    // If there's no account with the username, tell them and do nothing; if
-    // there is one, tell them if the password's wrong, or set userid cookie
-    // with the record id and redirect to appropriate homepage.
-    function validateLogin(event){
-      event.preventDefault();
-      $.getJSON("../resources/data.json", function(data){
-        for(let x of data.users){
-          if(x.username === document.getElementById("username").value){
-            if(x.password !== document.getElementById("pass").value){
-              alert("Incorrect password.");
-              document.getElementById("pass").style.border = "2px solid red";
-              return false;
-            } else {
-              //delete old cookies
-              document.cookie = "userid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-              document.cookie = "admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-
-              document.cookie = `userid=${x.id}; path=/`;
-              if(x.is_admin === 1){
-                document.cookie = `admin=1; path=/`;
-                location.replace('../admin');
-                return true;
-              } else {
-                document.cookie = `admin=0; path=/`;
-                location.replace("../user");
-                return true;
-              }
-            }
-          }
-        }
-        alert("Account does not exist.");
-        location.replace('../signup');
-        return false;
-    });
-  }
-  </script>
+  <script src="../homepage.js" defer></script>
+  <script src="../resources/login.js" defer></script>
   <script src="../homepage.js" defer></script>
 </head>
 <body>
@@ -62,8 +27,9 @@
         <input name="username" id="username" type="text" required placeholder="type username here">
         <label for="pass">password</label>
         <input name="pass" id="pass" type="password" required>
+        
         <!--Inline styling because this is the only page with something like this.-->
-        <a style="text-align: right; margin-top: 11px; font-size: 12px; font-weight: bold;">Forgot Password?</a>
+        <a id="forgot_password">Forgot Password?</a>
         <button id="submit" type="submit">Log In</button>
       </form>
       <a id="link" href="../signup/index.html">Sign Up</a>

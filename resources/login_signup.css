@@ -1,6 +1,13 @@
 /* Below are used in both login.html and signup.html */
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 100px);
+}
+
 .login_signup {
-  margin-top: 160px;
   width: 451px;
   height: 479px;
   border-radius: 20px;
@@ -67,4 +74,11 @@ input::placeholder{
   color: #242e3b;;
   font-size: 14px;
   text-decoration: none;
+}
+
+.forgot_password {
+  text-align: right; 
+  margin-top: 11px; 
+  font-size: 12px; 
+  font-weight: bold;
 }

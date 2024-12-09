@@ -17,7 +17,7 @@ header {
   position: fixed;
   top: 0;
   width: calc(100% - 40px);
-  z-index: 1000;
+  z-index: 50;
 
   padding: 10px 20px;
   background-color: #fff;
@@ -57,7 +57,7 @@ header {
   background-color: white;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   min-width: 160px;
-  z-index: 1;
+  z-index: auto;
 }
 
 .show {
@@ -93,4 +93,12 @@ a {
   font-weight: bold;
   margin-top: 20px;
   font-size: 18px;
+}
+
+#pagination {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  overflow-x: auto;
 }

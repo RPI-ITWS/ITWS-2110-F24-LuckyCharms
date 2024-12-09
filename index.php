@@ -1,5 +1,10 @@
-<!DOCTYPE html>
+<?php
+    // Should the user come to the homepage, they should be logged out
+    session_start();
+    session_destroy();
+?>
 
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -67,45 +72,44 @@
                     <h2 id="slogan">Keeping track so you don't have to!</h2>
                     <button id="title-sign-up-button">Sign up for free</button>
                 </div>
+            </div>
 
-                <div class="image">
-                    <img id="title-image" src="./resources/landingPageImages/labHomepageDisplay.png" alt="LIMBS Lab Homepage Display">
-                </div>
+            <div class="image">
+                <img id="title-image" src="./resources/landingPageImages/labHomepageDisplay.png" alt="LIMBS Lab Homepage Display">
+            </div>
 
-                <div class="description">
-                    <p class="paragraph" id="initalDescription">LIMBS is a catalog system that allows both students and faculty to better keep track of equipment. It is expandable, adaptable, and easy to use.</p>
-                    <button id="title-features-button">Explore Possibilities</button>
-                </div>
+            <div class="description">
+                <p class="paragraph" id="initalDescription">LIMBS is a catalog system that allows both students and faculty to better keep track of equipment. It is expandable, adaptable, and easy to use.</p>
+                <button id="title-features-button">Explore Possibilities</button>
+            </div>
 
-                <div class="image-display">
-                    <p class="title-text">Ease Of Use</p>
-                    <p class="paragraph">LIMBS comes free and easy to use! Checking out an item happens with one click of a button. LIMBS also clearly displays information regarding an items availibility, return due date, and other important information.</p>
-                    <img src="./resources/landingPageImages/checkoutPrompt.png" alt="LIMBS Checkout Prompt">
-                </div>
+            <div class="image-display">
+                <p class="title-text">Ease Of Use</p>
+                <p class="paragraph">LIMBS comes free and easy to use! Checking out an item happens with one click of a button. LIMBS also clearly displays information regarding an items availibility, return due date, and other important information.</p>
+                <img src="./resources/landingPageImages/checkoutPrompt.png" alt="LIMBS Checkout Prompt">
+            </div>
 
-                <!-- <div class="description">
-                    <p class="paragraph">LIMBS comes free and easy to use! Checking out an item happens with one click of a button. LIMBS also clearly displays information regarding an items availibility, return due date, and other important information.</p>
-                </div> -->
+            <div class="image-display">
+                <p class="title-text">Secure & Organized</p>
+                <p class="paragraph">LIMBS seperates accounts by three types: User, Admin, and Superuser. Each account type has their own permissions and only has the necessary permissions for their role. This keeps labs and the catalog of items in each lab oragnized and secure.</p>
+                <img src="./resources/landingPageImages/accountTypes.png" alt="LIMBS Account Types Image">
+            </div>
 
-                <div class="image-display">
-                    <p class="title-text">Secure & Organized</p>
-                    <p class="paragraph">LIMBS seperates accounts by three types: User, Admin, and Superuser. Each account type has their own permissions and only has the necessary permissions for their role. This keeps labs and the catalog of items in each lab oragnized and secure.</p>
-                    <img src="./resources/landingPageImages/accountTypes.png" alt="LIMBS Account Types Image">
-                </div>
+            <div class="image-display">
+                <p class="title-text">Detailed & Informative</p>
+                <p class="paragraph">LIMBS has the ability to display an endless amount of information for every item by simply clicking on it. This will allow the user to find exactly what they need!</p>
+                <img src="./resources/landingPageImages/itemDetails.png" alt="LIMBS Item Details">
+            </div>
 
-                <!-- <div class="description">
-                </div> -->
-
-                <div class="image-display">
-                    <p class="title-text">Detailed & Informative</p>
-                    <p class="paragraph">LIMBS has the ability to display an endless amount of information for every item by simply clicking on it. This will allow the user to find exactly what they need!</p>
-                    <img src="./resources/landingPageImages/itemDetails.png" alt="LIMBS Item Details">
-                </div>
-
-                <div class="description">
-                    <button id="getting-started-button">Get Started With LIMBS Today!</button>
-                </div>
+            <div class="description">
+                <button id="getting-started-button">Get Started With LIMBS Today!</button>
             </div>
         </div>
+
+        <div id="footer">
+            <h1 onclick="homePage(event, 'home')">LIMBS</h1>
+            <p>2024 LuckyCharms • Web Systems</p>
+        </div>
+
     </body>
 </html>

@@ -8,34 +8,7 @@
   <link rel="stylesheet" href="../resources/login_signup.css" media="screen">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="../homepage.js" defer></script>
-  <script>
-    function validateSignup(){
-      if(document.getElementById("pass1").value!==document.getElementById("pass2").value){
-        alert("Passwords must match.");
-        let list = document.querySelectorAll("input[type=password]");
-        for(let i=0; i<list.length; i++){
-          list[i].style.border = "2px solid red";
-        }
-        return false;
-      }
-      $.getJSON("../resources/data.json", function(data) {
-        for(let x of data.users){
-          if(x.email===document.getElementById("email").value){
-            alert("There is already an account associated with this email address.");
-            document.getElementById("email").style.border = "2px solid red";
-            return false;
-          }
-          if(x.username===document.getElementById("username").value){
-            alert("This username is already in use.");
-            document.getElementById("username").style.border = "2px solid red";
-            return false;
-          }
-        }
-        return true;
-      });
-      return false;
-    }
-  </script>
+  <script src="index.js" defer></script>
   <script src="../resources/script.js" defer></script>
 </head>
 <body>
@@ -46,10 +19,11 @@
     <button class="nav-button" id="login-button" onclick="loginPage(event)">Login</button>
     <button class="nav-button" id="sign-up-button" onclick="signUpPage(event)">Sign Up</button>
   </div>
+
   <div id="content">
     <div class="login_signup">
       <h4 class="form-title">Sign Up</h4>
-      <form id="form" onsubmit="return validateSignup()">
+      <form id="form" onsubmit="return signup(event)">
         <label for="email">email</label>
         <input name="email" id="email" type="email" required>
         <label for="username">username</label>
