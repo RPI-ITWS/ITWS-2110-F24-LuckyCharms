@@ -334,6 +334,7 @@ td {
   flex-direction: column;
   list-style-type: disc;
   font-size: 13px;
+  overflow-wrap: break-word;
 }
 
 /*Checkout form styling*/
