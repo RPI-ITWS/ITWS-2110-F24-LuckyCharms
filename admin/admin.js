@@ -196,7 +196,6 @@ async function add_item(event) {
               labName=${labName}&itemName=${itemName}&itemType=${itemType==="Borrowable" ? 1 : 0}
               &itemDescription=${itemDescription}&itemStock=${itemStock}&itemImage=${itemImage}`)
           .then((response) => response.text());
-        console.log(response);
 
         // console.log("Lab Name: ", labName);
         // console.log("Item Name: ", itemName);
@@ -269,7 +268,6 @@ async function edit_item(event) {
     const newItemDescription = document.getElementById('edit-description').value;
     const newItemType = document.getElementById('edit-type-dropdown').value;
     const newItemStock = document.getElementById('edit-quantity').value;
-    const newItemImage = document.getElementById('edit-item-image').value;
 
     if (newItemName.length > 150) {
         alert("The item name must be less than 150 charecters!")
@@ -284,9 +282,6 @@ async function edit_item(event) {
         let id = document.getElementsByClassName("highlighted")[0].id;
 
         let queryParams = `?itemId=${id}&editName=${newItemName}&editDescription=${newItemDescription}&editType=${newItemType==="Borrowable" ? 1 : 0}&editStock=${newItemStock}`;
-        if(newItemImage!==""){
-            queryParams += `&editImage=${newItemImage}`
-        }
 
         // Pass these values into PHP File starting here
         await fetch(`../backend/queries/admin_editItem.php${queryParams}`).then((response) => response.text())
