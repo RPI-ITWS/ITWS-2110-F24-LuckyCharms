@@ -42,6 +42,7 @@
     });
   </script>
   <link rel="stylesheet" href="../resources/pages.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../resources/forms.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -140,8 +141,8 @@
 		<button class="form-button status-available" id="checkout-button">CHECK OUT</button>
 	</div>
 
-	<div id="checkout-form">
-	  <div id="form-container">
+	<div class="form" id="checkout-form">
+	  <div class="form-container" id="form-container">
 		<h2 id="form-title">Checkout Item</h2>
 		<form id="form-object">
 		  <label for="name">Full Name (Counts As Signiture):</label>

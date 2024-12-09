@@ -52,7 +52,7 @@
   </script>
   <link rel="stylesheet" href="../resources/pages.css" media="screen">
   <link rel="stylesheet" type="text/css" href="../user/style.css">
-  <link rel="stylesheet" type="text/css" href="admin_forms.css">
+  <link rel="stylesheet" type="text/css" href="../resources/forms.css">
 <body>
   <header>
     <h1 class="logo">LIMBS</h1>
