@@ -18,7 +18,6 @@
             document.addEventListener('DOMContentLoaded', function() {
                 /*For the sign up button on the general homepage introduction*/
                 const titleSignUpButton = document.getElementById('title-sign-up-button');
-                titleSignUpButton.addEventListener('click', signUpPage);
                 titleSignUpButton.addEventListener('mouseenter', function() {
                     titleSignUpButton.style.cursor = 'pointer';
                 });
@@ -28,7 +27,6 @@
 
                 /*For the features button on the general homepage introduction*/
                 const titleFeaturesButton = document.getElementById('title-features-button');
-                titleFeaturesButton.addEventListener('click', featuresPage);
                 titleFeaturesButton.addEventListener('mouseenter', function() {
                     titleFeaturesButton.style.cursor = 'pointer';
                 });
@@ -38,7 +36,6 @@
 
                 /*For the getting started button on the general homepage introduction*/
                 const gettingStartedButton = document.getElementById('getting-started-button');
-                gettingStartedButton.addEventListener('click', signUpPage);
                 gettingStartedButton.addEventListener('mouseenter', function() {
                     gettingStartedButton.style.cursor = 'pointer';
                 });
@@ -70,7 +67,7 @@
 
                 <div id="title-right">
                     <h2 id="slogan">Keeping track so you don't have to!</h2>
-                    <button id="title-sign-up-button">Sign up for free</button>
+                    <button id="title-sign-up-button" onclick="signUpPage(event, 'home')">Sign up for free</button>
                 </div>
             </div>
 
@@ -80,7 +77,7 @@
 
             <div class="description">
                 <p class="paragraph" id="initalDescription">LIMBS is a catalog system that allows both students and faculty to better keep track of equipment. It is expandable, adaptable, and easy to use.</p>
-                <button id="title-features-button">Explore Possibilities</button>
+                <button id="title-features-button" onclick="featuresPage(event, 'home')">Explore Possibilities</button>
             </div>
 
             <div class="image-display">
@@ -102,7 +99,7 @@
             </div>
 
             <div class="description">
-                <button id="getting-started-button">Get Started With LIMBS Today!</button>
+                <button id="getting-started-button" onclick="signUpPage(event, 'home')">Get Started With LIMBS Today!</button>
             </div>
         </div>
 
