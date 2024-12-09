@@ -284,9 +284,8 @@ async function finalCheckout(id) {
 
   const returnDate = document.getElementById('returnDate').value;
   const quantity = document.getElementById('quantity').value;
-  const reason = document.getElementById('reason').value;
 
-  let queryParams = `?itemId=${id}&quantity=${quantity}&reason=${reason}&returnDate=${returnDate}`;
+  let queryParams = `?itemId=${id}&quantity=${quantity}&returnDate=${returnDate}`;
 
   // Pass these values into PHP File starting here
   await fetch(`../backend/queries/checkout.php${queryParams}`).then((response) => response.text())
@@ -298,8 +297,8 @@ async function finalCheckout(id) {
 
   console.log('Return Date:', returnDate);
   console.log('Quantity:', quantity);
-  console.log('Reason:', reason);
   checkoutForm.reset();
+  await labItems(document.getElementById('lab-name').textContent, 1, "");
 }
 
 function isJsonString(str) {

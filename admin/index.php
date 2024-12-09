@@ -197,10 +197,7 @@
           
           <label for="quantity">Quantity:</label>
           <input type="number" id="quantity" name="quantity" min="1" max="100" value="1" required><br><br>
-
-          <label for="reason">Reason for Checkout:</label>
-          <textarea id="reason" name="reason" maxlength="1000" required placeholder="Explain why you need this item..."></textarea><br><br>
-
+          
           <input type="checkbox" id="agreeReturn" name="agreeReturn" required>
           <label for="agreeReturn" id="agreeReturnLabel">I understand that I have a responsibility to return the item by the date provided.</label><br><br>
 
@@ -233,9 +230,7 @@
           
           <label for="edit-quantity">Stock:</label>
           <input type="number" id="edit-quantity" name="edit-quantity" min="1" max="1000" required><br><br>
-
-          <label for="edit-item-image">Item Image (Will keep old image if no file attached):</label>
-          <input type="file" id="edit-item-image" accept="image/*">
+          
 
           <button type="submit" class="form-button" style="background-color: #778DA9;" id="edit-form-button">EDIT ITEM</button>
           <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-edit-form-button">CANCEL</button>

@@ -152,10 +152,7 @@
 			
 			<label for="quantity">Quantity:</label>
 			<input type="number" id="quantity" name="quantity" min="1" max="100" required><br><br>
-
-			<label for="reason">Reason for Checkout:</label>
-			<textarea id="reason" name="reason" required placeholder="Explain why you need this item..."></textarea><br><br>
-
+   
 			<input type="checkbox" id="agreeReturn" name="agreeReturn" required>
 			<label for="agreeReturn" id="agreeReturnLabel">I understand that I have a responsibility to return the item by the date provided.</label><br><br>
 

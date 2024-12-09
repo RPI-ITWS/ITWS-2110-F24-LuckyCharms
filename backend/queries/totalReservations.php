@@ -24,8 +24,7 @@
     JOIN items ON reservations.item_id = items.id
     JOIN users ON reservations.user_id = users.id
     WHERE (
-        $_SESSION[isAdmin] = 1
-        OR (items.location_name IN ($allowedLocationsList) AND reservations.user_id = $userId)
+        items.location_name IN ($allowedLocationsList) AND (reservations.user_id = $userId OR $_SESSION[isAdmin] = 1)
     )
     " . ($getAllReservations ? "" : " AND reservations.cancelled = 0 AND reservations.completed = 0") . "
     ORDER BY " . ($getAllReservations ? "reservations.cancelled, reservations.completed, reservations.date_reserved DESC" : "reservations.date_expected_to_return ASC")

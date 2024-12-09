@@ -150,7 +150,6 @@ async function labUsersClick(page=1) {
 async function fetchAssociatedUsers(labName, page=1) {
     const response = await fetch(`../backend/queries/getActiveUsers.php?locationName=${labName}&page=${page}`)
       .then((res) => res.json());
-
     return response;
 }
 
@@ -193,13 +192,19 @@ async function add_item(event) {
         formContainer.style.display = "none";
 
         // Fetch and POST to PHP here
+        const response = await fetch(`../backend/queries/admin_addItem.php?
+              labName=${labName}&itemName=${itemName}&itemType=${itemType==="Borrowable" ? 1 : 0}
+              &itemDescription=${itemDescription}&itemStock=${itemStock}&itemImage=${itemImage}`)
+          .then((response) => response.text());
+        console.log(response);
 
-        console.log("Lab Name: ", labName);
-        console.log("Item Name: ", itemName);
-        console.log("Item Type: ", itemType);
-        console.log("Item Description: ", itemDescription);
-        console.log("Item Stock: ", itemStock);
-        console.log("Item Image: ", itemImage);
+        // console.log("Lab Name: ", labName);
+        // console.log("Item Name: ", itemName);
+        // console.log("Item Type: ", itemType);
+        // console.log("Item Description: ", itemDescription);
+        // console.log("Item Stock: ", itemStock);
+        // console.log("Item Image: ", itemImage);
+        await labItems(labName, 1, "");
 
         const addForm = document.getElementById('add-form-object');
         addForm.reset();
@@ -373,8 +378,6 @@ async function add_user(event) {
     const addUserFormContainer = document.getElementById('add-user');
     addUserFormContainer.style.display = "none";
 
-    console.log("User to add: " + username);
-    console.log("Lab to add the user to: " + labName);
 
     await fetch(`../backend/queries/admin_addUserLocation.php?username=${username}&labName=${labName}`)
         .then(response => {
@@ -385,7 +388,6 @@ async function add_user(event) {
         })
         .then(data => {
             if (data.success) {
-                console.log("Success!");
 
                 const pages = document.querySelectorAll('#pagination .page-button');
                 
@@ -454,9 +456,6 @@ async function remove_user() {
     const removeUserFormContainer = document.getElementById('remove-user');
     removeUserFormContainer.style.display = "none";
 
-    console.log("Remove the following username: " + username);
-    console.log("In the following location: " + labName);
-
     await fetch(`../backend/queries/removeUser.php?username=${username}&labName=${labName}`)
         .then(response => {
             if (!response.ok) {
@@ -466,7 +465,6 @@ async function remove_user() {
         })
         .then(data => {
             if (data.success) {
-                console.log("Success!");
 
                 const pages = document.querySelectorAll('#pagination .page-button');
                 

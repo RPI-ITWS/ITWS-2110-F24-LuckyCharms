@@ -1,7 +1,12 @@
 <?php
 	require "db.php";
 
-	$userId = $_GET["userId"];
+	if (!isset($_SESSION["userId"])) {
+		print_r(json_encode(['error' => "User is not logged in"]));
+		return;
+	}
+	
+	$userId = $_SESSION["userId"];
 
 	$result = $db->prepare("SELECT location_name FROM alloweduserlocations WHERE user_id = ?");
 
