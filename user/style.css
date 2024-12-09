@@ -141,6 +141,8 @@ thead {
 
 .item-name {
   width: 45vw;
+  padding-top: 15px;
+  padding-bottom: 15px;
   cursor: pointer;
 }
 
@@ -195,9 +197,47 @@ td {
 
 .tag {
   background-color: #e2e8fb;
-  padding: 5px 10px;
-  border-radius: 15px;
-  color: #47519d;
+  padding: 5px 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  color: black;
+}
+
+.tag-borrowable {
+  background-color: #778DA9;
+  padding: 5px 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  color: black;
+}
+
+.tag-removable {
+  background-color: #0f78f1;
+  padding: 5px 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  color: black;
+}
+
+.status-available {
+  background-color: lightgreen;
+  padding: 5px 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  color: black;
+}
+
+.status-unavailable {
+  background-color: red;
+  padding: 5px 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  color: black;
 }
 
 .right-sidebar {
