@@ -55,8 +55,8 @@ async function labItems(labName, currentPage=1, searchValue="") {
     let status = item.stock > 0 ? "Available" : "Unavailable";
     let type = item.borrowable ? "Borrowable" : "Removable";
 
-    let tagClass = type === "Borrowable" ? "tag-borrowable" : "tag-removable";
-    let statusClass = status === "Available" ? "status-available" : "status-unavailable";
+    let tagClass = type === "Borrowable" ? "tag tag-borrowable" : "tag tag-removable";
+    let statusClass = status === "Available" ? "tag status-available" : "tag status-unavailable";
     
     // Append each item as a row in the table
     labItems += `<tr id="${item.id}">

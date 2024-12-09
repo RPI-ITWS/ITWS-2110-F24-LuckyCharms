@@ -37,6 +37,7 @@ input {
   gap: 20px; 
   justify-content: center; 
   margin-top: 20px;
+  width: 100%;
 }
 
 .form-button {
@@ -48,6 +49,22 @@ input {
   margin-top: 10px;
   height: 25px;
   cursor: pointer;
+}
+
+.cancel {
+  background-color: lightcoral;
+}
+
+.confirm {
+  background-color: lightgreen;
+}
+
+.edit {
+  background-color: #778DA9;
+}
+
+.remove {
+  background-color: red;
 }
 
 /*Admin Tab Bar*/
@@ -142,6 +159,7 @@ input {
   border-radius: 0px;
   width: 300px;
   font-size: 12px;
+  border: none;
 }
 
 /*Edit Item form styling*/

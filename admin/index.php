@@ -151,8 +151,8 @@
       </div>
 
       <button class="form-button" id="checkout-button">CHECK OUT</button>
-      <button class="form-button" style="background-color: #778DA9;" id="edit-button" onclick="edit_form()">EDIT ITEM</button>
-      <button class="form-button" style="background-color: red;" id="remove-button" onclick="delete_form()">REMOVE ITEM</button>
+      <button class="form-button edit" id="edit-button" onclick="edit_form()">EDIT ITEM</button>
+      <button class="form-button remove" id="remove-button" onclick="delete_form()">REMOVE ITEM</button>
     </div>
 
     <div class="form" id="add-form">
@@ -181,11 +181,11 @@
           <br><br>
 
           <label for="item-image">Item Image:</label>
-          <input type="file" id="item-image" style="border: none;" accept="image/*">
+          <input type="file" id="item-image" accept="image/*">
 
           <div class="button-container">
-            <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-add-form-button">CANCEL</button>
-            <button type="submit" class="form-button" style="background-color: lightgreen;"  id="add-form-button">ADD ITEM</button>
+            <button type="button" class="form-button cancel cancel" id="cancel-add-form-button">CANCEL</button>
+            <button type="submit" class="form-button cancel confirm" id="add-form-button">ADD ITEM</button>
           </div>
         </form>
       </div>
@@ -214,8 +214,8 @@
           <label for="agreeNotify" id="agreeNotifyLabel">I understand that if I want to change the return date, I have to notify the lab administrator.</label><br><br>
 
           <div class="button-container">
-            <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-checkout-form-button">CANCEL</button>
-            <button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>
+            <button type="button" class="form-button cancel" id="cancel-checkout-form-button">CANCEL</button>
+            <button type="submit" class="form-button confirm" id="checkout-form-button">CHECK OUT</button>
           </div>
         </form>
       </div>
@@ -246,8 +246,8 @@
           <input type="file" id="edit-item-image" accept="image/*">
 
           <div class="button-container">
-            <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-edit-form-button">CANCEL</button>
-            <button type="submit" class="form-button" style="background-color: #778DA9;" id="edit-form-button">EDIT ITEM</button>
+            <button type="button" class="form-button cancel" id="cancel-edit-form-button">CANCEL</button>
+            <button type="submit" class="form-button confirm" id="edit-form-button">EDIT ITEM</button>
           </div>
         </form>
       </div>
@@ -260,8 +260,8 @@
         <p id="warning">Are you sure you want to remove this item from the lab list?</p>
         
         <div class="button-container">
-          <button type="button" class="form-button" style="width: 200px; background-color: lightcoral;" id="cancel-delete-button">CANCEL</button>
-          <button type="button" class="form-button" style="width: 200px; background-color: red;" id="delete-button">DELETE ITEM</button>
+          <button type="button" class="form-button cancel" id="cancel-delete-button">CANCEL</button>
+          <button type="button" class="form-button confirm" id="delete-button">DELETE ITEM</button>
         </div>
       </div>
     </div>
@@ -272,11 +272,11 @@
 
           <form id="add-user-object">
             <label for="add-username">Username:</label>
-            <input type="text" id="add-username" name="add-username" min="1" max="100" required style="width: 70%" ><br><br>
+            <input type="text" id="add-username" name="add-username" min="1" max="100" required ><br><br>
 
             <div class="button-container">
-              <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-add-user-button">CANCEL</button>
-              <button type="submit" class="form-button" style="background-color: lightgreen;" id="add-user-button">ADD USER</button>
+              <button type="button" class="form-button cancel" id="cancel-add-user-button">CANCEL</button>
+              <button type="submit" class="form-button confirm" id="add-user-button">ADD USER</button>
             </div>
           </form>
       </div>
@@ -288,8 +288,8 @@
 
           <p id="user-warning">Are you sure you want to remove this user from the lab?</p>
 
-          <button type="button" class="form-button" style="background-color: red;" id="delete-user-button">DELETE USER</button>
-          <button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-delete-user-button">CANCEL</button>
+          <button type="button" class="form-button confirm" id="delete-user-button">DELETE USER</button>
+          <button type="button" class="form-button cancel" id="cancel-delete-user-button">CANCEL</button>
       </div>
     </div>
 

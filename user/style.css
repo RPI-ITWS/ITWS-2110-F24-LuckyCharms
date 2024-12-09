@@ -210,38 +210,18 @@ td {
 
 .tag-borrowable {
   background-color: #778DA9;
-  padding: 5px 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 20px;
-  color: black;
 }
 
 .tag-removable {
   background-color: #0f78f1;
-  padding: 5px 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 20px;
-  color: black;
 }
 
 .status-available {
   background-color: lightgreen;
-  padding: 5px 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 20px;
-  color: black;
 }
 
 .status-unavailable {
   background-color: red;
-  padding: 5px 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 20px;
-  color: black;
 }
 
 .right-sidebar {
@@ -287,6 +267,14 @@ td {
   margin-top: 10px;
   height: 25px;
   cursor: pointer;
+}
+
+.cancel {
+  background-color: lightcoral;
+}
+
+.confirm {
+  background-color: lightgreen;
 }
 
 #item-description {

@@ -137,7 +137,7 @@
 			<p id="item-description-list">Text</p>
 		</div>
 
-		<button class="form-button" style="background-color: lightgreen;" id="checkout-button">CHECK OUT</button>
+		<button class="form-button status-available" id="checkout-button">CHECK OUT</button>
 	</div>
 
 	<div id="checkout-form">
@@ -162,8 +162,8 @@
 			<input type="checkbox" class="checkbox" id="agreeNotify" name="agreeNotify" required>
 			<label for="agreeNotify" id="agreeNotifyLabel">I understand that if I want to change the return date, I have to notify the lab administrator.</label><br><br>
 
-			<button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>
-			<button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-checkout-form-button">CANCEL</button>
+			<button type="submit" class="form-button confirm" id="checkout-form-button">CHECK OUT</button>
+			<button type="button" class="form-button cancel" id="cancel-checkout-form-button">CANCEL</button>
 		</form>
 	  </div>
 	</div>
