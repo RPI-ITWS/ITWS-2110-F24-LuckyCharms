@@ -53,18 +53,6 @@
     cursor: pointer;
 }
 
-#search-button {
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: black;
-    height: 25px;
-    width: 100px;
-    cursor: pointer;
-}
-
 table {
     width: 90%;
     margin: auto;
@@ -99,7 +87,7 @@ td {
     border-style: solid;
     border-color: rgb(132, 132, 132);
     height: 20px;
-    width: 15%;
+    width: 9%;
     white-space: nowrap;
 }
 
@@ -120,7 +108,7 @@ td {
 }
 
 .ongoing {
-  background-color: #0f78f1;
+  background-color: #778DA9;
   color: black;
   text-align: center;
 }
@@ -132,7 +120,7 @@ td {
 }
 
 .cancelled {
-  background-color: #656565;
+  background-color: #aaaaaa;
   color: black;
   text-align: center;
 }
