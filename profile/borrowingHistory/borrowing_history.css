@@ -43,6 +43,18 @@
     margin-bottom: 10px;
 }
 
+#search-button {
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: black;
+    height: 25px;
+    width: 100px;
+    cursor: pointer;
+}
+
 table {
     width: 90%;
     margin: auto;
@@ -113,8 +125,56 @@ td {
   text-align: center;
 }
 
+.complete-reservation {
+    background-color: lightgreen;
+    color: black;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel-reservation {
+    background-color: lightcoral;
+    color: black;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
 .danger {
   background-color: #e73131;
   color: white;
   text-align: center;
+}
+
+.page-button {
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.page-button:disabled {
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
 }
