@@ -81,7 +81,7 @@ th {
 }
 
 td {
-    padding: 10px;
+    padding: 7px;
     text-align: left;
     border: 0.5px;
     border-style: solid;
@@ -109,19 +109,19 @@ td {
 
 .ongoing {
   background-color: #0f78f1;
-  color: white;
+  color: black;
   text-align: center;
 }
 
 .completed {
   background-color: #4CAF50;
-  color: white;
+  color: black;
   text-align: center;
 }
 
 .cancelled {
   background-color: #656565;
-  color: white;
+  color: black;
   text-align: center;
 }
 
@@ -129,7 +129,7 @@ td {
     background-color: lightgreen;
     color: black;
     border-radius: 20px;
-    padding: 5px;
+    padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
     text-align: center;
@@ -141,7 +141,7 @@ td {
     background-color: lightcoral;
     color: black;
     border-radius: 20px;
-    padding: 5px;
+    padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
     text-align: center;
@@ -151,7 +151,7 @@ td {
 
 .danger {
   background-color: #e73131;
-  color: white;
+  color: black;
   text-align: center;
 }
 
