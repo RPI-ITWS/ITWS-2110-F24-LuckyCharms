@@ -242,7 +242,7 @@
 
           <div class="button-container">
             <button type="button" class="form-button cancel" id="cancel-edit-form-button">CANCEL</button>
-            <button type="submit" class="form-button confirm" id="edit-form-button">EDIT ITEM</button>
+            <button type="submit" class="form-button edit" id="edit-form-button">EDIT ITEM</button>
           </div>
         </form>
       </div>
