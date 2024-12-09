@@ -1,10 +1,17 @@
 <?php
+		session_start();
     require "db.php";
-
+		require "validateUserLocation.php";
+		
     if (!isset($_GET["username"], $_GET["labName"])) return;
-
+		
     $username = $_GET["username"];
     $labName = $_GET["labName"];
+	
+		if (!isUserAllowedInLocation($_SESSION["userId"], $labName)) {
+			print_r(json_encode(['status' => 4, 'message' => 'Not allowed to add users in this location']));
+			return;
+		}
 
     global $db;
 

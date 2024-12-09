@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2024 at 11:38 PM
+-- Generation Time: Dec 09, 2024 at 10:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,18 @@ INSERT INTO `alloweduserlocations` (`user_id`, `location_name`) VALUES
 (1, 'Cogswell Laboratory'),
 (1, 'Darrin Communications Center'),
 (1, 'Lally Hall'),
-(3, 'Darrin Communications Center');
+(3, 'Cogswell Laboratory'),
+(3, 'Darrin Communications Center'),
+(4, 'Lally Hall'),
+(4, 'Low Center for Industrial Innovation'),
+(4, 'Russell Sage Laboratory'),
+(4, 'Walker Laboratory'),
+(5, 'Cogswell Laboratory'),
+(5, 'Darrin Communications Center'),
+(5, 'Lally Hall'),
+(6, 'Low Center for Industrial Innovation'),
+(6, 'Russell Sage Laboratory'),
+(6, 'Walker Laboratory');
 
 -- --------------------------------------------------------
 
@@ -54,7 +65,6 @@ CREATE TABLE `items` (
   `borrowable` tinyint(1) NOT NULL COMMENT 'Whether or not the item can be borrowed.\r\nIf false, the item can just be taken.',
   `description` text DEFAULT NULL COMMENT 'Description of item',
   `stock` int(11) NOT NULL COMMENT 'Amount Of Item',
-  `image_link` text DEFAULT NULL COMMENT 'The link of the image',
   `location_name` varchar(256) NOT NULL COMMENT 'The name of the location of this item'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -62,16 +72,39 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `name`, `borrowable`, `description`, `stock`, `image_link`, `location_name`) VALUES
-(1, 'Scissors', 1, 'This cuts things', 95, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR84qsQGI5DqIGNR3Z80ALpzu7ZXfDkafybkEAqCz2iTfhVOK1nEu7NhjugZ_6RR6kOFmlpJcbY3afewrg-0sFOPD-WpRM4w5XprL-J9LSjU2_zSPoXPVvXhf8', 'Darrin Communications Center'),
-(2, 'Marker', 0, 'I barely know her!', 69, NULL, 'Darrin Communications Center'),
-(3, 'HK416', 1, 'What is this doing in a lab?', 0, NULL, 'Walker Laboratory'),
-(4, 'Plasma TV', 0, 'Plz return it when done, it costed millions of munny.', 1, NULL, 'Lally Hall'),
-(5, 'Gigantic Light Bulb', 0, 'Read the name.', 45, NULL, 'Darrin Communications Center'),
-(6, 'Ball', 1, NULL, 4, 'https://www.yogadirect.com/cdn-cgi/image/quality%3D85/assets/images/anti-burst-yoga-ball-red.jpg', 'Low Center for Industrial Innovation'),
-(7, 'Scissors', 1, 'This cuts things', 99, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR84qsQGI5DqIGNR3Z80ALpzu7ZXfDkafybkEAqCz2iTfhVOK1nEu7NhjugZ_6RR6kOFmlpJcbY3afewrg-0sFOPD-WpRM4w5XprL-J9LSjU2_zSPoXPVvXhf8', 'Russell Sage Laboratory'),
-(8, 'Rat', 1, NULL, 22, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRXFAwxItMmQ3v6NUlkZPPAjvwrT1PKW2KnQ&s', 'Cogswell Laboratory');
-
+INSERT INTO `items` (`id`, `name`, `borrowable`, `description`, `stock`, `location_name`) VALUES
+(1, 'Laptop', 1, 'A high-performance laptop.', 10, 'Cogswell Laboratory'),
+(2, 'Projector', 1, 'A 4K projector.', 5, 'Darrin Communications Center'),
+(3, 'Whiteboard', 0, 'A large whiteboard.', 20, 'Lally Hall'),
+(4, '3D Printer', 1, 'A 3D printer for prototyping.', 2, 'Low Center for Industrial Innovation'),
+(5, 'Microscope', 1, 'A high-resolution microscope.', 8, 'Russell Sage Laboratory'),
+(6, 'Soldering Kit', 0, 'A complete soldering kit.', 15, 'Walker Laboratory'),
+(7, 'Oscilloscope', 1, 'A digital oscilloscope for measuring electrical signals.', 4, 'Cogswell Laboratory'),
+(8, 'Multimeter', 1, 'A digital multimeter for measuring voltage, current, and resistance.', 10, 'Darrin Communications Center'),
+(9, 'Laser Cutter', 1, 'A laser cutter for precision cutting of materials.', 1, 'Lally Hall'),
+(10, 'VR Headset', 1, 'A virtual reality headset for immersive experiences.', 6, 'Low Center for Industrial Innovation'),
+(11, 'Arduino Kit', 0, 'A kit containing an Arduino board and various components.', 20, 'Russell Sage Laboratory'),
+(12, 'Raspberry Pi', 0, 'A small single-board computer for various projects.', 15, 'Walker Laboratory'),
+(13, 'Digital Camera', 1, 'A high-resolution digital camera.', 5, 'Cogswell Laboratory'),
+(14, 'Tripod', 0, 'A sturdy tripod for cameras.', 10, 'Darrin Communications Center'),
+(15, 'LED Light Panel', 1, 'A portable LED light panel.', 8, 'Lally Hall'),
+(16, 'Microphone', 1, 'A high-quality microphone.', 12, 'Low Center for Industrial Innovation'),
+(17, 'Audio Mixer', 1, 'An audio mixer for sound control.', 3, 'Russell Sage Laboratory'),
+(18, 'Graphics Tablet', 1, 'A graphics tablet for digital art.', 7, 'Walker Laboratory'),
+(19, 'Drone', 1, 'A drone for aerial photography.', 4, 'Cogswell Laboratory'),
+(20, 'VR Gloves', 1, 'Gloves for virtual reality interaction.', 6, 'Darrin Communications Center'),
+(21, '3D Scanner', 1, 'A 3D scanner for creating digital models.', 2, 'Lally Hall'),
+(22, 'Laser Engraver', 1, 'A laser engraver for detailed work.', 1, 'Low Center for Industrial Innovation'),
+(23, 'Portable Projector', 1, 'A compact portable projector.', 5, 'Russell Sage Laboratory'),
+(24, 'Bluetooth Speaker', 0, 'A portable Bluetooth speaker.', 15, 'Walker Laboratory'),
+(25, 'Smartphone Gimbal', 1, 'A gimbal for smartphone stabilization.', 10, 'Cogswell Laboratory'),
+(26, 'Action Camera', 1, 'A durable action camera.', 8, 'Darrin Communications Center'),
+(27, 'Wireless Microphone', 1, 'A wireless microphone system.', 6, 'Lally Hall'),
+(28, 'Studio Monitor', 1, 'A high-fidelity studio monitor.', 4, 'Low Center for Industrial Innovation'),
+(29, 'Green Screen', 0, 'A large green screen for video production.', 3, 'Russell Sage Laboratory'),
+(30, 'Teleprompter', 1, 'A teleprompter for presentations.', 2, 'Walker Laboratory'),
+(31, 'Lighting Kit', 1, 'A complete lighting kit for photography.', 5, 'Cogswell Laboratory'),
+(32, 'Portable Hard Drive', 0, 'A portable hard drive for data storage.', 20, 'Darrin Communications Center');
 -- --------------------------------------------------------
 
 --
@@ -105,7 +138,6 @@ CREATE TABLE `reservations` (
   `item_id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of item',
   `user_id` int(11) UNSIGNED NOT NULL COMMENT 'Unique identifier of user that made the reservation',
   `amount` int(11) NOT NULL COMMENT 'Amount of items user is reserving',
-  `reason` text NOT NULL COMMENT 'The reason the items is being taken.',
   `date_reserved` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Date the item was reserved',
   `date_expected_to_return` timestamp NULL DEFAULT NULL COMMENT 'The date the user is expected to return.',
   `date_returned` timestamp NULL DEFAULT NULL COMMENT 'The date the item was returned',
@@ -113,15 +145,29 @@ CREATE TABLE `reservations` (
   `completed` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Whether the reservation is completed or not.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `reservations`
---
-
-INSERT INTO `reservations` (`id`, `item_id`, `user_id`, `amount`, `reason`, `date_reserved`, `date_expected_to_return`, `date_returned`, `cancelled`, `completed`) VALUES
-(31, 1, 1, 1, '', '2024-10-14 21:21:59', '2024-10-22 01:05:44', '2024-10-15 01:21:59', 0, 1),
-(32, 8, 1, 2, '2', '2024-11-14 22:06:51', '2024-11-20 05:00:00', NULL, 0, 0);
-
 -- --------------------------------------------------------
+
+INSERT INTO `reservations` (`id`, `item_id`, `user_id`, `amount`, `date_reserved`, `date_expected_to_return`, `date_returned`, `cancelled`, `completed`) VALUES
+(1, 1, 1, 1, '2024-12-01 10:00:00', '2024-12-15 10:00:00', NULL, 0, 0),
+(2, 2, 3, 2, '2024-12-02 11:00:00', '2024-12-16 11:00:00', NULL, 0, 0),
+(3, 3, 4, 1, '2024-12-03 12:00:00', '2024-12-17 12:00:00', NULL, 0, 0),
+(4, 4, 5, 1, '2024-12-04 13:00:00', '2024-12-18 13:00:00', NULL, 0, 0),
+(5, 5, 6, 3, '2024-12-05 14:00:00', '2024-12-19 14:00:00', NULL, 0, 0),
+(6, 6, 8, 2, '2024-12-06 15:00:00', '2024-12-20 15:00:00', NULL, 0, 0),
+(7, 7, 1, 1, '2024-12-07 16:00:00', '2024-12-21 16:00:00', NULL, 0, 0),
+(8, 8, 3, 1, '2024-12-08 17:00:00', '2024-12-22 17:00:00', NULL, 0, 0),
+(9, 9, 4, 1, '2024-12-09 18:00:00', '2024-12-23 18:00:00', NULL, 0, 0),
+(10, 10, 5, 1, '2024-12-10 19:00:00', '2024-12-24 19:00:00', NULL, 0, 0),
+(11, 11, 6, 1, '2024-12-11 20:00:00', '2024-12-25 20:00:00', NULL, 0, 0),
+(12, 12, 8, 1, '2024-12-12 21:00:00', '2024-12-26 21:00:00', NULL, 0, 0),
+(13, 13, 1, 1, '2024-12-13 22:00:00', '2024-12-27 22:00:00', NULL, 0, 0),
+(14, 14, 3, 1, '2024-12-14 23:00:00', '2024-12-28 23:00:00', NULL, 0, 0),
+(15, 15, 4, 1, '2024-12-15 00:00:00', '2024-12-29 00:00:00', NULL, 0, 0),
+(16, 16, 5, 1, '2024-12-16 01:00:00', '2024-12-30 01:00:00', NULL, 0, 0),
+(17, 17, 6, 1, '2024-12-17 02:00:00', '2024-12-31 02:00:00', NULL, 0, 0),
+(18, 18, 8, 1, '2024-12-18 03:00:00', '2025-01-01 03:00:00', NULL, 0, 0),
+(19, 19, 1, 1, '2024-12-19 04:00:00', '2025-01-02 04:00:00', NULL, 0, 0),
+(20, 20, 3, 1, '2024-12-20 05:00:00', '2025-01-03 05:00:00', NULL, 0, 0);
 
 --
 -- Table structure for table `users`
@@ -145,7 +191,9 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `phone`, `creation_d
 (1, 'Jane Doe', '$2y$10$Udo2D11nB8MBg8HisRmTZ.8Z8YRRtjPcRLHeExRd.MHynR1r9weFW', 'aaaaaaaaaaaaaa', '911', '2024-10-06 06:41:30', 0),
 (3, 'Dr. Smith', '$2y$10$J1aFG6K6vqSudzSV98lmD.1eAoF8L7hO86SijUrKZK17Yer7PXxCO', 'smitha14@rpi.edu', NULL, '2024-10-22 22:22:48', 1),
 (4, 'John Miller', '$2y$10$rPQy2PKLPdC9yEMLbDDR.e8nubcfvzSaq0qcrE/qCGMzTSwhHDj/m', 'millej3@rpi.edu', NULL, '2024-10-22 22:23:07', 0),
-(5, 'Alex Johnson', '$2y$10$hgjcXd4gQgsIUnfj3lVk9.oOWTXN4O4sFReNDEY03c0QY6WFjAFIO', 'alexarchjohnson@gmail.com', NULL, '2024-10-22 22:23:47', NULL);
+(5, 'Alex Johnson', '$2y$10$hgjcXd4gQgsIUnfj3lVk9.oOWTXN4O4sFReNDEY03c0QY6WFjAFIO', 'alexarchjohnson@gmail.com', NULL, '2024-10-22 22:23:47', NULL),
+(6, 'a', '$2y$10$rYPX6JWhpmfrqotWBh1Spul2jSZvu0F4OPyK/XDxhnySFXFNLpjie', 'people@rpi.edu', NULL, '2024-12-03 10:40:06', 0),
+(8, 'aa', '$2y$10$iPobr3qUWYMHS5QKjOSow.H7E/DjLPhmtNyuoRjv4mhR2fzuotGra', 'people1@rpi.edu', NULL, '2024-12-03 10:45:26', 0);
 
 --
 -- Indexes for dumped tables
@@ -194,19 +242,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of item', AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of item', AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of reservation', AUTO_INCREMENT=33;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of reservation', AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of user', AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Unique identifier of user', AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

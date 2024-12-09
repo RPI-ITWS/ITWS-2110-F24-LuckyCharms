@@ -28,7 +28,6 @@ async function borrowingHistory(isAdmin=false, getAll=true, currentPage=1, searc
 
   const history = await fetch(`../../backend/queries/getReservations.php?getAllReservations=${getAll}&page=${currentPage}&searchValue=${searchValue}`)
     .then((res) => res.json());
-  console.log(history);
   if (history.length === 0) {
     document.getElementById("table-head").innerHTML = "";
     document.getElementById("table-body").innerHTML = `
@@ -116,12 +115,16 @@ async function search(event=null) {
 
 
 async function completeReservation(reservationId) {
-  await fetch(`../../backend/queries/completeReservation.php?reservationId=${reservationId}`).catch(err => console.err(err));
+  const date = new Date().toLocaleString();
+  const response = await fetch(`../../backend/queries/completeReservation.php?reservationId=${reservationId}&returnDate=${date}`).then((res) => res.text()).catch(err => console.err(err));
   await borrowingHistory(true, false);
 }
 
 async function cancelReservation(reservationId) {
-  await fetch(`../../backend/queries/cancelReservation.php?reservationId=${reservationId}`).catch(err => console.err(err));
+  const date = new Date().toLocaleString();
+  const response = await fetch(`../../backend/queries/cancelReservation.php?reservationId=${reservationId}&returnDate=${date}`).then((res) => res.text())
+    .catch(err => console.error(err));
+  console.log(response);
   await borrowingHistory(true, false);
 }
 

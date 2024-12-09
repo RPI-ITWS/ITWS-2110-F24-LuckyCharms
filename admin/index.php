@@ -202,11 +202,8 @@
           <input type="date" id="returnDate" name="returnDate" required><br id="returnDateBreak1"><br id="returnDateBreak2">
           
           <label for="quantity">Quantity:</label>
-          <input type="number" class="quantity" id="quantity" name="quantity" min="1" max="100" value="1" required><br><br>
-
-          <label for="reason">Reason for Checkout:</label>
-          <textarea id="reason" name="reason" maxlength="1000" required placeholder="Explain why you need this item..."></textarea><br><br>
-
+          <input type="number" id="quantity" name="quantity" class="quantity" min="1" max="100" value="1" required><br><br>
+          
           <input type="checkbox" class="checkbox" id="agreeReturn" name="agreeReturn" required>
           <label for="agreeReturn" id="agreeReturnLabel">I understand that I have a responsibility to return the item by the date provided.</label><br><br>
 
@@ -240,10 +237,8 @@
           </select><br><br>
           
           <label for="edit-quantity">Stock:</label>
-          <input type="number" class="quantity" id="edit-quantity" name="edit-quantity" min="1" max="1000" required><br><br>
-
-          <label for="edit-item-image">Item Image (Will keep old image if no file attached):</label>
-          <input type="file" id="edit-item-image" accept="image/*">
+          <input type="number" id="edit-quantity" name="edit-quantity" min="1" max="1000" required><br><br>
+          
 
           <div class="button-container">
             <button type="button" class="form-button cancel" id="cancel-edit-form-button">CANCEL</button>

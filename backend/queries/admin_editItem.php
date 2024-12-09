@@ -5,6 +5,26 @@
     print_r("MISSING ID");
     return;
   }
+	
+	// Retrieve the location of the item
+	$query = $db->prepare("SELECT location_name FROM items WHERE id = ?");
+	$query->bind_param("i", $_GET["itemId"]);
+	$query->execute();
+	$result = $query->get_result();
+	
+	if ($result->num_rows === 0) {
+		print_r(json_encode(['status' => 3, 'message' => 'Item not found']));
+		return;
+	}
+	
+	$row = $result->fetch_assoc();
+	$location_name = $row['location_name'];
+
+// Check if the admin is allowed in the location
+	if (!isUserAllowedInLocation($_SESSION["userId"], $location_name)) {
+		print_r(json_encode(['status' => 4, 'message' => 'Not allowed to edit item in this location']));
+		return;
+	}
   
   $query = "UPDATE `items` SET ";
   $queryEnd = " WHERE `id` = ?";
