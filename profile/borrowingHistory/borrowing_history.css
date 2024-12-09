@@ -114,7 +114,7 @@ td {
 }
 
 .completed {
-  background-color: #4CAF50;
+  background-color: lightgreen;
   color: black;
   text-align: center;
 }
