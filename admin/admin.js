@@ -165,7 +165,6 @@ async function add_form() {
     if (current_page === 'item') {
         const addForm = document.getElementById('add-form');
         addForm.style.display = "flex";
-
         addForm.onsubmit = async function(event) {
             event.preventDefault();
             await add_item(event);
@@ -229,11 +228,20 @@ async function edit_form() {
     const itemTypeContainer = document.getElementById('edit-type-dropdown');
     const itemStockContainer = document.getElementById('edit-quantity');
 
-    // Should use PHP here to extract id of current item and populate the form fields with the items CURRENT information.
-    // I have done this with the item name feild as an example of what I mean. This should be done with the remaining feilds with PHP.
-    // Do not do this with the image feild.
+    const itemDescription = document.getElementById('item-description-list').textContent;
+    const itemQuantity = document.getElementById('item-quantity-text').textContent;
+    const itemType = document.getElementById("item-type-text").textContent;
     
     itemNameContainer.value = itemTitle;
+    itemDescriptionContainer.value = itemDescription;
+
+    Array.from(itemTypeContainer.options).forEach(option => {
+        if (option.text === itemType) {
+            itemTypeContainer.value = option.value;
+        }
+    });
+
+    itemStockContainer.value = itemQuantity;
 
     editForm.onsubmit = async function(event) {
         event.preventDefault();
@@ -265,21 +273,27 @@ async function edit_item(event) {
         const formContainer = document.getElementById('edit-form');
         formContainer.style.display = "none";
 
-        console.log("Old Item Name: " + oldItemName);
-        console.log("Current Lab: " + labName);
-        console.log("New Item Name: " + newItemName);
-        console.log("New Item Description: " + newItemDescription);
-        console.log("New Item Type: " + newItemType);
-        console.log("New Item Stock: " + newItemStock);
-        console.log("New Item Image: " + newItemImage);
-
-        // Insert PHP to find the specific item from the lab name and the old item name and edit it
         // All of the items properties should be changed to what was submitted in the form, with the exception of the item image.
         // If the item image is left blank, then any old image stored for the item should remain.
+        
+        let id = document.getElementsByClassName("highlighted")[0].id;
+
+        let queryParams = `?itemId=${id}&editName=${newItemName}&editDescription=${newItemDescription}&editType=${newItemType==="Borrowable" ? 1 : 0}&editStock=${newItemStock}`;
+        if(newItemImage!==""){
+            queryParams += `&editImage=${newItemImage}`
+        }
+
+        // Pass these values into PHP File starting here
+        await fetch(`../backend/queries/admin_editItem.php${queryParams}`).then((response) => response.text())
 
         const editForm = document.getElementById('edit-form-object');
         editForm.reset();
     }
+
+    const currentPage = parseInt(document.querySelector('#pagination button[disabled]') === null ? 1 : document.querySelector('#pagination button[disabled]').textContent);
+    const searchValue = document.getElementById('search').value;
+    
+    await labItems(labName, currentPage, searchValue);
 }
 
 async function cancel_edit() {
@@ -372,6 +386,20 @@ async function add_user(event) {
         .then(data => {
             if (data.success) {
                 console.log("Success!");
+
+                const pages = document.querySelectorAll('#pagination .page-button');
+                
+                if (pages.length === 0) {
+                    labUsersClick(1);
+                }
+                else {
+                    pages.forEach(page => {
+                        if (page.disabled) {
+                            const pageNumber = page.textContent;
+                            labUsersClick(pageNumber);
+                        }
+                    });
+                }
             } else if (data.error) {
                 alert(`Error: ${data.error}`);
             }
@@ -439,6 +467,20 @@ async function remove_user() {
         .then(data => {
             if (data.success) {
                 console.log("Success!");
+
+                const pages = document.querySelectorAll('#pagination .page-button');
+                
+                if (pages.length === 0) {
+                    labUsersClick(1);
+                }
+                else {
+                    pages.forEach(page => {
+                        if (page.disabled) {
+                            const pageNumber = page.textContent;
+                            labUsersClick(pageNumber);
+                        }
+                    });
+                }
             } else if (data.error) {
                 alert(`Error: ${data.error}`);
             }

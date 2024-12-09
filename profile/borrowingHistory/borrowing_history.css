@@ -53,6 +53,18 @@
     cursor: pointer;
 }
 
+#search-button {
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: black;
+    height: 25px;
+    width: 100px;
+    cursor: pointer;
+}
+
 table {
     width: 90%;
     margin: auto;
@@ -70,6 +82,25 @@ th, td {
   
 thead {
     background-color: #f0f0f0;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+    border: 0.5px;
+    border-style: solid;
+    border-color: rgb(132, 132, 132);
+}
+
+td {
+    padding: 7px;
+    text-align: left;
+    border: 0.5px;
+    border-style: solid;
+    border-color: rgb(132, 132, 132);
+    height: 20px;
+    width: 15%;
+    white-space: nowrap;
 }
 
 .item-name {
@@ -90,24 +121,72 @@ thead {
 
 .ongoing {
   background-color: #0f78f1;
-  color: white;
+  color: black;
   text-align: center;
 }
 
 .completed {
   background-color: #4CAF50;
-  color: white;
+  color: black;
   text-align: center;
 }
 
 .cancelled {
   background-color: #656565;
-  color: white;
+  color: black;
   text-align: center;
+}
+
+.complete-reservation {
+    background-color: lightgreen;
+    color: black;
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel-reservation {
+    background-color: lightcoral;
+    color: black;
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
 }
 
 .danger {
   background-color: #e73131;
-  color: white;
+  color: black;
   text-align: center;
+}
+
+.page-button {
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.page-button:disabled {
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
 }

@@ -54,12 +54,15 @@ async function labItems(labName, currentPage=1, searchValue="") {
   for (let item of items) {
     let status = item.stock > 0 ? "Available" : "Unavailable";
     let type = item.borrowable ? "Borrowable" : "Removable";
+
+    let tagClass = type === "Borrowable" ? "tag-borrowable" : "tag-removable";
+    let statusClass = status === "Available" ? "status-available" : "status-unavailable";
     
     // Append each item as a row in the table
     labItems += `<tr id="${item.id}">
       <td class="item-name">${item.name}</td>
-      <td><span class="tag">${type}</span></td>
-      <td>${status}</td>
+      <td><span class="${tagClass}">${type}</span></td>
+      <td><span class="${statusClass}">${status}</span></td>
     </tr>`;
   }
   // Updates the content
@@ -104,21 +107,25 @@ async function populateItemDetails(labLocation, itemId) {
   // Set type according to whether the item is borrowable or not
   if (item.borrowable == 0) {
     itemBorrowableText.textContent = "Removable";
+    itemBorrowableText.style.backgroundColor = '#0f78f1';
   }
   else {
     itemBorrowableText.textContent = "Borrowable";
+    itemBorrowableText.style.backgroundColor = '#778DA9';
   }
 
   // Set the stock status based on whether there is stock left
   // The check out button will change depending on if the item is availible or not
   if (item.stock > 0) {
     itemStatusText.textContent = "In Stock";
+    itemStatusText.style.backgroundColor = "lightgreen";
     checkoutButton.textContent = "CHECK OUT";
     checkoutButton.style.backgroundColor = "lightgreen";
     checkoutButton.style.cursor = "pointer";
   }
   else {
     itemStatusText.textContent = "Out Of Stock";
+    itemStatusText.style.backgroundColor = "red";
     checkoutButton.textContent = "UNAVAILABLE";
     checkoutButton.style.backgroundColor = "lightcoral";
     checkoutButton.style.cursor = "not-allowed";
@@ -140,12 +147,14 @@ async function populateItemDetails(labLocation, itemId) {
   };
 
   const deleteButton = document.getElementById("delete-button");
-  deleteButton.onclick = function() {
-    const labName = document.getElementById('lab-name').textContent;
-    const currentPage = parseInt(document.querySelector('#pagination button[disabled]') === null ? 1 : document.querySelector('#pagination button[disabled]').textContent);
-    const searchValue = document.getElementById('search').value;
-    delete_item(labName, itemId, currentPage, searchValue);
-  };
+  if(deleteButton!==null){
+    deleteButton.onclick = function() {
+      const labName = document.getElementById('lab-name').textContent;
+      const currentPage = parseInt(document.querySelector('#pagination button[disabled]') === null ? 1 : document.querySelector('#pagination button[disabled]').textContent);
+      const searchValue = document.getElementById('search').value;
+      delete_item(labName, itemId, currentPage, searchValue);
+    };
+  }
 }
 
 function populate() {

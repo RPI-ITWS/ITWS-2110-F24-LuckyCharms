@@ -21,7 +21,7 @@ async function borrowingHistory(isAdmin=false, getAll=true, currentPage=1, searc
   if (totalPages > 1) {
     let buttons = "";
     for (let i = 1; i <= totalPages; i++) {
-      buttons += `<button ${currentPage === i ? "disabled" : ""} onclick="borrowingHistory(${isAdmin}, ${getAll}, ${i})">${i}</button>`;
+      buttons += `<button class="page-button" ${currentPage === i ? "disabled" : ""} onclick="borrowingHistory(${isAdmin}, ${getAll}, ${i})">${i}</button>`;
     }
     document.getElementById("pagination").innerHTML = buttons;
     }
@@ -88,8 +88,8 @@ async function borrowingHistory(isAdmin=false, getAll=true, currentPage=1, searc
         <td>${getExpectedDate(reservation)}</td>
         ${getAll ? `<td>${getDate(reservation) || "N/A"}</td>` : ""}
         ${isAdmin && !getAll ? `<td>
-          <button onclick='completeReservation(${reservation.id})'>Complete Reservation</button>
-          <button onclick='cancelReservation(${reservation.id})'>Cancel Reservation</button>
+          <button class="complete-reservation" onclick='completeReservation(${reservation.id})'>Complete Reservation</button>
+          <button class="cancel-reservation" onclick='cancelReservation(${reservation.id})'>Cancel Reservation</button>
           </td>` : ""}
       </tr>
     `;
@@ -129,7 +129,7 @@ async function cancelReservation(reservationId) {
 (
   async () => {
     const isAdmin = await fetch('../../backend/queries/isAdmin.php').then(res => res.text());
-    console.log(isAdmin);
-    await borrowingHistory(isAdmin);
+
+    await borrowingHistory(isAdmin === "1");
   }
 )();
