@@ -242,7 +242,7 @@
 
           <div class="button-container">
             <button type="button" class="form-button cancel" id="cancel-edit-form-button">CANCEL</button>
-            <button type="submit" class="form-button confirm" id="edit-form-button">EDIT ITEM</button>
+            <button type="submit" class="form-button edit" id="edit-form-button">EDIT ITEM</button>
           </div>
         </form>
       </div>
@@ -256,7 +256,7 @@
         
         <div class="button-container">
           <button type="button" class="form-button cancel" id="cancel-delete-button">CANCEL</button>
-          <button type="button" class="form-button confirm" id="delete-button">DELETE ITEM</button>
+          <button type="button" class="form-button remove" id="delete-button">DELETE ITEM</button>
         </div>
       </div>
     </div>
@@ -283,7 +283,7 @@
 
           <p id="user-warning">Are you sure you want to remove this user from the lab?</p>
 
-          <button type="button" class="form-button confirm" id="delete-user-button">DELETE USER</button>
+          <button type="button" class="form-button remove" id="delete-user-button">DELETE USER</button>
           <button type="button" class="form-button cancel" id="cancel-delete-user-button">CANCEL</button>
       </div>
     </div>
