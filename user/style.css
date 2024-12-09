@@ -19,6 +19,7 @@ main {
 
 #sidebar-title {
   margin-top: 10px;
+  margin-bottom: 25px;
   border-bottom: 1px solid black;
 
   font-weight: 600;
@@ -31,7 +32,8 @@ main {
 }
 
 .sidebar li {
-  margin-bottom: 20px;
+  margin-bottom: 35px;
+
 
   display: flex;
   align-items: center;
