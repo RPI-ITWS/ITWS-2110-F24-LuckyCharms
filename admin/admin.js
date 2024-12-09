@@ -228,11 +228,20 @@ async function edit_form() {
     const itemTypeContainer = document.getElementById('edit-type-dropdown');
     const itemStockContainer = document.getElementById('edit-quantity');
 
-    // Should use PHP here to extract id of current item and populate the form fields with the items CURRENT information.
-    // I have done this with the item name feild as an example of what I mean. This should be done with the remaining feilds with PHP.
-    // Do not do this with the image feild.
+    const itemDescription = document.getElementById('item-description-list').textContent;
+    const itemQuantity = document.getElementById('item-quantity-text').textContent;
+    const itemType = document.getElementById("item-type-text").textContent;
     
     itemNameContainer.value = itemTitle;
+    itemDescriptionContainer.value = itemDescription;
+
+    Array.from(itemTypeContainer.options).forEach(option => {
+        if (option.text === itemType) {
+            itemTypeContainer.value = option.value;
+        }
+    });
+
+    itemStockContainer.value = itemQuantity;
 
     editForm.onsubmit = async function(event) {
         event.preventDefault();
