@@ -55,8 +55,8 @@ async function labItems(labName, currentPage=1, searchValue="") {
     let status = item.stock > 0 ? "Available" : "Unavailable";
     let type = item.borrowable ? "Borrowable" : "Removable";
 
-    let tagClass = type === "Borrowable" ? "tag-borrowable" : "tag-removable";
-    let statusClass = status === "Available" ? "status-available" : "status-unavailable";
+    let tagClass = type === "Borrowable" ? "tag tag-borrowable" : "tag tag-removable";
+    let statusClass = status === "Available" ? "tag status-available" : "tag status-unavailable";
     
     // Append each item as a row in the table
     labItems += `<tr id="${item.id}">
@@ -170,6 +170,10 @@ function populate() {
     if (event.target.tagName === 'TD' && (window.location.href.includes("user") || document.getElementsByClassName('tab-button')[0]?.id === 'chosen')) {
       // Display the side panel if an item is clicked on
       checkoutPanel.style.display = 'flex';
+
+      checkoutPanel.classList.remove('hidden');
+      checkoutPanel.classList.add('visible');
+
       const labName = document.getElementById('lab-name').textContent;
 
       // Select all <tr> elements
@@ -195,7 +199,9 @@ function populate() {
 
   // Check if the side panel shall be closed
   closePanel.addEventListener('click', function() {
-    checkoutPanel.style.display = 'none';
+    // checkoutPanel.style.display = 'none';
+    checkoutPanel.classList.remove('visible');
+    checkoutPanel.classList.add('hidden');
   
     // Select all <tr> elements
     const allTDs = document.querySelectorAll('tr');

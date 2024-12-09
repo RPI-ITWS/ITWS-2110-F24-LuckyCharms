@@ -42,6 +42,7 @@
     });
   </script>
   <link rel="stylesheet" href="../resources/pages.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../resources/forms.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -109,7 +110,7 @@
 	  <div id="pagination"></div>
 	</div>
 
-	<div class="right-sidebar">
+	<div class="right-sidebar hidden">
 		<p id="go-back">&raquo;</p>
 
 		<div id="item-title">
@@ -137,11 +138,11 @@
 			<p id="item-description-list">Text</p>
 		</div>
 
-		<button class="form-button" style="background-color: lightgreen;" id="checkout-button">CHECK OUT</button>
+		<button class="form-button status-available" id="checkout-button">CHECK OUT</button>
 	</div>
 
-	<div id="checkout-form">
-	  <div id="form-container">
+	<div class="form" id="checkout-form">
+	  <div class="form-container" id="form-container">
 		<h2 id="form-title">Checkout Item</h2>
 		<form id="form-object">
 		  <label for="name">Full Name (Counts As Signiture):</label>
@@ -151,16 +152,16 @@
 			<input type="date" id="returnDate" name="returnDate" required><br id="returnDateBreak1"><br id="returnDateBreak2">
 			
 			<label for="quantity">Quantity:</label>
-			<input type="number" id="quantity" name="quantity" min="1" max="100" required><br><br>
+			<input type="number" class="quantity" id="quantity" name="quantity" min="1" max="100" required><br><br>
    
-			<input type="checkbox" id="agreeReturn" name="agreeReturn" required>
+			<input type="checkbox" class="checkbox" id="agreeReturn" name="agreeReturn" required>
 			<label for="agreeReturn" id="agreeReturnLabel">I understand that I have a responsibility to return the item by the date provided.</label><br><br>
 
-			<input type="checkbox" id="agreeNotify" name="agreeNotify" required>
+			<input type="checkbox" class="checkbox" id="agreeNotify" name="agreeNotify" required>
 			<label for="agreeNotify" id="agreeNotifyLabel">I understand that if I want to change the return date, I have to notify the lab administrator.</label><br><br>
 
-			<button type="submit" class="form-button" style="background-color: lightgreen;" id="checkout-form-button">CHECK OUT</button>
-			<button type="button" class="form-button" style="background-color: lightcoral;" id="cancel-checkout-form-button">CANCEL</button>
+			<button type="submit" class="form-button confirm" id="checkout-form-button">CHECK OUT</button>
+			<button type="button" class="form-button cancel" id="cancel-checkout-form-button">CANCEL</button>
 		</form>
 	  </div>
 	</div>
