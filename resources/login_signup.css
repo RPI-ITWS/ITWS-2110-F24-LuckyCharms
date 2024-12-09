@@ -75,3 +75,10 @@ input::placeholder{
   font-size: 14px;
   text-decoration: none;
 }
+
+.forgot_password {
+  text-align: right; 
+  margin-top: 11px; 
+  font-size: 12px; 
+  font-weight: bold;
+}
