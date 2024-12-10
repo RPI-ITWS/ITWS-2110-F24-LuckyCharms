@@ -7,13 +7,17 @@
   height: calc(100vh - 100px);
 }
 
+#login-button {
+  color: black;
+}
+
 .login_signup {
   width: 451px;
   height: 479px;
   border-radius: 20px;
   
-  background-color: #78849E;
-  color: #242e3b;
+  background-color: #78849ecb;
+  color: black;
   font-weight: 500;
 
   display: flex;
@@ -44,16 +48,16 @@ label {
 
 input {
   margin-top: 5px;
-  background-color: #78849E;
+  background-color: #78849ECB;
   border: none;
   border-bottom: 2px solid black;
   outline:0;
   width: 358px;
-  color: #242e3b;
+  color: black;
 }
 
 input::placeholder{
-  color: #242e3bc4;
+  color: black;
 }
 
 #submit {
@@ -71,7 +75,7 @@ input::placeholder{
 }
 
 #link {
-  color: #242e3b;;
+  color: black;
   font-size: 14px;
   text-decoration: none;
 }

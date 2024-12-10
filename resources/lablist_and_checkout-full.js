@@ -111,7 +111,7 @@ async function populateItemDetails(labLocation, itemId) {
   }
   else {
     itemBorrowableText.textContent = "Borrowable";
-    itemBorrowableText.style.backgroundColor = '#778DA9';
+    itemBorrowableText.style.backgroundColor = '#78849ecb';
   }
 
   // Set the stock status based on whether there is stock left

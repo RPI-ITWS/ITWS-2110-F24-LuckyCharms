@@ -1,5 +1,5 @@
 #intro {
-  background-color: #78849E;
+  background-color: #78849ecb;
   border-radius: 20px;
   height: 100vh;
   margin-bottom: -15vh;
@@ -28,6 +28,10 @@
   float: right;
   text-align: right;
   font-size: 40px;
+}
+
+#login-button {
+  color: black;
 }
 
 #title-sign-up-button {

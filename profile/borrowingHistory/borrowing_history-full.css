@@ -44,10 +44,10 @@
 #search-button {
     border: none;
     border-radius: 20px;
-    color: white;
+    color: black;
     font-size: 15px;
     font-weight: bold;
-    background-color: #778DA9;
+    background-color: #78849ECB;
     height: 25px;
     width: 100px;
     cursor: pointer;
@@ -108,7 +108,7 @@ td {
 }
 
 .ongoing {
-  background-color: #778DA9;
+  background-color: #78849ECB;
   color: black;
   text-align: center;
 }

@@ -7,10 +7,10 @@
 
 h2 {
     margin-bottom: 20px;
-    background-color: #78849E;
+    background-color: #78849ECB;
     border-radius: 20px;
     padding: 20px;
-    color:white;
+    color:black;
     width: 1040px;
     justify-self: center;
 }

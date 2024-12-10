@@ -12,15 +12,15 @@
     margin-top: 65px;
     padding: 20px;
     width: min(80vw, 1204px);
-    background-color: #78849E;
+    background-color: #78849ECB;
     border-radius: 20px;
 }
 
-    #about-title p {
-        color: white;
-        margin: 0;
-        font-size: 20px;
-    }
+#about-title p {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
 
 #about-info {
     padding: 20px;
@@ -41,5 +41,9 @@ li {
 }
 
 b {
-color: #78849E
+    color: #78849ECB;
+}
+
+#login-button {
+    color: black;
 }
