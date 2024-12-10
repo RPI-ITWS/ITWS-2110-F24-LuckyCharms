@@ -3,14 +3,14 @@
     border: 0;
     border-bottom: 1px;
     border-style: solid;
-    border-color: rgb(132, 132, 132);
+    border-color: rgb(100, 100, 100);
     margin-bottom: 15px;
     margin-left: 40px;
     margin-right: 40px;
 }
 
 .tab-button {
-    color: rgb(132, 132, 132);
+    color: rgb(100, 100, 100);
     cursor: pointer;
     /* height: 40px; */
     padding: 10px 20px;
