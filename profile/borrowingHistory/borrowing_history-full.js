@@ -113,17 +113,15 @@ async function search(event=null) {
     await borrowingHistory(isAdmin, false, 1, searchValue);
 }
 
-//https://stackoverflow.com/questions/5129624/convert-js-date-time-to-mysql-datetime
+
 async function completeReservation(reservationId) {
-  const date = new Date().toISOString().slice(0, 19).replace('T', ' ');
+  const date = new Date().toLocaleString();
   const response = await fetch(`../../backend/queries/completeReservation.php?reservationId=${reservationId}&returnDate=${date}`).then((res) => res.text()).catch(err => console.err(err));
   await borrowingHistory(true, false);
 }
 
-
-//https://stackoverflow.com/questions/5129624/convert-js-date-time-to-mysql-datetime
 async function cancelReservation(reservationId) {
-  const date = new Date().toISOString().slice(0, 19).replace('T', ' ');
+  const date = new Date().toLocaleString();
   const response = await fetch(`../../backend/queries/cancelReservation.php?reservationId=${reservationId}&returnDate=${date}`).then((res) => res.text())
     .catch(err => console.error(err));
   console.log(response);
