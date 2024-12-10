@@ -15,10 +15,6 @@
 		print_r("NO QUANTITY");
 		return;
 	}
-	if (!isset($_GET["returnDate"])) {
-		print_r("NO RETURN DATE");
-		return;
-	}
 	
 	$userId = $_SESSION["userId"];
 	$itemId = $_GET["itemId"];
@@ -29,6 +25,14 @@
 	if ($itemDetails["stock"] - $quantity < 0) {
 		print_r("NO STOCK");
 		return;
+	}
+	if(!isset($_GET["returnDate"])){
+		if($itemDetails["borrowable"]==1){
+			print_r("NO RETURN DATE");
+			return;
+		} else {
+			$_GET["returnDate"] = NULL;
+		}
 	}
 	
 	// Check if the user is allowed in the item's location
