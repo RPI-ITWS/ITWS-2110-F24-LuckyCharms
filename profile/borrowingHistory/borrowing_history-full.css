@@ -1,0 +1,180 @@
+#tab-bar {
+    display: flex;
+    border: 0;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: rgb(100, 100, 100);
+    margin-bottom: 15px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.tab-button {
+    color: rgb(100, 100, 100);
+    cursor: pointer;
+    /* height: 40px; */
+    padding: 10px 20px;
+    margin: 0px;
+    font-size: 18px;
+}
+
+#chosen {
+    color: black;
+    border: 0;
+    border-bottom: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+#search-bar {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+#search-bar input {
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-right: 10px;
+    outline: none;
+}
+
+#search-button {
+    border: none;
+    border-radius: 20px;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #78849ECB;
+    height: 25px;
+    width: 100px;
+    cursor: pointer;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid black;
+}
+  
+thead {
+    background-color: #f0f0f0;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+    border: 0.5px;
+    border-style: solid;
+    border-color: rgb(132, 132, 132);
+}
+
+td {
+    padding: 7px;
+    text-align: left;
+    border: 0.5px;
+    border-style: solid;
+    border-color: rgb(132, 132, 132);
+    height: 20px;
+    width: 9%;
+    white-space: nowrap;
+}
+
+.item-name {
+    width: 30%;
+}
+
+.status {
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.no-reservations {
+  text-align: center;
+  width: 100%;
+  align-content: center;
+  font-size: 2rem;
+}
+
+.ongoing {
+  background-color: #78849ECB;
+  color: black;
+  text-align: center;
+}
+
+.completed {
+  background-color: lightgreen;
+  color: black;
+  text-align: center;
+}
+
+.cancelled {
+  background-color: #aaaaaa;
+  color: black;
+  text-align: center;
+}
+
+.complete-reservation {
+    background-color: lightgreen;
+    color: black;
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel-reservation {
+    background-color: lightcoral;
+    color: black;
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.danger {
+  background-color: #e73131;
+  color: black;
+  text-align: center;
+}
+
+.page-button {
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.page-button:disabled {
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
