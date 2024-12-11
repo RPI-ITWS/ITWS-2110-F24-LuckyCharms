@@ -195,7 +195,6 @@ async function add_item(event) {
               labName=${labName}&itemName=${itemName}&itemType=${itemType==="Borrowable" ? 1 : 0}
               &itemDescription=${itemDescription}&itemStock=${itemStock}`)
           .then((response) => response.text());
-        console.log(response);
 
         await labItems(labName, 1, "");
 
