@@ -58,7 +58,7 @@
 		return;
 	}
 	
-	$dateReturned = $_GET["returnDate"];
+	$dateReturned = date('Y-m-d H:i:s');
 
 // Update the reservation status to completed
 	$query = $db->prepare("UPDATE reservations SET completed = 1, date_returned = ? WHERE id = ?");
