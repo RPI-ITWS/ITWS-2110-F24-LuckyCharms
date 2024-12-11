@@ -182,7 +182,6 @@ async function add_item(event) {
     const itemType = document.getElementById('type-dropdown').value;
     const itemDescription = document.getElementById('new-item-description').value;
     const itemStock = document.getElementById('item-quantity-input').value;
-    const itemImage = document.getElementById('item-image').value;
 
     if (itemName.length > 100) {
         alert("The item name must be less than 100 charecters!")
@@ -194,7 +193,7 @@ async function add_item(event) {
         // Fetch and POST to PHP here
         const response = await fetch(`../backend/queries/admin_addItem.php?
               labName=${labName}&itemName=${itemName}&itemType=${itemType==="Borrowable" ? 1 : 0}
-              &itemDescription=${itemDescription}&itemStock=${itemStock}&itemImage=${itemImage}`)
+              &itemDescription=${itemDescription}&itemStock=${itemStock}`)
           .then((response) => response.text());
 
         await labItems(labName, 1, "");

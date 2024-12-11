@@ -24,13 +24,8 @@
     } else {
         $item_desc = NULL;
     }
-    if (isset($_GET["itemImage"])) {
-        $image = $_GET["itemImage"]; // optional
-    } else {
-        $image = NULL;
-    }
 
-    $result = $db->prepare("INSERT INTO items (`name`, `borrowable`, `description`, `stock`, `image_link`, `location_name`) VALUES (?, ?, ?, ?, ?, ?)");
-    $result->bind_param("sisiss", $name, $borrowable, $item_desc, $stock, $image, $location_name);
+    $result = $db->prepare("INSERT INTO items (`name`, `borrowable`, `description`, `stock` , `location_name`) VALUES (?, ?, ?, ?, ?)");
+    $result->bind_param("sisis", $name, $borrowable, $item_desc, $stock, $location_name);
     $result->execute();
 ?>

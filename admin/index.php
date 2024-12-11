@@ -180,9 +180,6 @@
           <input type="number" class="quantity" id="item-quantity-input" name="item-quantity-input" min="1" max="1000" required>
           <br><br>
 
-          <label for="item-image">Item Image:</label>
-          <input type="file" id="item-image" accept="image/*">
-
           <div class="button-container">
             <button type="button" class="form-button cancel cancel" id="cancel-add-form-button">CANCEL</button>
             <button type="submit" class="form-button cancel confirm" id="add-form-button">ADD ITEM</button>
