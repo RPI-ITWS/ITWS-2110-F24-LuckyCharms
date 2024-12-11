@@ -291,7 +291,11 @@ async function finalCheckout(id) {
   const returnDate = document.getElementById('returnDate').value;
   const quantity = document.getElementById('quantity').value;
 
-  let queryParams = `?itemId=${id}&quantity=${quantity}&returnDate=${returnDate}`;
+  let queryParams = `?itemId=${id}&quantity=${quantity}`;
+  
+  if(returnDate !== ""){
+    queryParams += `&returnDate=${returnDate}`;
+  }
 
   // Pass these values into PHP File starting here
   await fetch(`../backend/queries/checkout.php${queryParams}`).then((response) => response.text())
