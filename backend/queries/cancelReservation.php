@@ -62,7 +62,7 @@
 		return;
 	}
 	
-	$dateReturned = $_GET["returnDate"];
+	$dateReturned = date('Y-m-d H:i:s');
 	$cancelled = 1;
 
 // Update the reservation status to cancelled
